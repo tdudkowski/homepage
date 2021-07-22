@@ -45,6 +45,9 @@ aside .tagsDiv ul a {display:block; margin: 0 1rem; padding:.5rem;}
 & aside {flex-basis: 22rem}
 & article {flex:1; padding:1rem; width:calc(100vw - 23rem);  background-size:200px;}
 }
+@media (min-width:1300px) {
+& article {width:calc(1300px - 23rem); }
+}
 `;
 
 const LayoutBlog = ({ children, data, path }) => {
@@ -66,10 +69,15 @@ const LayoutBlog = ({ children, data, path }) => {
             </StyledHeader>
             <StyledMain background={data ? data.mdx.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src : null}>
                 <aside>
-                    {path === "/blog/" || path === "/blog" ? null : <section>
-                        <h3>Menu</h3>
-                        <Link to="/blog">powrót na stronę główną bloga</Link>
-                    </section>}
+                    {path === "/blog/" || path === "/blog" ?
+                        <section><Link to="/blog/gatsby">seria wpisów o Gatsbym</Link></section> :
+                        <section>
+                            <h3>Menu</h3>
+                            <ul>
+                                <li><Link to="/blog">strona główna bloga</Link></li>
+                                <li><Link to="/blog/gatsby">seria wpisów o Gatsbym</Link></li>
+                            </ul>
+                        </section>}
                     {data === undefined ? null :
                         <>
                             <section>

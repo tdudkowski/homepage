@@ -1,11 +1,12 @@
 ---
-title: "Gatsby - pluginy"
+title: "Gatsby cz. 4 - pluginy"
 section: "blog"
 subsection: "it"
-date: 2021-07-03
+date: 2021-07-27
 edited:
-img: ../images/gatsby.jpg
-tags: react, gatsby
+image: ../images/Gatsby_Monogram.png
+tags: react, gatsby, css
+description: "Najbardziej potrzebne pluginy: dostęp do plików, obrazki, SEO, itd."
 ---
 
 ### Wstęp
@@ -75,6 +76,134 @@ Użytkownicy Reacta znają dobrze pakiet react-helmet, który umożliwia wpisani
 npm i gatsby-plugin-react-helmet react-helmet
 ```
 
+Potem tworzymy komponent seo.js.
+
+I teraz - uwaga - długi listing całego pliku komponentu SEO, którego używam. Różni się trochę od przedstawionego w instrukcji, wg mnie jest czytelniejszy i łatwiejszy w edycji. Jednym z powodów dla, którego go wklejam są wysokie wymagania Twittera, w chwili kiedy to piszę (lipiec 2021) obrazek musi mieć min 1200 px szerokości (po co?) i musi być wskazany ścieżką bezwzględną. Ponadto jak widać zakładam, że obrazek powinien być, ale może go zabraknąć, dlatego w propTypes nie jeest wymagany.
+
+**/src/components/seo.ja**
+
+```js
+import React from "react"
+import PropTypes from "prop-types"
+import { Helmet } from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
+
+function SEO({ description, lang, meta, title, image, location }) {
+    const pageTitle = title;
+    const { site } = useStaticQuery(
+        graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+            image
+            siteUrl
+          }
+        }
+      }
+    `
+    )
+
+    const twitterImage = site.siteMetadata.siteUrl + image
+    const metaDescription = description || site.siteMetadata.description
+    const metaTitle = title || site.siteMetadata.title
+
+    return (
+        <Helmet
+            htmlAttributes={{ lang }}
+            title={`${title} || ${pageTitle}`}
+            titleTemplate={`${site.siteMetadata.title} ${metaTitle}`}
+            image={`${image}`}
+            meta={[
+                {
+                    name: `description`,
+                    content: metaDescription,
+                },
+                {
+                    property: `og:title`,
+                    content: title,
+                },
+                {
+                    property: `og:description`,
+                    content: metaDescription,
+                },
+                {
+                    property: `og:type`,
+                    content: `website`,
+                },
+                {
+                    property: "og:image",
+                    content: image,
+                },
+                {
+                    name: `twitter:card`,
+                    content: `summary`,
+                },
+                {
+                    name: `twitter:creator`,
+                    content: site.siteMetadata.author,
+                },
+                {
+                    name: `twitter:title`,
+                    content: title,
+                },
+                {
+                    name: `twitter:description`,
+                    content: metaDescription,
+                },
+                {
+                    property: "twitter:image:src",
+                    content: twitterImage,
+                },
+            ].concat(meta)}
+        />
+    )
+}
+
+SEO.defaultProps = {
+    lang: `pl`,
+    meta: [],
+    description: ``,
+    title: "",
+    image: null,
+}
+
+SEO.propTypes = {
+    description: PropTypes.string,
+    lang: PropTypes.string,
+    meta: PropTypes.arrayOf(PropTypes.object),
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string,
+}
+
+export default SEO
+```
+
+Potem taki komponent importujemy do pliku strony, layoutu, czy szablonu i przekazujemy do niego propsy. Może wyglądac to tak:
+
+```js
+import React from "react";
+import { Link, graphql } from "gatsby";
+import Layout from "../components/layout"
+import SEO from "../components/seo";
+//
+
+const blogPage = ({ data }) => {
+
+   const { frontmatter, id, body, slug } = data.mdx;
+   const { title: pageTitle, date, edited, image } = frontmatter;
+   const headerTitle = `Tytuł strony wpisany na stałe: ${frontmatter.title}`
+
+   return (
+      <Layout data={data} path={path}>
+         <SEO title={headerTitle} image={image.childImageSharp.gatsbyImageData.images.fallback.src} defer={false} />
+//
+```
+
+Tutaj mamy dane strony i adres obrazka przesłany z frontmattera. Źródłem tych danych mogą być również propsy przesłane w komponeencie layoutu.
+
 - [gatsby-plugin-react-helmet](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/)
 
 ### Analityka Google Analytics - gatsby-plugin-google-gtag
@@ -119,6 +248,8 @@ module.exports = {
 }
 ```
 
+Pliku env oc do zasady nie wysyłamy na gihuba, ani inne publiczne miejsce. Musi zostać dodany do .gitignore. Wszyscy dostawcy usług online umożliwiają wpisanie tych parametrów na stronie podczas uploadu aplikacji.
+
 - [gatsby-plugin-google-gtag](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/)
 
 ### CSS: Styled Components - gatsby-plugin-styled-components
@@ -140,7 +271,7 @@ W przypadku JSX wygląda to tak:
 
 - PrismJS
 - Highlight
-- Backtiki i nawiasy wąsate wymagają znaku ucieczki.
+- Backtiki i nawiasy klamrowe wymagają znaku ucieczki.
 
 **/src/pages/any-page-with-code.js**
 

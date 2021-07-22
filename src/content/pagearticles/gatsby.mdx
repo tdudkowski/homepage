@@ -135,7 +135,7 @@ Można to zrobić na dwa sposoby
 
 Wpis w gatsby-config.js, określający skąd mają być pobierane wpisy.
 
-```
+```js
 { resolve: `gatsby-source-filesystem`,
       options: {
   name: `posts`,
@@ -146,7 +146,7 @@ Wpis w gatsby-config.js, określający skąd mają być pobierane wpisy.
 
 To jest cała zawartość pliku gatsby-node.js, który automatycznie generuje strony wpisów na podanej ścieżce ze wskazanego szablonu na podstawie plików wpisów.
 
-```
+```js
 const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
@@ -189,7 +189,7 @@ Każda zmiana w plikach gatsby-config.js i gatsby-node.js oznacza, że musimy zr
 
 Szablon wpisu: postTemplate.js
 
-```
+```js
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
@@ -220,7 +220,7 @@ query PostBySlug($slug: String!) {
 
 To jest strona listy wpisów - index.js
 
-```
+```js
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
@@ -262,7 +262,7 @@ pageInfo {
 
 Przykładowy wpis/post.
 
-```
+```md
 ---
 title: "This is the title"
 date: 2021-01-21
@@ -281,7 +281,7 @@ Ten sam efekt można uzyskać używając wprowadzonego w listopadzie 2020 File S
 
 pages/{`{mdx.slug}`}.js
 
-```
+```js
 import { graphql, Link } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
@@ -410,7 +410,7 @@ const Icon = ({primary, border, day}) => {
 - [Wojciech Snopkowski "Gatsby Navigation using Styled Components and useState hook"](https://snopkowski.com/blog/gatsby-navigation-styled-components)
 - ScottSpence.com ["Globally Style the Gatsby Default Starter with styled-components v5"](https://scottspence.com/2020/02/06/globally-style-gatsby-styled-components/)
 - [Daniel Stout "Using styled-components in Gatsby"](https://www.digitalocean.com/community/tutorials/gatsbyjs-using-styled-components-in-gatsbyjs)
-- [hello roman "Styled components + Gatsby.js" [YT plylista 5 filmów]](https://www.youtube.com/playlist?list=PLKnxnWdLGM48DUzxZ1uSYBhgPNETsgWA_)
+- [hello roman "Styled components + Gatsby.js" [YT playlista 5 filmów]](https://www.youtube.com/playlist?list=PLKnxnWdLGM48DUzxZ1uSYBhgPNETsgWA_)
 - [Adrian Twarog "Styled Components" [YT playlist 3 filmy]](https://www.youtube.com/playlist?list=PLsprmdocuVe-tQy47UBnXjrZYu8QOCtnv)
 - [Hungry Turtle Code "What are Styled Components? - A Beginners Guide" [YT 20:10]](https://www.youtube.com/watch?v=JFE_UuHtHT4)
 - [Classsed "React Styled Components (Next Level CSS?)" [YT 18:27]](https://www.youtube.com/watch?v=3SpAg5tr7Ws)
