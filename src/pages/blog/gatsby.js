@@ -4,14 +4,12 @@ import LayoutBlog from "../../components/layout-blog"
 import SEO from "../../components/seo"
 
 const GatsbyBlog = ({ data, location }) => {
-    console.log(data.allMdx)
-    const headerTitle = `dygresje.info / blog - wpisy`
+    const headerTitle = `dygresje.info / wpisy o Gatsbym`
     const path = location.pathname
     const { frontmatter } = data.allMdx.nodes[0];
     const { image } = frontmatter;
 
     return (<LayoutBlog path={path}>
-        {/* <Helmet title={headerTitle} imageurl="../../content/images/Gatsby_Monogram.png" defer={false} /> */}
         <SEO title={headerTitle} image={image.childImageSharp.gatsbyImageData.images.fallback.src} />
         <article>
             <h3>Hello, Gatsby!</h3>

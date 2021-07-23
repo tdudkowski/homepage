@@ -1,9 +1,12 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
-import { Helmet } from 'react-helmet'
+import SEO from "../components/seo"
 import LayoutBlog from "../components/layout-blog"
 
 const blogPage = ({ data, location }) => {
+
+    const { frontmatter } = data.allMdx.nodes[0];
+    const { image } = frontmatter;
 
     const tag = location.pathname.slice(10)
     const path = location.pathname
@@ -13,7 +16,7 @@ const blogPage = ({ data, location }) => {
 
     return (
         <LayoutBlog path={path}>
-            <Helmet title={headerTitle} defer={false} />
+            <SEO title={headerTitle} image={image.childImageSharp.gatsbyImageData.images.fallback.src} />
             <h2>Posty z tagiem <span>{tag}</span></h2>
             <section>
                 {filteredPosts.map(({ id, frontmatter, slug }) => (
@@ -41,9 +44,18 @@ query AllTags {
             section
             subsection
             tags
-                     }
-                     slug
-                     id
+            image {
+                childImageSharp {
+                gatsbyImageData(
+                    width: 200
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                        )
+                    }
+                }
+            }
+            slug
+            id
          }
       }
     }
