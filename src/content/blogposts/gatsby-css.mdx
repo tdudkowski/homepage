@@ -9,25 +9,54 @@ tags: react, gatsby, css
 description: "Jak w Gatsbym zastosować CSS: global.css, CSS-in-JS, frameworki i biblioteki CSS, preprocesory, Font Awesome, Google Fonts, Bootstrap Icons."
 ---
 
+Stały adres serii wpisów o Gatsbym - [/blog/gatsby](/blog/gatsby)
+
 ### Wstęp
 
-Generalnie rzecz biorąc wszyskie rozwiązania CSS dla Gatsby'ego można podzielić na cztery grupy:
+Popularne jest sformułowanie, że HTML tworzy (liniową) strukturę treści, CSS nadaje jej wygląd (i układ), a JavaScript zapewnia reaktywność. Postulowano fizyczne rozdzielenie HTML, CSS i JS.
 
-- style globalne - takie jak przedstawione poniżej layout.css lub global.css
-- CSS-in-JS czyli albo Styled Components, albo CSS Modules, tutaj omówiłem jeszcze Emotion
-- całą resztę, czyli głównie importy frameworków i bibliotek CSS: Bootstrap i MDB, Chakra UI, Bulma, Tailwind
+Czasem przy tym samym pliku layoutu wystarczy zastosować różne CSS-y, żeby uzyskać zupełnie różne układy strony. Pierwszą popularną prezentacją możliwości CSS była strona [CSS Zen Garden](http://www.csszengarden.com/).
+
+### CSS-in-JS
+
+Wiele rozwiązań stosowanych we frameworkach JS zaciera ten podział, ale nie jest to skutkiem bałaganiarstwa, czy zwróceniem się w stronę złych praktyk. CSS tak jak wszystkie inne elementy aplikacji jest tylko narzędziem i ma swoje ograniczenia. Włączenie CSS do plików stron, jak np. ma to miejsce w Gatsbym, wynika z dwóch głównych powodów:
+
+- dynamiczne tworzenie stron powoduje przenikanie poza kontekst i łączenie reguł CSS dające nieprzewidywalne rezultaty.
+- CSS ma ograniczenia wynikające z tego, że - dziękujemy, kapitanie Oczywisty! - nie jest językiem programowania; to język opisu wyglądu.
+
+Rozwiązaniem obu tych bolączek jest CSS-in-JS, które co trzeba podkreślić, nie jest jakimś fenomenalnym, kolejnym etapem rozwoju CSS, ale skuteczną odpowiedzią na powyższe problemy. CSS-in-JS zapewnia:
+
+- izolację kontekstu
+- przewidywalność reguł
+- integrację z JS - to jest nadal CSS, ale może odbierać argumenty od aplikacji
+
+Więcej o CSS-in-JS:
+
+- [JSS](https://cssinjs.org/) nieomówione tu rozwiązanie CSS-in-JS
+- Leonardo Maldonado ["Understanding CSS-in-JS"](https://www.telerik.com/blogs/understanding-css-in-js)
+- Andrei Pfeiffer ["A Thorough Analysis of CSS-in-JS"](https://css-tricks.com/a-thorough-analysis-of-css-in-js/)
+- Chris Coyier [The Differing Perspectives on CSS-in-JS](https://css-tricks.com/the-differing-perspectives-on-css-in-js/)
+
+### W tym wpisie
+
+Generalnie rzecz biorąc wszystkie możliwości użycia CSS w Gatsbym można podzielić na pięć grup:
+
+- style globalne - import jak z layout.css lub przy pomocy wrappera jak z global.css
+- CSS Modules
+- CSS-in-JS - Styled Components, Emotion
+- frameworki i biblioteki CSS: Bootstrap i MDB, Chakra UI, Bulma, Tailwind CSS
 - preprocesory CSS: Stylus, Less, SASS (oraz SCSS)
 
-W sumie 13 rozwiazań. Na wstępie dwie uwagi:
+W sumie 13 rozwiązań. Na początek dwie uwagi:
 
-- Niniejszy wpis nie jest manualem, chodzi mi raczej o typowe how-to-start, czyli jak wygląda proces implementacji danego rozwiazania i jakie ma podstawowe cechy.
+- Niniejszy wpis nie jest manualem, poza Styled Components, które być może będzie tematem osobnego wpisu, chodzi mi raczej o typowe how-to-start, czyli jak wygląda proces implementacji danego rozwiązania i jakie ma podstawowe cechy.
 - Nie jest też kompletny, ale jak sądzę, wymieniłem większość możliwości, która jest rzeczywiście używana.
 
 ### Layout.css
 
-Najprostszym sposobem na użycie CSS w Gatsbym jest import pliku CSS bezpośrednio do pliku strony, lub co ma więcej sensu do komponentu layoutu, który używany jest przez pliki stron.
+Najprostszym sposobem na użycie CSS w Gatsbym jest import pliku CSS bezpośrednio do pliku strony lub co ma więcej sensu do komponentu layoutu, który używany jest przez pliki stron.
 
-Najczęściej, tak jak to jest zalecane w dokumentacji, tworzy się plik layout.css znajdujący się razem z kompnentami w katalogu /src/components importowany potem w pliku layout.js:
+Najczęściej, tak jak to jest zalecane w dokumentacji, tworzy się plik layout.css znajdujący się razem z komponentami w katalogu /src/components, importowany potem w pliku layout.js:
 
 ```js
 import * as React from "react"
@@ -40,13 +69,13 @@ I działa od razu. Beż żadnej konfiguracji czy restartu.
 
 Na dobrą sprawę, w przypadku prostych stron można tam umieścić cały CSS i mieć tę sprawę z głowy.
 
-W praktyce jednak stosowane jest na początku w procesie budowania strony, żeby mieć jakiś CSS na starcie. Potem można z tego zrezygnować, albo zostawić tam bazę layoutu. Dokładniej jest to opisane we wpisie o komponentach w rozdziale "CSS".
+W praktyce jednak stosowane jest na początku w procesie budowania strony, żeby mieć jakiś CSS na starcie. Potem można z tego zrezygnować albo zostawić tam bazę responsywnego layoutu, czyli sam układ podstawowych elementów strony i media queries. Przykład takiego pliku jest zaprezentowany we [wpisie o komponentach w rozdziale "CSS"](/blog/gatsby-komponenty#css).
 
 ### Global styles
 
-Innym rodzajem stylu globalnego jest umieszczenie pliku w miejscu gdzie Gatsby domyślnie szuka CSS, czyli /src/styles/global.css. Jest to odpowiednik domyślnej strony głównej szukanej pod adresem /src/pages/index.js.
+Innym rodzajem stylu globalnego jest umieszczenie pliku w /src/styles/global.css.
 
-Żeby zadziałał globalnie trzeba dodatkowo użyć wrappera, czyli pliku konfiguracyjnego gatsby-browser.js:
+Żeby zadziałał globalnie, trzeba dodatkowo użyć wrappera, czyli pliku konfiguracyjnego gatsby-browser.js:
 
 **/gatsby-browser.js**
 
@@ -54,26 +83,64 @@ Innym rodzajem stylu globalnego jest umieszczenie pliku w miejscu gdzie Gatsby d
 import "./src/styles/global.css"
 ```
 
-Ma to tę przewagę, że wszystkie pliki CSS trzymamy w oddzielnym, specjalnie do tego celu przeznaczonym katalogu. Przybliża to nas do klasycznego postulatu rozdzielenia liniowo ułożonej treści i wyglądu. Rzecz jednak w tym, że ten podział już dawno w praktyce stał się bezcelowy. Wszak w całym ekosystemie frameworków JS treść i goły układ w JSX (odpowiedniku HTML) jest owinięta w JS i wszystkie inne rozwiązania CSS - poza stylami globalnymi w /src/styles - mieszają to jeszcze bardziej.
+Ma to tę przewagę, że wszystkie pliki CSS trzymamy w oddzielnym, specjalnie do tego celu przeznaczonym katalogu. Przybliża to nas do klasycznego postulatu rozdzielenia liniowo ułożonej treści i wyglądu.
 
-Style globalne tak samo jak plik layout.css mają zastosowanie tylko na stronach, które
+Jednak tak jak już napisałem, ten postulat jest tu sztuką dla sztuki. Wszak w całym ekosystemie frameworków JS treść i goły układ w JSX (odpowiedniku HTML) jest owinięta w JS, a wiele innych rozwiązań CSS mieszają to jeszcze bardziej.
+
+Jedynym argumentem, który pozostaje to łatwość w organizacji kodu, pewien porządek, który z tego wynika.
+
+Style globalne tak samo jak plik layout.css mają zastosowanie tylko na stronach, które:
+
 - nie wymagają zróżnicowania stylów
 - ani właściwości CSS-in-JS
-- frameworków CSS takich jak Botstrap, czy Bulma
+- frameworków CSS takich jak Bootstrap, czy Bulma
 
-Podstawowym problemem, z którego wynika ich niekompatybilność z innymi rozwiązaniami jest nieograniczone przenikanie, które jest nieprzewidywalne i nie daje się zatrzymać.
+Podstawowym problemem, z którego wynika ich niekompatybilność z innymi rozwiązaniami, jest nieograniczone, trudne do powstrzymania przenikanie i nieprzewidywalność rezultatu.
 
-Natomiast można je to zastosować do plików resetu, czy normalizacji.
+Natomiast można je to zastosować do plików resetu, czy normalizacji. Do sprawdzenia.
 
 - [Standard Styling with Global CSS Files](https://www.gatsbyjs.com/docs/how-to/styling/global-css/)
 
+### CSS Modules
+
+Nie wymaga konfiguracji. Zasadniczo polega na imporcie CSS jako obiektu JS.
+
+Konwencją jest nazywanie arkuszy styli z umieszczeniem słowa module, przykład: `style.module.css`. Jest to zwyczajny plik CSS. Załóżmy, że są tam klasy `.outer` i `.inner`.
+
+Import na dwa możliwe sposoby wygląda tak:
+
+```js
+import { outer, inner } from "../styles/styles.module.css"
+import * as styles from "../styles/styles.module.css"
+//
+
+<div className={ outer }>
+  <p className={ inner }>Treść akapitu</p>
+</div>
+
+<div className={ styles.outer }>
+  <p className={`inner ${styles.inner}`}>Treść akapitu</p>
+</div>
+```
+
+Jak widać, można zaimportować wybraną klasę lub klasy jako obiekt i umieścić bezpośrednio w deklaracji klasy elementu JSX, lub zaimportować cały arkusz i odwoływać się do niego.
+
+Dynamicznie modyfikuje nazwy stylów, by zachować ich unikalność. Ostatni zapis zapewni nadanie dwóch klas: jedną będzie zmodyfikowana np. `styles-module--inner--1JjqS`, druga w tym przypadku będzie niezmieniony `inner`.
+
+Pozwala na trzymanie wszystkich klas w jednym katalogu.
+
+- [css-modules / css-modules](https://github.com/css-modules/css-modules)
+- Gatsby [Component-Scoped Styles with CSS Modules](https://www.gatsbyjs.com/docs/how-to/styling/css-modules/) | [Part 2: Use and Style React Components #Style components with CSS Modules](https://www.gatsbyjs.com/docs/tutorial/part-2/#style-components-with-css-modules)
+
 ### Styled Components
 
-Z dwóch najwazniejszych rozwiązań CSS-in-JS za najlepszy uważam Styled Components, dlatego omówię to najpierw. Styled Components nie używa osobnych plików. Plugin importuje się do komponentów (plików stron i wszystkich innych komponentów) i wpisane do nich reguły aplikują się wyłacznie lokalnie, nie przenikają na zewnątrz. Własnie w tym celu pwostały.
+Z dwóch najpopularniejszych rozwiązań CSS-in-JS za najlepszy uważam Styled Components, dlatego od tego zacznę. Styled Components nie używa osobnych plików - poza możliwością umieszczenia wszystkich definicji w osobnym pliku.
 
-Jeżeli stworzymy plik kompnentu tworzącego dowolny element layoutu, zastosowane tam style zgodnie z regułami CSS zostaną zastosowane tylko do tego komponentu i wszystkich komponentów w nim zagnieżdżonych.
+Zainstalowany plugin importuje się do komponentów (plików stron i wszystkich innych komponentów) i wpisane do nich reguły aplikują się wyłącznie lokalnie, nie przenikają na zewnątrz. Właśnie w tym celu powstały.
 
-Mają przy tym właściwości, których nie ma zwykły CSS i to też decyduje o jakości tego rozwiązania.
+Jeżeli utworzymy plik komponentu tworzącego dowolny element layoutu, zastosowane tam style, zgodnie z regułami CSS zostaną zastosowane tylko do tego komponentu i wszystkich komponentów w nim zagnieżdżonych.
+
+Mają przy tym właściwości, których nie ma zwykły CSS i to też decyduje o wartości tego rozwiązania.
 
 Po zainstalowaniu zastosowanie wygląda tak:
 
@@ -97,15 +164,17 @@ const PrzykladowyKomponent = () => {
     </StyledDiv>
 ```
 
-Jak widać na powyższym przykładzie definicje styli umieszcza się poza renderem (przed returnem).
+Jak widać na powyższym przykładzie, definicje styli umieszcza się poza renderem (przed returnem).
+
+W kodzie HTML w tym przypadku renderowany jest zwykły div, któremu przydzielone zostają wszystkie wpisane reguły CSS.
 
 Przykład:
 
-- normalny CSS
+- zwykły CSS
 - zmiana na hover
 - CSS dla zagnieżdżonego elementu, ampersand oznacza tu stylowany element, który dla tego diva jest rodzicem
-- j.w. z tym, że użyto tu selektora oznaczajacego bezposrednie dziecko
-- j.w. z tym że tryb ciemny
+- j.w. z tym że użyto tu selektora oznacząjacego bezpośrednie dziecko
+- j.w. ale jak widać, można się odnieść do zewnętrznego kontekstu, co jest przydatne w przypadku włączania/wyłączania trybu ciemnego
 - media query
 
 ```css {numberLines}
@@ -124,6 +193,7 @@ To są normalne właściwości CSS, ale Styled Components potrafi więcej:
 Stylować można inne stylowane komponenty, także importowane:
 
 ```js
+//
 import StyledDiv from "./styleddiv"
 
 const StyledHero = styled(StyledDiv)`
@@ -137,7 +207,7 @@ Przekazywanie propsów - w tym wypadku w stylowanym elemencie jest props `backgr
 background: url(${props => props.background}) no-repeat top center;
 ```
 
-W nawiasach wąsatych można przekazać dowolny JS, w tym wypadku jest to funkcja strzałkowa z propsem jako parametrem i ciałem funkcji postaci wyodrębnionej nazwy przekazanego propsa.
+W nawiasach klamrowych można przekazać dowolny JS, w tym wypadku jest to funkcja strzałkowa z propsem jako parametrem i ciałem funkcji postaci wyodrębnionej nazwy przekazanego propsa.
 
 Można tam też umieścić operator warunkowy (ternary) lub logiczny OR, w obu poniższych przypadkach istnieje wartość domyślna.
 
@@ -154,40 +224,9 @@ Tutaj tylko zarysowałem najważniejsze, najczęściej używane właściwości S
 - [styled-components](https://styled-components.com)
 - [hello roman "Styled components + Gatsby.js" [YT playlista 5 filmów]](https://www.youtube.com/playlist?list=PLKnxnWdLGM48DUzxZ1uSYBhgPNETsgWA_)
 
-### CSS Modules
-
-W Gatsbym działa bez instalacji pluginu. Zasadniczo polega to na imporcie CSS jako obiekt JS.
-
-Konwencją jest nazywanie arkuszy styli z umieszczeniem słowa module, przykład: `style.module.css`. Jest to zwyczajny plik CSS. Załóżmy, że są tam klasy `.outer` i `.inner`.
-
-Import na dwa możliwe sposoby wygląda tak:
-
-```js
-import { outer, inner } from "../styles/styles.module.css"
-import * as styles from "../styles/styles.module.css"
-//
-
-<div className={ outer }>
-  <p className={ inner }>Treść akapitu</p>
-</div>
-
-<div className={ styles.outer }>
-  <p className={`inner ${styles.inner}`}>Treść akapitu</p>
-</div>
-```
-
-Jak widać można zaimportować wybraną klasę lub klasy jako obiekt i umieścić bezposrednio w deklaracji klasy elementu JSX, lub zaimportować cały arkusz i odwoływać się do niego.
-
-Dynamicznie modyfikuje nazwy styli by zachować unikalność. Ostatni zapis zapewni nadanie dwóch klas: jedna będzie zmodyfikowana `styles-module--inner--1JjqS`, druga w tym przypadku będzie `inner`.
-
-Ma tę zaletę, że ppzwala na trzymanie wszystkich klas w jednym katalogu.
-
-- [css-modules / css-modules](https://github.com/css-modules/css-modules)
-- Gatsby [Component-Scoped Styles with CSS Modules](https://www.gatsbyjs.com/docs/how-to/styling/css-modules/) | [Part 2: Use and Style React Components #Style components with CSS Modules](https://www.gatsbyjs.com/docs/tutorial/part-2/#style-components-with-css-modules)
-
 ### Emotion
 
-Instalacja
+Instalacja:
 
 ```
 $ npm i gatsby-plugin-emotion @emotion/react @emotion/styled
@@ -199,7 +238,7 @@ $ npm i gatsby-plugin-emotion @emotion/react @emotion/styled
 `gatsby-plugin-emotion`,
 ```
 
-Jak widac poniżej bardzo przypomina styled-components:
+Jak widać poniżej bardzo przypomina styled-components:
 
 ```js
 import React from "react"
@@ -255,7 +294,7 @@ export const Wrapper = styled.div`
 `
 ```
 
-Import
+Import potem wygląda tak:
 
 ```js
 import { Element, Wrapper } from "../styles/emotion/styles"
@@ -287,13 +326,19 @@ Innym rozwiązaniem niewymagającym instalacji jest ściągnięcie pakietu, rozp
 import "../styles/bootstrap-5.0.2-dist/css/bootstrap.min.css"
 ```
 
-MDB.
+- Bootstrap [Download #npm](https://getbootstrap.com/docs/5.0/getting-started/download/#npm)
+- [BootstrapCDN](https://www.bootstrapcdn.com/)
+- ["Adding Bootstrap CDN link to Gatsby"](https://coleruche.com/post/Adding-Bootstrap-CDN-in-Gatsby/)
+
+### MDB
 
 Instalacja - z powodu starych zależności musiałem użyć opcji --legacy-peer-deps, potem Gatsbny zgłosił brak modułu react-is, więc w końcu wygląda to tak:
 
 ```js
 $ npm i mdbreact react-is --legacy-peer-deps
 ```
+
+Wrapper.
 
 **/gatsby-browser.js**
 
@@ -303,11 +348,8 @@ import 'bootstrap-css-only/css/bootstrap.min.css'
 import 'mdbreact/dist/css/mdb.css'
 ```
 
-I wszystko działa, dzięki wrapperowi nie trzeba do plików wpisywać importów.
+I wszystko działa. Dzięki wrapperowi nie trzeba do plików wpisywać importów.
 
-- Bootstrap [Download #npm](https://getbootstrap.com/docs/5.0/getting-started/download/#npm)
-- [BootstrapCDN](https://www.bootstrapcdn.com/)
-- ["Adding Bootstrap CDN link to Gatsby"](https://coleruche.com/post/Adding-Bootstrap-CDN-in-Gatsby/)
 - MDB [Download & installation guide](https://mdbootstrap.com/docs/standard/getting-started/installation/)
 - Anna Morawska ["Gatsby & MDB React - quick start quide"](https://mdbootstrap.com/articles/react/gatsby-mdb-react-quick-start-quide/)
 
@@ -315,13 +357,13 @@ I wszystko działa, dzięki wrapperowi nie trzeba do plików wpisywać importów
 
 Biblioteka komponentów.
 
-Instalacja
+Instalacja:
 
 ```
 $ npm i gatsby-plugin-chakra-ui @chakra-ui/core @emotion/core @emotion/styled emotion-theming
 ```
 
-Dodanie w gatsby-config.js:
+**/gatsby-config.js**
 
 ```
 "@chakra-ui/gatsby-plugin",
@@ -351,11 +393,9 @@ import { Box, Text, Link, ListItem, UnorderedList } from "@chakra-ui/core";
 - [Chakra UI](https://chakra-ui.com/)
 - [gatsby-plugin-chakra-ui](https://www.gatsbyjs.com/plugins/gatsby-plugin-chakra-ui/)
 
-### Tailwind
+### Tailwind CSS
 
-Wzbudzający wiele kontrowersji framework CSS. Kocha się go lub nienawidzi. W tym wpisie jest wielkim trzynastym. Po przeczytaniu instrukcji instalacji w dokumentacji Gatsby'ego stwierdziłem, że może kiedy indziej.
-
-Jeżlei potrzebujesz to lepiej zobaczyć od razu konkretne odnośniki niż nic, więc póki co zostawiam to tak jak jest i mam nadzieję, że kiedyś wrócę do tematu.
+Wzbudzający wiele kontrowersji framework CSS. Kocha się go lub nienawidzi.
 
 Instalacja:
 
@@ -422,7 +462,7 @@ i dodać w gatsby-config.js:
 
 Preprocesor CSS.
 
-Instalacja.
+Instalacja:
 
 ```
 $ npm i gatsby-plugin-stylus
@@ -460,10 +500,10 @@ Pliki Lessa mają rozszerzenie .less. Tak samo jak w przypadku Stylusa, można j
 
 ### SASS
 
-Sass ma dwie składnie (i jak widać dwie pisownie, czasem pisze się jego nazwę jak typowy akronim a czasem jako nazwę własną):
+Sass ma dwie składnie (i jak widać dwie pisownie, czasem pisze się jego nazwę jak typowy akronim, a czasem jak nazwę własną):
 
 - starsza i mniej popularna operująca na wcięciach, nazywana po prostu Sass
-- SCSS nowsza, częściej używana, zgodna z CSS-em
+- SCSS - nowsza, częściej używana, zgodna z CSS-em
 
 Instalacja:
 
@@ -481,7 +521,7 @@ $ npm i sass gatsby-plugin-sass
 
 ### Fonty
 
-Ze względu na opóźnienie spowodowane przez łaczenie się z zewnętrznymi bibliotekami dokumentacja Gatsby'ego odradza importowanie bibliotek fontów i glifów. Zdecydowanie lepiej jest ściągnąć je do katalogu strony i zaimportować lokalnie.
+Ze względu na opóźnienie spowodowane przez łączenie się z zewnętrznymi bibliotekami, dokumentacja Gatsby'ego odradza importowanie bibliotek fontów i glifów. Zdecydowanie lepiej jest ściągnąć je do katalogu strony i zaimportować lokalnie.
 
 #### Font Awesome
 
@@ -491,7 +531,7 @@ Instalacja:
 $ npm i @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/react-fontawesome
 ```
 
-Import do pliku
+Import do pliku:
 
 ```js
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -504,7 +544,7 @@ import { faReact } from "@fortawesome/free-brands-svg-icons"
 
 #### Google Fonts
 
-Instalacja
+Instalacja:
 
 ```
 $ npm i @fontsource/open-sans
@@ -536,8 +576,6 @@ import { ArrowRight } from 'react-bootstrap-icons';
 
 ### Odnośniki
 
-- [Gatsby Plugin Purgecss](https://www.gatsbyjs.com/plugins/gatsby-plugin-purgecss/) Remove unused css from css/sass/less/stylus files and modules in your Gatsby project using purgecss. 🎉. Supports tailwind, bootstrap, bulma etc.
+- [Gatsby Plugin Purgecss](https://www.gatsbyjs.com/plugins/gatsby-plugin-purgecss/) usuwa nieużywany CSS z css/sass/less/stylus i SCC Modules; wsparcie dla Tailwind CSS, Bootstrap, Bulma itd.
 - Adebiyi Adedotun [10 Gatsby styling methods](https://blog.logrocket.com/10-gatsby-styling-methods/)
 - Arley McBlain [Saving the Day with Scoped CSS](https://css-tricks.com/saving-the-day-with-scoped-css/)
-- Andrei Pfeiffer ["A Thorough Analysis of CSS-in-JS"](https://css-tricks.com/a-thorough-analysis-of-css-in-js/)
-- Chris Coyier [The Differing Perspectives on CSS-in-JS](https://css-tricks.com/the-differing-perspectives-on-css-in-js/)

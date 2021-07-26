@@ -19,7 +19,7 @@ const GatsbyBlog = ({ data, location }) => {
             <ul>
                 <li><Link to="/blog/gatsby-instalacja">Informacja, podstawy, metody instalacji i własny, Gatsby From Scratch, hierarchia katalogów, konfiguracja, pierwsza działająca strona.</Link></li>
                 <li><Link to="/blog/gatsby-komponenty">Komponenty, layout.js i komponenty layoutu. Budowa struktury strony. Komponent Link.</Link></li>
-                <li>CSS: wszystkie metody aplikacji CSS.</li>
+                <li><Link to="/blog/gatsby-css">CSS: wszystkie metody aplikacji CSS.</Link></li>
                 <li>Pluginy, instalacja pluginów, lista podstawowych i konfiguracja; plik konfiguracyjny gatsby-config.js.</li>
                 <li>GraphQL, idea i na przykładzie pluginu od obsługi obrazków: gatsby-image-plugin.</li>
                 <li>Deploy: Github, Netlify, Gatsby Cloud</li>

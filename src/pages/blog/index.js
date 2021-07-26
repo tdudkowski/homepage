@@ -11,7 +11,7 @@ display:flex;
 
 const StyledDiv = styled.div`
   margin:1rem;
-  width: 300px;
+  width: 350px;
   height: 5rem;
   border:1px solid #eed;
   background: url(${props => props.background}) no-repeat top center;
