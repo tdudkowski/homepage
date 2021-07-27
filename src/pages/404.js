@@ -25,21 +25,16 @@ const NotFoundPage = ({ data }) => {
 export default NotFoundPage
 
 export const query = graphql`
-    query AllArticles404IndexQuery {
-        allMdx(
-            filter: {fileAbsolutePath: {glob: "**/src/content/pagearticles/*.mdx" }} ) {
-                nodes {
-                id
-                frontmatter {
-                    title
-                    section
-                    subsection
-                }
-            slug
+query AllArticles404IndexQuery {
+    allMdx(filter: {fileAbsolutePath: {glob: "**/src/content/pagearticles/*.mdx"}}) {
+      nodes {
+        id
+        frontmatter {
+          title
+          section
+          subsection
         }
-     }
-     mdx {
         slug
-        frontmatter {section}}
-  }
-`;
+      }
+    }
+  }`
