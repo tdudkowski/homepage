@@ -3,9 +3,10 @@ title: "Gatsby cz. 4 - GraphQL & obrazki"
 section: "blog"
 subsection: "it"
 date: 2021-07-27
-edited:
+edited: 2021-07-28
 image: ../images/Gatsby_Monogram.png
 tags: react, gatsby
+description: "GraphQL zastępuje REST API i plugin gatsby-plugin-image"
 ---
 
 Stały adres serii wpisów o Gatsbym - [/blog/gatsby](/blog/gatsby)
@@ -75,7 +76,12 @@ import { graphql } from "gatsby"
 
 Do analizy struktur danych zapewnianych przez GraphQL Gatsby używa IDE o nazwie GraphiQL. Jest dostępne w trybie deweloperskim pod adresem: `http://localhost:8000/___graphql` (trzy podkreślenia). Jest to interaktywna przeglądarka danych, w której można budować własne zapytania, przeglądać dane, sprawdzać poprawność danych.
 
+Używanie GraphiQL można przećwiczyć na tej stronie - [GraphiQL Online](https://lucasconstantino.github.io/graphiql-online/)
+
 Po lewej przeglądarka (Explorer), pośrodku zapytanie, po prawej wynik. W Explorerze możemy przejrzeć dane. Kiedy je wybieramy zaznaczając checkboxy, automatycznie generuje się zapytanie. Kliknięcie w przycisk ze strzałką u góry uruchamia zapytanie i rezultaty widzimy po prawej stronie.
+
+![GraphiQL](../images/graphiql.png)
+*GraphiQL na http://localhost:8000/___graphql*
 
 W przypadku danych strony: poszczególne strony są w allSite i dalej nodes lub edges/nodes, pliki w allFiles, metadane w site/siteMetadata.
 
@@ -108,6 +114,7 @@ Można tak, choć jak za chwilę zobaczymy, nie bardzo ma sens, albo uściślaj�
 
 - Można zaimportować, podając względną ścieżkę dostępu (linia 6) i zaimportowany umieścić jako parametr src (linia 26)
 - Static Folder: trzeba utworzyć katalog /static (nazwa i lokalizacja obligatoryjna) i umieścić tam plik. Podobnie jak w poprzednim przypadku wystarczy podać względną ścieżkę dostępu w parametrze src (linia 29).
+- Jako background w CSS
 
 We wszystkich następnych przykładach trzeba zainstalować plugin gatsby-plugin-image. Jest to następca pluginu gatsby-image, który wciąż jest dwa razy popularniejszy od gatsby-plugin-image.
 
@@ -311,7 +318,7 @@ Przykładowy plik 404.
 - Najpierw mamy import dwóch wbudowanych komponentów Gatsby'ego: graphql i Link (linia 2)
 - Na końcu przy pomocy requestu graphql pobieramy potrzebne dane (linie 21-39)
 - Jako props w postaci obiektu data przekazujemy go do komponentu strony (linia 4)
-- Otrzymane dane są mapowane na listę (linie 8-14)
+- Otrzymane dane są mapowane na listę (linie 8-14) tutj proszę zwrócić uwagę, że w nazwie odnośnika usunięty jest pierwszy i ostatni znak, pierwszy jest ukośnikiem więc zawsze można go usunąć, natomist ostatni tylko wtedy kiedy tak się kończy ścieżka adresowa
 
 **/src/pages/404.js**
 
@@ -323,10 +330,10 @@ const NotFoundPage = ({ data }) => {
 //
 
                 <ul>
-                    {data.allMdx.nodes.map(({ id, frontmatter, slug }) => (
-                        <li key={id}>
-                            <Link to={`/${frontmatter.section}/${frontmatter.subsection && frontmatter.subsection + "/"}${slug}`}>
-                            {frontmatter.title}
+                    {data.allSitePage.nodes.map(({ path }) => (
+                        <li key={path}>
+                            <Link to={`/${path}`}>
+                                {path.slice(1, -1)}
                             </Link>
                         </li>
                     ))}
@@ -346,6 +353,8 @@ query PageNotFound {
 }
 `;
 ```
+
+### 404 MDX
 
 O wiele większe możliwości w tym zakresie daje użycie MDX. Wprawdzie MDX zostanie omówione dopiero w siódmym wpisie w serii, ale na ten moment gwoli zachęty do zgłębienia tematu:
 

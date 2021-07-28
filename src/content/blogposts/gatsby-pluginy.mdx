@@ -6,7 +6,7 @@ date: 2021-07-28
 edited:
 image: ../images/Gatsby_Monogram.png
 tags: react, gatsby
-description: "Najbardziej potrzebne pluginy: dostęp do plików, obrazki, SEO, itd."
+description: "Najbardziej potrzebne pluginy: dostęp do plików, obrazki, SEO, breadcrumb itd."
 ---
 
 Stały adres serii wpisów o Gatsbym - [/blog/gatsby](/blog/gatsby)
@@ -15,7 +15,7 @@ Stały adres serii wpisów o Gatsbym - [/blog/gatsby](/blog/gatsby)
 
 W tym wpisie omówię kilka podstawowych pluginów, w większości przypadków są niezbędne, lub przynajmniej bardzo potrzebne. Szczegóły dotyczące instalacji i umieszczenia deklaracji w pliku /gatsby-config.js są w podanych linkach do pluginów.
 
-W kilku przypadkach dla jasności pokażę ja powinna wyglądać konfiguracja.
+W kilku przypadkach pokażę jak powinna wyglądać konfiguracja.
 
 Pakiety instaluje się z promptem umieszczonym w katalogu głównym strony.
 
@@ -28,13 +28,13 @@ Pakiety instaluje się z promptem umieszczonym w katalogu głównym strony.
 - gatsby-plugin-sitemap / sitemap.xml
 - gatsby-plugin-breadcrumb / breadcrumbs
 
-### Dostęp do plików - gatsby-source-filesystem
+### Dostęp do plików: gatsby-source-filesystem
 
-To jest plugin do tego stopnia niezbędny, że w sumie dziwi mnie, że nie jest zintegrowany z frameworkiem. W przypadku niektorych pluginów w ogóle się nie wspomina, że "a i weź jeszcze zainstaluj source-filesystem", raczej zakłada się, że już jest.
+To jest plugin do tego stopnia niezbędny, że w sumie dziwi mnie, że nie jest zintegrowany z frameworkiem. W przypadku niektórych pluginów w ogóle się nie wspomina, że "a i weź jeszcze zainstaluj source-filesystem", raczej zakłada się, że już jest.
 
 Wskazuje on Gatsby'emu ścieżki dostępu do plików poza katalogiem pages i jak widać poniżej dwie podstawowe opcje to nazwa i ścieżka dostępu. Dla każdej ścieżki wypisuje się osobny resolve. Wskazane katalogi muszą istnieć.
 
-Najczęsciej dotyczy to katalogu z obnrazkami, jeżeli mamy jakies inne pliki medióœ, np filmy, pliki dźwiękowe, .svg to zaleca się stworzenie katalogu /assets, który zawiera je wszystkie.
+Najczęściej dotyczy to katalogu z obrazkami, jeżeli mamy jakieś inne pliki mediów, np. filmy, pliki dźwiękowe, .svg to zaleca się stworzenie katalogu /assets, który zawiera je wszystkie.
 
 **/gastby-config.js**
 
@@ -58,7 +58,7 @@ Najczęsciej dotyczy to katalogu z obnrazkami, jeżeli mamy jakies inne pliki me
 - [gatsby-source-filesystem](https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/)
 
 
-### Obrazki - gatsby-plugin-image
+### Obrazki: gatsby-plugin-image
 
 Plugin, który zastąpił przedtem używany gatsby-image. Dokładny opis używania będzie w następnym wpisie o GraphQL.
 
@@ -70,7 +70,7 @@ npm i gatsby-plugin-image gatsby-plugin-sharp gatsby-source-filesystem gatsby-tr
 
 - [gatsby-plugin-image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/)
 
-### SEO - gatsby-plugin-react-helmet
+### SEO: gatsby-plugin-react-helmet
 
 Użytkownicy Reacta znają dobrze pakiet react-helmet, który umożliwia wpisanie tagów meta i innych parametrów do nagłówka strony. To jest wersja dla Gatsby'ego.
 
@@ -80,7 +80,7 @@ npm i gatsby-plugin-react-helmet react-helmet
 
 Potem tworzymy komponent seo.js.
 
-I teraz - uwaga - długi listing całego pliku komponentu SEO, którego używam. Różni się trochę od przedstawionego w instrukcji, wg mnie jest czytelniejszy i łatwiejszy w edycji. Jednym z powodów dla, którego go wklejam są wysokie wymagania Twittera, w chwili kiedy to piszę (lipiec 2021) obrazek musi mieć min 1200 px szerokości (po co?) i musi być wskazany ścieżką bezwzględną. Ponadto jak widać zakładam, że obrazek powinien być, ale może go zabraknąć, dlatego w propTypes nie jeest wymagany.
+I teraz - uwaga - długi listing całego pliku komponentu SEO, którego używam. Różni się trochę od przedstawionego w instrukcji, wg mnie jest czytelniejszy i łatwiejszy w edycji. Jednym z powodów dla którego go wklejam, są wysokie wymagania Twittera. W czasie kiedy to piszę (lipiec 2021), obrazek musi mieć min 1200 px szerokości (po co?) i musi być wskazany ścieżką bezwzględną. Ponadto zakładam, że obrazek powinien być, ale może go zabraknąć, dlatego w propTypes nie jest wymagany.
 
 **/src/components/seo.ja**
 
@@ -183,7 +183,7 @@ SEO.propTypes = {
 export default SEO
 ```
 
-Potem taki komponent importujemy do pliku strony, layoutu, czy szablonu i przekazujemy do niego propsy. Może wyglądac to tak:
+Potem taki komponent importujemy do pliku strony, layoutu, czy szablonu i przekazujemy do niego propsy. Może wyglądać to tak:
 
 ```js
 import React from "react";
@@ -204,11 +204,11 @@ const blogPage = ({ data }) => {
 //
 ```
 
-Tutaj mamy dane strony i adres obrazka przesłany z frontmattera. Źródłem tych danych mogą być również propsy przesłane w komponeencie layoutu.
+Tutaj mamy dane strony i adres obrazka przesłany z frontmattera. Źródłem tych danych mogą być również propsy przesłane w komponencie layoutu.
 
 - [gatsby-plugin-react-helmet](https://www.gatsbyjs.com/plugins/gatsby-plugin-react-helmet/)
 
-### Analityka Google Analytics - gatsby-plugin-google-gtag
+### Analityka Google Analytics: gatsby-plugin-google-gtag
 
 To jest plugin, który zastąpił dotychczasowe, poprzednie pluginy Google Analytics.
 
@@ -220,7 +220,7 @@ Tutaj mam okazję zaprezentować większy kawałek pliku gatsby-config.js. Ident
 
 - Na początku pliku mamy wskazanie ścieżki do pliku .env.
 - Niżej w eksporcie modułów zadeklarowany jest moduł dotenv.
-- Na końcu zadekklarowany identyfikator usługi jako zmienna środowiskowa.
+- Na końcu zadeklarowany identyfikator usługi jako zmienna środowiskowa.
 
 **/gatsby-config.js**
 
@@ -250,15 +250,17 @@ module.exports = {
 }
 ```
 
-Pliku env oc do zasady nie wysyłamy na gihuba, ani inne publiczne miejsce. Musi zostać dodany do .gitignore. Wszyscy dostawcy usług online umożliwiają wpisanie tych parametrów na stronie podczas uploadu aplikacji.
+Pliku env co do zasady nie wysyłamy na GitHuba ani inne publiczne miejsce. Musi zostać dodany do .gitignore. Wszyscy dostawcy usług online umożliwiają wpisanie tych parametrów na stronie podczas uploadu aplikacji.
 
 Przeglądanie lokalnego builda dodaje się do statystyk.
 
 - [gatsby-plugin-google-gtag](https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/)
 
-### CSS: Styled Components - gatsby-plugin-styled-components
+### CSS: Styled Components: gatsby-plugin-styled-components
 
-W przypadku małych stron wystarczą style globalne, lub po prostu importowane do layoutu. Ale przy większych projektach prawie zawsze najlepszym rozwiązaniem jest Styled Components.
+W przypadku małych stron wystarczą style globalne lub po prostu importowane do layoutu. Ale przy większych projektach prawie zawsze najlepszym rozwiązaniem jest Styled Components.
+
+Więcej o Styled Components w Gatsbym: [Gatsby cz. 3 - CSS # Styled Components](/blog/gatsby-css#styled-components)
 
 ```
 npm i gatsby-plugin-styled-components styled-components babel-plugin-styled-components
@@ -267,9 +269,9 @@ npm i gatsby-plugin-styled-components styled-components babel-plugin-styled-comp
 - [gatsby-plugin-styled-components](https://www.gatsbyjs.com/plugins/gatsby-plugin-styled-components/)
 - [styled-components](https://styled-components.com/)
 
-### Prezentowanie kodu - gatsby-remark-vscode
+### Prezentowanie kodu: gatsby-remark-vscode
 
-Tutaj jest wiele możliwości. Po pierwsze zależy to od tego czy treść strony umieszczamy w plikach JSX, czy w Markdownie.
+Tutaj jest wiele możliwości. Przede wszystkim zależy to od tego, czy treść strony umieszczamy w plikach JSX, czy w Markdownie.
 
 W przypadku JSX wygląda to tak:
 
@@ -309,7 +311,7 @@ W przypadku Markdowna najlepszym rozwiązaniem jest wzmiankowany tu gatsby-remar
 npm i gatsby-plugin-styled-components styled-components babel-plugin-styled-components
 ```
 
-Ale co jeżeli zdecydowaliśmy się na MDX? Jak sama nazwa wskazuje gatsby-remark-vscode jest pluginem Remarka i jego konfiguracja wg instrukcji nie zadziała. To są dwa oddzielne procesory.
+A co jeżeli zdecydowaliśmy się na MDX? Jak sama nazwa wskazuje, gatsby-remark-vscode jest pluginem Remarka i jego konfiguracja wg instrukcji nie zadziała. To są dwa oddzielne procesory.
 
 Rozwiązanie jest proste, wystarczy zadeklarować ten moduł wewnątrz deklaracji MDX, tak jak to jest zaprezentowane poniżej:
 
@@ -344,11 +346,11 @@ Rozwiązanie jest proste, wystarczy zadeklarować ten moduł wewnątrz deklaracj
 - [MDX](https://mdxjs.com/)
 - [remark - markdown processor powered by plugins](https://remark.js.org/)
 
-### Sitemap - gatsby-plugin-sitemap
+<!-- ### Sitemap - gatsby-plugin-sitemap
 
-- [gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/) | [Creating a Sitemap](https://www.gatsbyjs.com/docs/how-to/adding-common-features/creating-a-sitemap/)
+- [gatsby-plugin-sitemap](https://www.gatsbyjs.com/plugins/gatsby-plugin-sitemap/) | [Creating a Sitemap](https://www.gatsbyjs.com/docs/how-to/adding-common-features/creating-a-sitemap/) -->
 
-### Breadcrumb - gatsby-plugin-breadcrumb
+### Breadcrumb: gatsby-plugin-breadcrumb
 
 Instalacja
 
@@ -425,12 +427,10 @@ const PageWithBreadcrumb = ({ pageContext }) => {
 			/>
 ```
 
-Jeżeli używamy MDX wygląda to identycznie tyle że w pliku szablonu strony /src/templates/articleTemplate.js z tą różnicą, że crumbLabel najlepiej jest zadeklarować z frontmattera:
+Jeżeli używamy MDX wygląda to tak samo, tyle że w pliku szablonu strony /src/templates/articleTemplate.js z tą różnicą, że crumbLabel najlepiej jest zadeklarować z frontmattera:
 
 ```js
         crumbLabel={frontmatter.title}
 ```
 
 - [gatsby-plugin-breadcrumb](https://www.gatsbyjs.com/plugins/gatsby-plugin-breadcrumb/)
-
-### Search - search

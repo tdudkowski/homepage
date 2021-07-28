@@ -21,7 +21,7 @@ const GatsbyBlog = ({ data, location }) => {
                 <li><Link to="/blog/gatsby-komponenty">Komponenty, layout.js i komponenty layoutu. Budowa struktury strony. Komponent Link.</Link></li>
                 <li><Link to="/blog/gatsby-css">CSS: wszystkie metody aplikacji CSS.</Link></li>
                 <li><Link to="/blog/gatsby-graphql">GraphQL, idea i na przykładzie pluginu od obsługi obrazków: gatsby-image-plugin.</Link></li>
-                <li>Pluginy, instalacja pluginów, lista podstawowych i konfiguracja; plik konfiguracyjny gatsby-config.js.</li>
+                <li><Link to="/blog/gatsby-pluginy">Pluginy, instalacja pluginów, lista podstawowych i konfiguracja; plik konfiguracyjny gatsby-config.js.</Link></li>
                 <li>Deploy: Github, Netlify, Gatsby Cloud</li>
                 <li>Blog cz. 1. MDX, programistyczne tworzenie stron z gastby-node.js i File System Route API</li>
                 <li>Blog cz. 2, automatyczne generowanie tagów...</li>
