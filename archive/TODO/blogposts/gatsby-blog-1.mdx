@@ -2,7 +2,7 @@
 title: "Gatsby cz. 7 - blog MDX cz. 1"
 section: "blog"
 subsection: "it"
-date: 2021-07-30
+date: 2021-07-31
 edited:
 image: ../images/Gatsby_Monogram.png
 tags: react, gatsby
@@ -10,11 +10,11 @@ tags: react, gatsby
 
 ### Wstęp
 
-Tworzymy bloga. W tym wpisie przedstawię jak utworzyć blog MDX z listą wpisw i tagami.
+Tworzymy bloga. W tym wpisie przedstawię jak utworzyć blog MDX z listą wpisów i tagami.
 
 MDX jest procesorem Markdowna, który dodatkowo umożliwia umieszczenie w pliku .mdx dowolnego komponentu. Jest to połączenie możliwości JSX i prostoty Markdowna.
 
-Do tworzenia ścieżek użyję starego i dobrze znanego pliku gatsby-node.js. Od jesieni 2020 możemy też zastosować File System Route API, ale w tej cwhili nie ma on możliwości filtrowania i nadaje się do stron, w którym jest tylko jeden katalog / kategoria z plikami .mdx. Zostanie zaprezentowany na końcu wpisu.
+Do tworzenia ścieżek użyję starego i dobrze znanego pliku gatsby-node.js. Od jesieni 2020 możemy też zastosować File System Route API, ale w tej chwili nie ma on możliwości filtrowania i nadaje się do stron, w którym jest tylko jeden katalog / kategoria z plikami .mdx. Zostanie zaprezentowany na końcu wpisu.
 
 - ["GatsbyJS - Pobieranie danych z GraphQL (Pokedex 🦄)" [YT 16:50]](https://www.youtube.com/watch?v=JK18MoOlBOQ) (tutaj użyto zewnętrznego API, więc był potrzebny plugin gatsby-source-graphql)
 - ["GatsbyJS - Generowanie podstron (Pokedex 🦄)" [YT 15:52]](https://www.youtube.com/watch?v=bpuUPXdEtjo) - wzmiankowana tu strona to ["Creating and Modifying Pages"](https://www.gatsbyjs.com/docs/creating-and-modifying-pages/)
@@ -25,7 +25,7 @@ Plan wiec przedstawia się następująco:
 
 - instalacja i konfiguracja MDX
 - utworzenie bloga: pliki wpisów w formacie .mdx, GraphQL, gatsby-node.js
-- tagi, klikalne z automaycznie generowaną listą wpisów z tym tagiem
+- tagi, klikalne z automatycznie generowaną listą wpisów z tym tagiem
 - File System Route API
 
 ### Instalacja MDX
@@ -48,7 +48,7 @@ $ npm i gatsby-transformer-remark gatsby-remark-vscode
 
 ### Konfiguracja
 
-Na samym początku pliku .mdx jest frontmatter. Jest to seria zdefiniowanych pól zawierających podstawowe dane o pliku, które dalej będziemy przetwarzać. Jest to bardzo elastyczny mechanizm. Najczęściej zawiera tytuł, sekcję (ewentualnie podsekcję), datę wpisu, czasem też ostatniej edycji, czasem autora, ścieżkę do powiązanego z wpisem obrazka i tagi. Można też tam umieścić dłuższe fragmenty tekstu, jak np. streszczenie wpisu dodawane w liście wpisów.
+Na samym początku pliku .mdx jest frontmatter. Jest to seria zdefiniowanych pól zawierających podstawowe dane o pliku, które dalej będziemy przetwarzać. Jest to bardzo elastyczny mechanizm. Najczęściej zawiera tytuł, sekcję (ewentualnie podsekcję), datę wpisu, czasem też ostatniej edycji, czasem autora, ścieżkę do powiązanego z wpisem obrazka i tagi. Można też tam umieścić dłuższe fragmenty tekstu jak np. streszczenie wpisu dodawane w liście wpisów.
 
 **/src/blogposts/any-blogpost.mdx**
 
@@ -68,10 +68,9 @@ tags: react, gatsby
 Treść...
 
 //
-
 ```
 
-Pliki .mdx są w katalogu: /src/blogposts. **Uwaga:** co do zasady wszystkie pliki treści powinniśmy trzymać poza /src/pages/. Zapobiega to rysowaniu nadmiarowych ścieżek. Postaną tylko te, które zdefiniujemy w gastby-node.js. Treść bloga chcesz zaprezentować na stronie wygenerowanej przy pomocy szablonu i pod adresem url/blog/tytul-wpisu a nie dodatkowo gołą treść pod adresem dajmy na to url/blogposts/tytul-wpisu. Ponadto mniej ścieżek to krótszy czas kompilacji.
+Pliki .mdx są w katalogu: /src/blogposts. **Uwaga:** co do zasady wszystkie pliki treści powinniśmy trzymać poza /src/pages/. Zapobiega to rysowaniu nadmiarowych ścieżek. Postaną tylko te, które zdefiniujemy w gastby-node.js. Treść bloga chcesz zaprezentować na stronie wygenerowanej przy pomocy szablonu i pod adresem url/blog/tytul-wpisu, a nie dodatkowo gołą treść pod adresem dajmy na to url/blogposts/tytul-wpisu. Ponadto mniej ścieżek to krótszy czas kompilacji.
 
 **/gatsby-config.js**
 
@@ -88,7 +87,7 @@ Pliki .mdx są w katalogu: /src/blogposts. **Uwaga:** co do zasady wszystkie pli
 
 #### Plik gatsby-node.js
 
-- Requestem GraphQL pobieramy wpisy
+- Requestem (zapytaniem) GraphQL pobieramy wpisy
 - Tworzymy z nich tablicę
 - Tablicą tworzymy strony wpisów.
 
@@ -184,7 +183,7 @@ export const query = graphql`
 ```
 #### Strona główna bloga
 
-Działa w sposób analogiczny do powyższego szablomu.
+Działa w sposób analogiczny do powyższego szablonu.
 
 **/src/pages/blog.js**
 
@@ -234,163 +233,23 @@ query AllPosts {
 
 #### Podsumowanie
 
-*Et voilà !* Powinno dzialać. Cay schemat operacji wygląda następująco:
+*Et voilà !* Powinno działać. Cały schemat operacji wygląda następująco:
 
 - Używamy plików .mdx trzymanych w katalogu poza /src/pages; katalog ten musi zostać wskazany przez gatsby-source-filesystem w głównym pliku konfiguracyjnym /gatsby-config.js.
 - Dzięki powyższemu w danych GraphQL pojawiają się dane wpisów.
-- W pliku gatsby-node.js pobieramy te dane, tworzymy z nich tablicę a z niej generujemy ścieżki.
+- W pliku gatsby-node.js pobieramy te dane, tworzymy z nich tablicę, a z niej generujemy ścieżki.
 - Dane te pobierane są przez szablon wpisu, do którego importowany jest layout - tak powstaje strona wpisu.
 - Potrzebna jest także strona główna bloga z listą wpisów. W najprostszej wersji będzie to jeden z dwóch plików w katalogu /src/pages (drugim jest wymagany 404.js).
 
-Powyższy system najczęsciej jest używany do tworzenia blogów. Ale równie dobrze może zostać zastosowany do tworzenia innych stron. Jest to przydatne jeżeli składają się z dużej liczy dokumentów. Jeżeli przenosimy/tworzymy stronę z treścią w plikach .mdx musimy się liczyć z pewnymi ograniczeniami narzucanymi przez Markdown, który ze względu na prostotę może być przetwarzany na HTML w ograniczonym zakresie. Markdown nie ma takich elementów jak div, span, lista definicyjna, klasy czy id. W przypadku MDX jest to kompensowane możliwością umieszczania komponentów.
+Powyższy system najczęściej jest używany do tworzenia blogów. Ale równie dobrze może zostać zastosowany do tworzenia innych stron. Jest to przydatne, jeżeli składają się z dużej liczby dokumentów. Jeżeli przenosimy/tworzymy stronę z treścią w plikach .mdx, musimy się liczyć z pewnymi ograniczeniami narzucanymi przez Markdown, który ze względu na prostotę może być przetwarzany na HTML w ograniczonym zakresie. Markdown nie ma takich elementów jak div, span, lista definicyjna, klasy czy id. W przypadku MDX jest to kompensowane możliwością umieszczania komponentów.
 
 Podstawową zaletą zastosowania MDX do stron jest łatwość i prostota edycji treści oraz generalna prostota struktury strony.
 
-W przypadku stron z niewielką liczbą dokumentów i takich, które stawiają na efekty najlepszym rozwiązaniem pozostaje JSX.
-
-### Tagi
-
-Potrzebujemy tagów: łatwych w utrzymaniu, ywyświetlanych z blogiem i linkujących do strony z automatycznie generowaną listą wszystkich wpisów z tym samym tagiem.
-
-Najpierw trzeba utworzyć pole tagi we frontmatterze, można to zrobić elegancko jako tablicę ze stringami, ale jest to trudne w utrzymaniu, bo łatwo zapomnieć lub popełnić błąd. Wystarczy string, w którym tagi będą oddzielone przecinkami. Można przy tym zrobić założenie, że zawsze będziemy używać małych liter.
-
-**/src/blogposts/any-blogpost.mdx**
-
-```js
----
-tags: tag1, tag2, tag3
----
-```
-
-W dalszym procesowaniu tego pola trzeba pamiętać, żeby to pole przekazać w requeście graphql. Założenie: mamy ten sam plik gatsby-node.js, który jest powyżej.
-
-- W gatby-node najpierw przekazujemy ścieżkę do szablonu (o którym za chwilę).
-- Potem tworzymy tabelę tags ze stringów pobranych z pól tags. Klasyczna pętla form ma największą wydajność.
-- Mając już tabelę tags ze wszystkimi unikalnymi tagami zebranymi z requestu graphql tworzymy ścieżki dokładnie tą samą metodą co ścieżki do wpisów blogowych. Proszę zwrócić uwagę na dodatkowy element "/tags" w ścieżce dostępu. Zapobiega to sytuacji kiedy slug wpisu jest identyczny z tagiem, co jest raczej mało prawdopodobne, ale jeżeli do tego dojdzie nie dostaniemy się do wpisu.
-
-**/gatsby-node.js**
-
-```js
-
-//
-
-  const tagTemplate = path.resolve("./src/templates/blogTagListTemplate.js");
-
-//
-
-    const tags = []
-    for (let i = 0; i < posts.length; i++) {
-      const arrOfTags = posts[i].frontmatter.tags.split(",")
-      for (let j = 0; j < arrOfTags.length; j++) {
-        if (!tags.includes(arrOfTags[j].trim())) {
-          tags.push(arrOfTags[j].trim())
-        }
-      }
-    }
-
-//
-
-    tags.forEach(tag => {
-      createPage({
-        path: "/blog/tag/" + tag,
-        component: tagTemplate,
-        ...tag,
-        context: {
-          ...tag.context,
-          slug: tag,
-        },
-      });
-    });
-```
-
-Szablon
-
-- Pobieramy tag ze ścieżki
-- Na końcu pliku jest taki sam request graphql, jak na głównej stronie bloga. Wystarzczy usunąć te pola, których nie będziemy potrzebowali.
-- Już po inicjalizacji tagu za jego pomocą filtrujemy dane graphql przekazując te wpisy, które mają ten tag do nowej tablicy.
-- W efekcie mamy tabicę wpisów, które można mapować na listę.
-
-**/src/templates/blogTagListTemplate.js**
-
-```js
-
-//
-
-const blogPage = ({ data, location }) => {
-
-    const tag = location.pathname.slice(10)
-    const filteredPosts = [...data.allMdx.nodes].filter(item => item.frontmatter.tags.includes(tag))
-
-    return (
-        <LayoutBlog>
-            <article>
-                <h2>Strony z tagiem {tag}</h2>
-                <section>
-                    {filteredPosts.map(({ id, frontmatter, slug }) => (
-                        <li key={id}>
-                            <Link to={`/blog/${slug}`}>{frontmatter.title}</Link>
-                        </li>
-                    ))}
-                </section>
-            </article>
-            <aside>
-                <Link to="/blog">blog main page</Link>
-            </aside>
-        </LayoutBlog>
-    );
-};
-
-export default blogPage
-
-export const query = graphql`
-query AllTags {
-     allMdx(
-      filter: { fileAbsolutePath: { glob: "**/src/blogposts/*.mdx" } }
-      sort: { order: ASC, fields: frontmatter___date }
-      ) {
-        nodes {
-            frontmatter {
-                title
-                tags
-            }
-            slug
-            id
-        }
-    }
-}
-`;
-```
-
-Na końcu dodajemy listę wpisów do szablonu wpisu blogowego
-
-**/src/templates/blogPostTemplate.js**
-
-```js
-
-//
-
-const blogPage = ({ data }) => {
-
-  const { frontmatter, id, body, slug } = data.mdx;
-  const tagsArray = [...frontmatter.tags.split(",")]
-
-//
-
-<div className="tagsDiv">
-    Tagi: <ul>
-        {tagsArray.map(tag => <li key={tag}><Link to={`/blog/tag/${tag.trim()}`}>{tag.trim()}</Link></li>)}
-    </ul>
-</div>
-
-//
-
-```
-
-W efekcie mamy sytuację, w której przy każdym wpisie pojawia sie lista klikalnych tagów, każdy kieruje do automatycznie generowanej strony z listą linków wszystkich wpisów mających ten tag.
+W przypadku stron z niewielką liczbą dokumentów i takich, które stawiają na efekty, najlepszym rozwiązaniem pozostaje JSX.
 
 ### File System Route API vs gatsby-node.js
 
-Jesienią 2020 pojawiła się jeszcze jedna możliwość programistycznego tworzenia stron File System Route API. Jest on dużo prostszy i nie wymaga użycia pliku gatsby-node.js. Póki co jednak nie zastąpi gastby-node.js, bo nie ma możiwości fitrowania danych, wrzuca na tworzony schemat ścieżek całą treść .mdx jaką znadzie.
+Jesienią 2020 pojawiła się jeszcze jedna możliwość programistycznego tworzenia stron File System Route API. Jest on dużo prostszy i nie wymaga użycia pliku gatsby-node.js. Na razie jednak nie zastąpi gastby-node.js, bo nie ma możliwości filtrowania danych, wrzuca na tworzony schemat ścieżek całą treść .mdx, jaką znajdzie.
 
 - Gatsby [Announcing Gatsby’s new File System Route API](https://www.gatsbyjs.com/blog/fs-route-api/) | [File System Route API](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/)
 
@@ -406,7 +265,7 @@ W przedstawionym w pierwszym wpisie schemacie strony do wygenerowania ścieżek 
 - /src/pages/{Mdx.frontmatter__section}/{Mdx.frontmatter__subsection}/index.js
 - /src/pages/{Mdx.frontmatter__section}/{Mdx.frontmatter__subsection}/{mdx.slug}.js
 
-Jak widać do utworzenia dowolnej strony z sekcjami, podsekcjami mogacej zawierać dowolną liczbę dokumentów wystarczą dwa katalogi i pięć plików.
+Jak widać do utworzenia dowolnej strony z sekcjami, podsekcjami mogącej zawierać dowolną liczbę dokumentów wystarczą dwa katalogi i pięć plików.
 
 **/src/pages/{Mdx.frontmatter__section}/{Mdx.frontmatter__subsection}/{mdx.slug}.js**
 
@@ -516,6 +375,148 @@ export const query = graphql`
   }
 `;
 ```
+
+### Tagi
+
+Potrzebujemy tagów: łatwych w utrzymaniu, wyświetlanych z blogiem i linkujących do strony z automatycznie generowaną listą wszystkich wpisów z tym samym tagiem.
+
+Najpierw trzeba utworzyć pole tagi we frontmatterze, można to zrobić elegancko jako tablicę ze stringami, ale jest to trudne w utrzymaniu, bo łatwo zapomnieć lub popełnić błąd. Wystarczy string, w którym tagi będą oddzielone przecinkami. Można przy tym zrobić założenie, że zawsze będziemy używać małych liter.
+
+**/src/blogposts/any-blogpost.mdx**
+
+```js
+---
+tags: tag1, tag2, tag3
+---
+```
+
+W dalszym procesowaniu tego pola trzeba pamiętać, żeby to pole przekazać w requeście graphql. Założenie: mamy ten sam plik gatsby-node.js, który jest powyżej.
+
+- W gatsby-node najpierw przekazujemy ścieżkę do szablonu (o którym za chwilę).
+- Potem tworzymy tabelę tags ze stringów pobranych z pól tags. Klasyczna pętla form ma największą wydajność.
+- Mając już tabelę tags ze wszystkimi unikalnymi tagami zebranymi z requestu graphql, tworzymy ścieżki dokładnie tą samą metodą co ścieżki do wpisów blogowych. Proszę zwrócić uwagę na dodatkowy element "/tags" w ścieżce dostępu. Zapobiega to sytuacji, kiedy slug wpisu jest identyczny z tagiem. Jest to raczej mało prawdopodobne, ale jeżeli do tego dojdzie, nie dostaniemy się do wpisu.
+
+**/gatsby-node.js**
+
+```js
+
+//
+
+  const tagTemplate = path.resolve("./src/templates/blogTagListTemplate.js");
+
+//
+
+    const tags = []
+    for (let i = 0; i < posts.length; i++) {
+      const arrOfTags = posts[i].frontmatter.tags.split(",")
+      for (let j = 0; j < arrOfTags.length; j++) {
+        if (!tags.includes(arrOfTags[j].trim())) {
+          tags.push(arrOfTags[j].trim())
+        }
+      }
+    }
+
+//
+
+    tags.forEach(tag => {
+      createPage({
+        path: "/blog/tag/" + tag,
+        component: tagTemplate,
+        ...tag,
+        context: {
+          ...tag.context,
+          slug: tag,
+        },
+      });
+    });
+```
+
+Szablon
+
+- Pobieramy tag ze ścieżki
+- Na końcu pliku jest taki sam request graphql, jak na głównej stronie bloga. Wystarczy usunąć te pola, których nie będziemy potrzebowali.
+- Już po inicjalizacji tagu za jego pomocą filtrujemy dane graphql, przekazując te wpisy, które mają ten tag do nowej tablicy.
+- W efekcie mamy tablicę wpisów, które można mapować na listę.
+
+**/src/templates/blogTagListTemplate.js**
+
+```js
+
+//
+
+const blogPage = ({ data, location }) => {
+
+    const tag = location.pathname.slice(10)
+    const filteredPosts = [...data.allMdx.nodes].filter(item => item.frontmatter.tags.includes(tag))
+
+    return (
+        <LayoutBlog>
+            <article>
+                <h2>Strony z tagiem {tag}</h2>
+                <section>
+                    {filteredPosts.map(({ id, frontmatter, slug }) => (
+                        <li key={id}>
+                            <Link to={`/blog/${slug}`}>{frontmatter.title}</Link>
+                        </li>
+                    ))}
+                </section>
+            </article>
+            <aside>
+                <Link to="/blog">blog main page</Link>
+            </aside>
+        </LayoutBlog>
+    );
+};
+
+export default blogPage
+
+export const query = graphql`
+query AllTags {
+     allMdx(
+      filter: { fileAbsolutePath: { glob: "**/src/blogposts/*.mdx" } }
+      sort: { order: ASC, fields: frontmatter___date }
+      ) {
+        nodes {
+            frontmatter {
+                title
+                tags
+            }
+            slug
+            id
+        }
+    }
+}
+`;
+```
+
+Na końcu dodajemy listę wpisów do szablonu wpisu blogowego
+
+**/src/templates/blogPostTemplate.js**
+
+```js
+
+//
+
+const blogPage = ({ data }) => {
+
+  const { frontmatter, id, body, slug } = data.mdx;
+  const tagsArray = [...frontmatter.tags.split(",")]
+
+//
+
+<div className="tagsDiv">
+    Tagi: <ul>
+        {tagsArray.map(tag => <li key={tag}><Link to={`/blog/tag/${tag.trim()}`}>{tag.trim()}</Link></li>)}
+    </ul>
+</div>
+
+//
+
+```
+
+W efekcie mamy sytuację, w której przy każdym wpisie pojawia się lista klikalnych tagów, każdy kieruje do automatycznie generowanej strony z listą linków wszystkich wpisów mających ten tag.
+
+### Odnośniki
 
 - [Working with Images in Markdown Posts and Pages](https://www.gatsbyjs.com/docs/working-with-images-in-markdown/)
 
