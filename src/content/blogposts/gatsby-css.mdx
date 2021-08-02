@@ -37,6 +37,9 @@ Więcej o CSS-in-JS:
 - Leonardo Maldonado ["Understanding CSS-in-JS"](https://www.telerik.com/blogs/understanding-css-in-js)
 - Andrei Pfeiffer ["A Thorough Analysis of CSS-in-JS"](https://css-tricks.com/a-thorough-analysis-of-css-in-js/)
 - Chris Coyier [The Differing Perspectives on CSS-in-JS](https://css-tricks.com/the-differing-perspectives-on-css-in-js/)
+- [tuchk4 / awesome-css-in-js](https://github.com/tuchk4/awesome-css-in-js) Awesome CSS in JS
+- [polished](https://polished.js.org) A lightweight toolset for writing styles in JavaScript
+- [Harry Wolff "CSS in JS: My favorite" [YT 17:36]](https://www.youtube.com/watch?v=rKz6cLXhpwA)
 
 ### W tym wpisie
 
@@ -132,6 +135,14 @@ Pozwala na trzymanie wszystkich klas w jednym katalogu.
 
 - [css-modules / css-modules](https://github.com/css-modules/css-modules)
 - Gatsby [Component-Scoped Styles with CSS Modules](https://www.gatsbyjs.com/docs/how-to/styling/css-modules/) | [Part 2: Use and Style React Components #Style components with CSS Modules](https://www.gatsbyjs.com/docs/tutorial/part-2/#style-components-with-css-modules)
+- gatsbyjs / gatsby [using-css-modules](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-css-modules)
+- CSS TRickd: [Robin Rendle "What are CSS Modules and why do we need them?"](https://css-tricks.com/css-modules-part-1-need/) | [Matija Marohnić "Bridging the Gap Between CSS and JavaScript: CSS Modules, PostCSS and the Future of CSS"](https://css-tricks.com/bridging-the-gap-between-css-and-javascript-css-modules-postcss-and-the-future-of-css/)
+- Glen Maddern ["CSS Modules Welcome to the Future"](https://glenmaddern.com/articles/css-modules)
+- React: ["Adding a CSS Modules Stylesheet"](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
+- [Harry Wolff "CSS Modules: Why are they great?" [YT 12:02]](https://www.youtube.com/watch?v=pKMWU9OrA2s)
+- [Fullstack Academy "CSS Modules in React and Webpack Tutorial" [YT 8:42]](https://www.youtube.com/watch?v=u9LBSeeJzXc)
+- [ReactiveConf "The case for CSS modules - Mark Dalgleish" [YT 45:08]](https://www.youtube.com/watch?v=zR1lOuyQEt8)
+- [Rushing Labs "CSS Modules + Create React App" [YT 26:45]](https://www.youtube.com/watch?v=XLUaq8Qhx_w)
 
 ### Styled Components
 
@@ -220,10 +231,94 @@ border-color: ${props => props ? "red" : 'black'};
 border-color: ${props => props.color || 'black'};
 ```
 
+Jeszcze jeden przykład, tym razem wzięty z mojego rtykułu o Gatsbym. Jestem pewien, że skądś go skopiowałem i trochę zmieniłem. Rezultat - no jest jaki jest. Mniejsza o sensowność, ale dobrze pokazuje możliwości Styled Components:
+
+**/src/components/indicator.js**
+
+```js
+import * as React from "react"
+import styled, { keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+0% { opacity: 0; }
+100% { opacity: 1; }
+`;
+
+const StyledIcon = styled.div`
+background-color: ${({ primary }) => primary ? 'green' : 'yellow'};
+width: 10rem;
+height: 2rem;
+border-radius: 1rem;
+margin: 5px;
+border: ${({ border }) => border || 0};
+border-color: ${({ progress }) => {
+        let numeric = progress.slice(0, -1)
+        let integer = parseInt(numeric)
+        if (integer >= 80) return 'red';
+        else if (integer >= 60) return 'orange';
+        else if (integer >= 40) return 'yellow';
+        else return 'green';
+    }};
+animation: 5s ${fadeIn} ease-in;
+font-weight: bold;
+color: #333;
+`;
+
+const TodayIcon = styled(StyledIcon)`
+background-color: purple;
+color: #eed;
+`;
+
+const Indicator = ({ primary, border, day, progress, children }) => {
+
+    let today = new Date()
+    let dayOfTheWeek = today.getDay()
+    const isToday = day === dayOfTheWeek
+
+    return (
+        <>
+            {isToday ?
+                <TodayIcon border={border} primary={primary} progress={progress}>{children}</TodayIcon> :
+                <StyledIcon border={border} primary={primary} progress={progress}>{children}</StyledIcon>}
+        </>)
+}
+
+export default Indicator
+```
+
+Potem na dowolnej stronie:
+
+```js
+//
+
+import Indicator from "../components/indicator"
+
+//
+
+<Indicator primary border='solid 10px' progress='30%' day={3}>inside text</Indicator>
+
+//
+```
+
 Tutaj tylko zarysowałem najważniejsze, najczęściej używane właściwości Styled Components. Podobnie jak w przypadku niżej wymienionych po więcej odsyłam do dokumentacji.
 
 - [styled-components](https://styled-components.com)
+- [Wojciech Snopkowski "Gatsby Navigation using Styled Components and useState hook"](https://snopkowski.com/blog/gatsby-navigation-styled-components)
+- ScottSpence.com ["Globally Style the Gatsby Default Starter with styled-components v5"](https://scottspence.com/2020/02/06/globally-style-gatsby-styled-components/)
+- [Daniel Stout "Using styled-components in Gatsby"](https://www.digitalocean.com/community/tutorials/gatsbyjs-using-styled-components-in-gatsbyjs)
 - [hello roman "Styled components + Gatsby.js" [YT playlista 5 filmów]](https://www.youtube.com/playlist?list=PLKnxnWdLGM48DUzxZ1uSYBhgPNETsgWA_)
+- [Adrian Twarog "Styled Components" [YT playlist 3 filmy]](https://www.youtube.com/playlist?list=PLsprmdocuVe-tQy47UBnXjrZYu8QOCtnv)
+- [Hungry Turtle Code "What are Styled Components? - A Beginners Guide" [YT 20:10]](https://www.youtube.com/watch?v=JFE_UuHtHT4)
+- [Classsed "React Styled Components (Next Level CSS?)" [YT 18:27]](https://www.youtube.com/watch?v=3SpAg5tr7Ws)
+- [Academind "Why you should look into these React component styling options!" [YT 28:35]](https://www.youtube.com/watch?v=NMiEREulVLc)
+- [Ben Awad "React Styled Components Tutorial" [YT 13:27]](https://www.youtube.com/watch?v=syqw5UJrfoc)
+- [Better Coding Academy "Learn Styled Components In 15 Minutes! | React Tutorials" [YT 15:12]](https://www.youtube.com/watch?v=17AwVXg5lHk)
+- [Fidalgo "Styled Components Tutorial - Crash Course [2020]" YT 47:42]](https://www.youtube.com/watch?v=c5-Vex3ufFU)
+- [Wrong Akram "How To Code With Styled Components and React.js" [YT 24:25]](https://www.youtube.com/watch?v=TWODzlTeZUM)
+- [James Q Quick "Convert CSS in React To Styled Components" [YT 22:17]](https://www.youtube.com/watch?v=feYJ5D7VknE)
+- [Karl Hadwen "React Tutorial - Compound Components in React - Styled Components - React Tutorial 2020" [YT 23:48]](https://www.youtube.com/watch?v=nHMAMS38x-E)
+- [Adrian Twarog "Styled Components React Tutorial: CSS in JS! (React Styling with Javascript)" [YT 10:08]](https://www.youtube.com/watch?v=eQkkoUEVY-Q)
+- [ComScience Simplified "Styled Components with React | All you need to know" [YT 10:06]](https://www.youtube.com/watch?v=kClcUzAhz9g)
 
 ### Emotion
 
@@ -521,7 +616,7 @@ $ npm i sass gatsby-plugin-sass
 
 - [Using Sass in Gatsby](https://www.gatsbyjs.com/docs/how-to/styling/sass/) | [gatsby-plugin-sass](https://www.gatsbyjs.com/plugins/gatsby-plugin-sass/)
 
-### Fonty
+### Fonty i glify
 
 Ze względu na opóźnienie spowodowane przez łączenie się z zewnętrznymi bibliotekami, dokumentacja Gatsby'ego odradza importowanie bibliotek fontów i glifów. Zdecydowanie lepiej jest ściągnąć je do katalogu strony i zaimportować lokalnie.
 
@@ -543,6 +638,36 @@ import { faReact } from "@fortawesome/free-brands-svg-icons"
 
 <FontAwesomeIcon icon={faReact} />
 ```
+
+Można też bez instalacji, ściągnąć dostępną bez nagabywania o rejestracje wersję 4.7 i tutaj interesuje nas tylko plik /css/font-wesome.css (do produkcji oczywiście zminifikowany). Na stronie FA wyszukujemy potrzebną ikonę, szukamy jej nazwy w pliku i pobieramy wartość content. Zakładając, że chcemy zrobić fancy listę bulletpointem będzie `fa-check` a jego wartością content `\f00c`. W docelowym pliku komponentu wyglda to potem tak:
+
+```js
+//
+
+import styled from "styled-components"
+import "../styles/font-awesome-4.7.0/css/font-awesome.css"
+
+//
+
+const StyledLi = styled.li`
+position: relative;
+list-style-type: none;
+&::before {
+  font-family: "FontAwesome";
+  display: block;
+  content: "\f00c";
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  color:red;
+  font-size:20px;
+`;
+
+//
+```
+
+- [Font Awesome 4.7](https://fontawesome.com/v4.7/)
+- [React Icons / Font Awesome](https://react-icons.github.io/icons?name=fa)
 
 #### Google Fonts
 
@@ -586,3 +711,4 @@ import { ArrowRight } from 'react-bootstrap-icons';
 - [Gatsby Plugin Purgecss](https://www.gatsbyjs.com/plugins/gatsby-plugin-purgecss/) usuwa nieużywany CSS z css/sass/less/stylus i SCC Modules; wsparcie dla Tailwind CSS, Bootstrap, Bulma itd.
 - Adebiyi Adedotun [10 Gatsby styling methods](https://blog.logrocket.com/10-gatsby-styling-methods/)
 - Arley McBlain [Saving the Day with Scoped CSS](https://css-tricks.com/saving-the-day-with-scoped-css/)
+- [Active classnames in menu on a one-page website using GatsbyJS](https://stackoverflow.com/questions/48595318/active-classnames-in-menu-on-a-one-page-website-using-gatsbyjs)

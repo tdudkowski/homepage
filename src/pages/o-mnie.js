@@ -1,13 +1,14 @@
 import * as React from "react"
 import Layout from "../components/layout"
-
 const AboutMe = () => {
+
     return (
         <Layout>
             <section className="section-meta">
                 <h2>Tadeusz Dudkowski / O mnie</h2>
 
                 <h3>IT</h3>
+
                 <ul>
                     <li>Dobra znajomość standardów WWW: HTML, CSS.</li>
                     <li>Web Accessibility (dostępność treści internetowych) – prowadzenie szkoleń. Współautor tłumaczenia na język polski specyfikacji WCAG 1.0.</li>

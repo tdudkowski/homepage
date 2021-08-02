@@ -1,8 +1,8 @@
 ---
-title: "Enigma cz 1 - kryptografia pomiędzy wojnami"
+title: "Enigma cz. 1 - kryptologia 1914 - 1945"
 section: "blog"
 subsection: "historia"
-date: 2021-07-27
+date: 2021-08-03
 edited:
 image: ../images/Enigma-logo.jpg
 tags: enigma, kryptologia, wwii
@@ -16,28 +16,80 @@ Cykl artykułów o najsłynniejszej maszynie szyfrującej, znanej z WWII niemiec
 - Opis działania mechanizmu szyfrującego Enigmy, z kontekstem matematycznym i kryptologicznym
 - JS
 
-### WWI
+W tym odcinku przedstawię historię kryptologii wojennej w okresie od Wielkiej Wojny do końca Drugiej Wojny Światowej (dalej WWII).
 
-#### Wstęp
+Kryptologia bazuje na technologii, tzn. jej rozwój zależny jest od potrzeb i możliwości użytkownika. Kryptologia wojenna to ochrona własnej łączności i wywiad na obszarze łączności nieprzyjaciela. Dlatego od łączności trzeba zacząć, wtedy zrozumiemy dlaczego stosowano takie a nie inne techniki i dlaczego na początku kryptologia była tak zapóźniona.
 
-Wielka Wojna zmieniła oblicze kryptologii to wbrew powszechnemumniemaniu prawdopodobnie bardziej niż druga.
+Potem opiszę na przykładzie każdego kraju istotnego dla przebiegu wojny i rozwoju kryptologii.
 
-W 1914 w powszechnym użyciu były metody kryptograficzne mające kilkaset lat, powszechnie znane i z powszechnie znanymi słabościami. Podstawową przyczyną było to, że jak dotąd sprawdzały się całkiem dobrze. Prawdopodobieństwo, że przeciwnik przyłączy się do kabla telegraficznego albo przechwyci posłańca, było niewielkie. Marynarka w coraz większym stopniu używała łączności radiowej, ale za zupełnie wystarczające uważano książki kodowe. Większe zainteresowanie kryptografią wykazywały placówki dyplomatyczne, handlowe i zamorskie bazy wojskowe.
+### Łączność
+
+Do XIX wieku kryptologia nie odgrywała w skali państwa czy całej armii wielkiej roli. Cała łączność odbywała się na zapleczu pomiędzy pierwszą linią a sztabem, więc szansa na przechwycenie posłańca nie była wielka. Szyfrowaną łączność stosowano w komunikacji z jednostkami zamorskimi i jednostkami dyplomatycznymi.
+
+Sytuację tę zmieniły dwa dziewiętnastowieczne wynalazki: telegram i radio.
+
+Telegram w znanej nam formie, tzn. telegraf elektryczny używający taśmy dziurkowanej i alfabetu Morse'a wszedł do powszechnego użytku w latach 50 XIX wieku. Linie telegraficzne zwykle były rozciągane wzdłuż linii kolejowych, które w tym czasie były również nowym wynalazkiem. Telegraf i kolej w zupełnie nowy sposób łączyły kolejne miasta i kraje.
+
+Bardzo szybko dostrzeżono militarne znaczenie tych wynalazków. Dla armii pruskiej ogromne znaczenie miała misja wojskowa wysłana do USA w celu obserwowania przebiegu wojny secesyjnej. Koleją błyskawicznie można było wprowadzić w strefę walki świeże oddziały, dokonać koncentracji w zaskakujący sposób oraz szybko i tanio dostarczyć środki prowadzenia walki. Telegram zapewniał błyskawiczny i niezawodny obieg meldunków i rozkazów.
+
+W Prusach, które w tym czasie zmierzały do integracji całych Niemiec pod swoim przywództwem kolej i telegraf rozumiano nie tylko jako metodę unifikacji, ale również kluczowy element zaplecza wojny - ze względu na potencjał Niemiec jako centralnie położonego państwa kontynentalnego. Jak to ujął von Moltke "rozwój kolei jest korzyścią dla wojska, a kilka milionów na nowe linie daje wiele więcej dla obronności kraju niż na nasze nowe fortece".
+
+Podczas drugiej połowy XIX wieku Brytyjczycy opletli cały świat kontrolowaną przez siebie siecią podwodnych kabli telegraficznych ("All Red Line"). 
+
+W latach 90. XIX pojawiło się radio. Technika jest dużo trudniejsza do opanowania, ale już w 1901 udaje się radiowo przesyłać telegramy przez Atlantyk. Już w 1897 brytyjska Admiralicja rozpoczęła własne eksperymenty i w 1899 podczas ćwiczeń na Kanale uzyskała zasięg 125 km. To potwierdziło teoretyczne dotąd przypuszczenia, że bieg fal radiowych nie jest ograniczony krzywizną Ziemi. Podobne eksperymenty jeszcze w XIX wieku prowadziły marynarki francuska i włoska. Amerykanie też byli zainteresowani, ale czekali na dalsze postępy techniki. Zainstalowali radio na pancerniku USS Massachusetts (BB-2) i USS New York (ACR-2).
+
+Pierwszym konfliktem lądowym, w którym zastosowano radio była wojna burska, ale tam pogoda i wzgórza uniemożliwiły skuteczne zastosowanie nowej dla piechoty techniki, więc sprzęt przekazano marynarce.
+
+W ciągu kilku lat radio stało się na morzu standardem. Już w 1909 wszystkie 90 niemieckich okrętów były wyposażone w radio. W 1912 admirał Sir John Fisher określił radio "podstawowym narzędziem wojny" ("the pith and marrow of war!").
+
+W pierwszej dekadzie XX wieku Niemcy dla uniezależnienia się od kontrolowanego przez Brytyjczyków kabla wprowadzili na zależnych od siebie terenach kolonialnych nadajniki radiowe. Stały się pierwszym celem ataku.
+
+- Niemiecka Afryka Południowo-Zachodnia (niem. Deutsch-Südwestafrika, DSWA) nadajniki zaatakowane już na początku 1915
+- Afryka Wschodnia, brytyjska stacja w Mombasie wykryła niemiecką aktywność radiową w rejonie Jeziora Wiktorii
+- Azja Wschodnia, Qingdao w Chinach
+- Pacyfik:
+  - Nauru (Mikronezja)
+  - Nowa Brytania, we wrześniu 1914 wojska australijskie zaatakowały niemiecką stację (bitwa o Bita Paka), której przejęcie było ważne dla zdobycia całej niemieckiej Nowej Gwinei
+  - W październiku 1914 Brytyjczycy zaatakowali wyspy Yap (Karoliny)
+
+Podsumowując: telegraf jako kablowa metoda łączności znacznie przyspieszył komunikację, ale ten kto kontrolował przebieg kabla mógł uznać cały kanał łączności za bezpieczny. Problematyczna była tzw. strefa zdemilitaryzowana, czyli infrastruktura znajdująca się poza kontrolą: jednostki zamorskie czy placówki dyplomatyczne.
+
+Zupełnie inną sytuację stworzyło radio. Tu kanał łączności był otwarty na całej przestrzeni objętej zasięgiem nadajnika, nieprzyjaciel słyszał wszystko. Wdrożenie łączności radiowej na morzu było kompletne i szybko postępowało w wojskach lądowych, które wciąż dysponowały telegrafem i z oczywistych powodów preferowały. W ciągu kilkunastu lat sytuacja zmieniła się diametralnie. Rzecz w tym, że zmiana ta nastąpiła szybko i tuż przed Wielką Wojną. Kryptologia nie nadążyła za tą zmianą.
+
+W powszechnym użyciu były książki kodowe. Była to obszerna lista słów kodujących jakieś znaczenie. Każde słowo kodu oznaczało jakieś inne słowo lub frazę i było przeznaczone do wysłania tzw. tekstu kodowego. Odbiorca dysponujący taką samą książką kodową mógł odczytać wiadomość. Miały one same wady:
+
+- były trudne i czasochłonne w opracowaniu
+- wymagały bardzo starannego procesu druku i dystrybucji, każdy egzemplarz musiał być pilnowany i kontrolowany
+- w warunkach wojennych były trudne w użyciu
+- jeżeli choć jeden egzemplarz wpadł w ręce nieprzyjaciela, czy to w wyniku akcji wywiadowczej czy podczas operacji wojennej tajemnica łączności przestała istnieć, co gorsza nie było sposobu, aby sprawdzić czy utracone książki zostały zgodnie z procedurą zniszczone przed opuszczeniem czy też zostały przejęte przez nieprzyjaciela
+- nawet jeżeli udało się ustalić, że nieprzyjaciel jest w posiadaniu książki kodowej, opracowanie i dystrybucja nowej zajmowała miesiace, co w warunkach wojennych było katastrofą
+
+Popularność książek kodowych wynikała z faktu, że ich alternatywa, czyli maszyny szyfrujące były niezwykle prymitywne. A były takie, ponieważ do wdrożenia łączności radiowej nikt ich tak naprawdę nie potrzebował. I tak koło się zamykało. Dopiero katastrofa wojenna uświadomiła wszystkim, jak zawodne są książki kodowe a fakt, że maszyny szyfrujące są prymitywne to okazja biznesowa, a nie przeszkoda.
+
+- International Encyclopedia of the First World War (WW1) [Wireless Telegraphy](https://encyclopedia.1914-1918-online.net/article/wireless_telegraphy)
+
+### Wielka Wojna
+
+#### Znaczenie
+
+Wielka Wojna zmieniła oblicze kryptologii to wbrew powszechnemu mniemaniu prawdopodobnie bardziej niż druga.
+
+W 1914 w powszechnym użyciu były metody kryptograficzne mające kilkaset lat, powszechnie znane i z powszechnie znanymi słabościami. Podstawową przyczyną było to, że jak dotąd sprawdzały się całkiem dobrze. Prawdopodobieństwo, że przeciwnik przechwyci posłańca albo od XIX wieku przyłączy się do kabla telegraficznego, było niewielkie. Marynarka w coraz większym stopniu używała łączności radiowej, ale za zupełnie wystarczające uważano książki kodowe. Większe zainteresowanie kryptografią mogły wykazywać placówki dyplomatyczne, handlowe i zamorskie bazy wojskowe. Ale dopóki nie wybuchła wojna, dotychczasowa sytuacja uważana była za dobrą.
 
 Przełom w kryptografii wynikał z tego, że był to pierwszy poważny konflikt wojenny, w którym na tak dużą skalę używano łączności radiowej. Radio przeciwnik mógł podsłuchiwać bez problemu. Kryptografia była tu o krok z tyłu.
 
 Do tej pory wszystkie stosowane techniki utajniania jawnej wiadomości można było podzielić na trzy rodzaje:
 
-- książki kodowe: stosowane jako standard w marynarce wojennej i służbach dyplomatycznych, były trudne w opracowaniu, dystrybucji i użyciu, ponadto w warunkach wojennych szybko wpadały w ręce nieprzyjaciela.
-- rozmaite szyfry przestawieniowe: w łączności telegraficznej i radiowej, podatne na analizę statystyczną, najbardziej zaawansowany był dwuznakowy szyfr Playfaira.
-- dyski Vigenère'a: mechaniczne urządzenie stosujące szyfr Vigenère'a, bardzo długo uważany za odporny na atak, nawet jeszcze w 1917 potwierdzał to Scientific American, ale już w 1863 rozwiązanie podał pruski kryptograf wojskowy Friedrich Wilhelm Kasiski "Die Geheimschriften und die Dechiffrir-Kunst". Nazwa bierze się od Blaise de Vigenère, ale rzeczywistym wynalazcą był Leon Battista Alberti 1467. Były to pierścienie na jednej osi. Obracały się zgodnie ze słowem kluczowym, jeżeli komunikat jest dłuższy od klucza, klucz się powtarza, co stanowi słabość. Mając kilka wiadomosci zaszyfrowanych tym samym kluczem, łatwo można złamać. [Vigenère Cipher Disk](https://ciphermachines.com/vigenere)
+- **książki kodowe**: stosowane jako standard w marynarce wojennej i służbach dyplomatycznych, były trudne w opracowaniu, dystrybucji i użyciu, ponadto w warunkach wojennych szybko wpadały w ręce nieprzyjaciela.
+- rozmaite **szyfry przestawieniowe**: w łączności telegraficznej i radiowej, podatne na analizę statystyczną, najbardziej zaawansowany był dwuznakowy szyfr Playfaira.
+- **dyski Vigenère'a**: mechaniczne urządzenie stosujące szyfr Vigenère'a, bardzo długo uważany za odporny na atak, nawet jeszcze w 1917 potwierdzał to Scientific American, ale już w 1863 rozwiązanie podał pruski kryptograf wojskowy Friedrich Wilhelm Kasiski "Die Geheimschriften und die Dechiffrir-Kunst". Nazwa bierze się od Blaise de Vigenère, ale rzeczywistym wynalazcą był Leon Battista Alberti 1467. Były to pierścienie na jednej osi. Obracały się zgodnie ze słowem kluczowym, jeżeli komunikat jest dłuższy od klucza, klucz się powtarza, co stanowi słabość. Mając kilka wiadomosci zaszyfrowanych tym samym kluczem, łatwo można złamać. [Vigenère Cipher Disk](https://ciphermachines.com/vigenere)
 
-Istotnym wkładem Wielkie Wojny były:
+Istotnym wkładem Wielkiej Wojny były:
 
 - ostateczna kompromitacja tych starych, niewygodnych i podatnych na atak metod.
 - wprowadzenie nowych mechanicznych metod szyfrowania
 - znaczenie matematyki
-- W wyniku tego swoistego wyścigu zbrojeń dotychczasowe metody kryptoanalizy straciły znaczenie, by to kres dotychczasowej kryptologii opartej na lingwistyce i szaradach, matematyka, teoria cyfr
+- w wyniku tego swoistego wyścigu zbrojeń dotychczasowe metody kryptoanalizy straciły znaczenie, by to kres dotychczasowej kryptologii opartej na lingwistyce i szaradach, matematyka, teoria cyfr
 
 Te nowe urządzenia to np: koder impulsów stosowany razem z magnetofonem drutowym, dalekopis z jednorazową taśmą, oraz - i to jest tu najważniejsze - elektromechaniczne maszyny rotorowe. Po raz pierwszy urządzenia elektryczne zostały użyte do szyfrowania.
 
@@ -47,73 +99,108 @@ Równoległym wynalazcą maszyny rotorowej był Amerykanin Edward Hebern (pierws
 
 #### Niemcy
 
-Dla armii cesarskich Niemiec WWI od początku do końca była serią katastrof. Już w sierpniu 1914 sierpniu 1914 Rosjanie znaleźli na niemieckim wraku rozbitym w Estonii niezniszczoną książkę kodową marynarki wojennej (niem. Signalbuch der Kaiserlichen Marine, SKM) i co gorsza przekazali ją Brytyjczykom. To był dopiero początek. Jeszcze w 1914 Brytyjczycy pozyskali także Handelsschiffsverkehrsbuch (HVB) oraz dyplomatyczny Verkehrsbuch (VB).
+Najlepszym przykładem znaczenia zmian dokonanych przez wojnę jest seria porażek poniesionych przez Niemcy, dlatego od nich zaczniemy.
 
-Flota cesarska używała łączności radiowej bardzo często. W łączności z ubootami używali kodera impulsów (burst encoder), który kompresował sygnał Morse'a i magenotofonu drutowego (protoplasta taśmowego; patent Duńczyk Valdemar Poulsen 1898) do zapisania wiadomości, którą potem odsłuchiwali na zwolnionych obrotach. Taki rozkaz dostał uboot, który zatopił Lusitanię.
+Dla armii cesarskich Niemiec WWI od początku do końca była serią katastrof. Już w sierpniu 1914 Rosjanie znaleźli na niemieckim wraku rozbitym w Estonii niezniszczoną książkę kodową marynarki wojennej (niem. Signalbuch der Kaiserlichen Marine, SKM) i - co gorsza - przekazali ją Brytyjczykom. To był dopiero początek. Jeszcze w 1914 Brytyjczycy pozyskali także Handelsschiffsverkehrsbuch (HVB) oraz dyplomatyczny Verkehrsbuch (VB).
 
-W 1916 powołali Abhorchdienst złożony głównie z matematyków.
+Flota cesarska używała łączności radiowej bardzo często. W łączności z U-Bootami używali kodera impulsów (burst encoder), który kompresował sygnał Morse'a i magnetofonu drutowego (protoplasta taśmowego; patent Duńczyk Valdemar Poulsen 1898) do zapisania wiadomości, którą potem odsłuchiwali na zwolnionych obrotach. Taki rozkaz dostał U-Boot, który zatopił Lusitanię.
+
+W 1916 powołali Abhorchdienst złożony głównie z matematyków. Neumunster (Schlwezwig-Holstein), nigdy nie osiagnął pozomu jednostek francuskich czy austriackich.
 
 Armia dokładnie określiła zasady bezpieczeństwa, w odległości do 3 km od linii frontu (strefa ryzyka) można było używać tylko trójcyfrowego kodu, dalej dozwolony był trójliterowy kod.
 
-W komunikacji na wyższym stopniu od marca 1918 (ofensywa wiosenna) wprowadzili ADFGVX, który był rozwinięciem szyfru ADFGX. Opierał się na zmodyfikowanej szachownicy Polibiusza i pojedynczej transpozycji. Mimo częstej zmiany klucza bardzo szybko został złamany przez francuskiego krypotanalityka Georgesa Painvina.
+Po pierwszych sukcesach we Francji armia niemiecka utknęła w okopach, choć wojna cały czas toczyła się na terenach nieprzyjaciela z biegiem czasu sytuacja wyglądała coraz gorzej dla Niemiec. Kończyły im się środki prowadzenia wojny. W kwietniu 1917 do wojny przystąpiły USA. To przesądzało rezultat wojny. Ostatnim, rozpaczliwym wysiłkiem, by odnieść zwycięstwo na froncie zachodnim, zanim wylądują Amerykanie była ofensywa wiosenna (niem. Kaiserschlacht). Rozpoczęła się 21 marca 1918.
+
+Dla zabezpieczenia łączności na wyższym szczeblu wprowadzili innowację - szyfr ADFGX, od czerwca jego bardziej rozwiniętą wersję ADFGVX. Ta osobliwa i trudna do zapamiętania nazwa brała się z tego, że były to jedyne litery, jakie pojawiały się w szyfrogramie. Litery A, D, F, G, X były bokami szachownicy Polibiusza.
+
+Na samym początku z tekstu jawnego usuwano spacje i znaki przestankowe. Kolejnym krokiem była prosta operacja przestawienia, do której dodano również szyfr Playfair (np. litery j zamieniano na i). I dopiero teraz wchodzi tablica Polibiusza: każdej literze szyfru jawnego przydzielano dwuliterowy kod wynikający z jej pozycji na poniższej tablicy.
+
+Czyli słowo KAISER było szyfrowane na XAFFGGFAAGDX.
+
+```
+    A D F G X
+A | P G C E N
+D | B Q O Z R
+F | S L A F T
+G | M D V I W
+X | K U Y X H
+```
+
+To jest uproszczony opis, bo jeszcze wchodzą reguły przestawienia. Tak czy inaczej, była to skomplikowana w użyciu i mimo częstej zmiany klucza transpozycji słaba metod szyfrowania.
+
+Jak bardzo słaba przekonali się Francuzi. W kilka dni ich kryptoanalityk Georges Painvin złamał tę metodę. Najściślejsze tajemnice sztabu niemieckiego mieli na stole.
 
 Efekty powyższych wpadek były katastrofalne w skali strategicznej.
 
-- Wszystkie operacje floty cesarskiej były znane z wyprzedzeniem. W połączeniu z przewagą floty brytyjskiej zapewniło to zwycięstwo Brytyjczykom, zadecydowało m in o przebiegu bitwy jutlandzkiej.
+- Wszystkie operacje floty cesarskiej były znane z wyprzedzeniem. W połączeniu z przewagą floty brytyjskiej zapewniło to zwycięstwo Brytyjczykom, zadecydowało m in o przebiegu bitwy jutlandzkiej. Żaden atak morski, żadna operacja floty nie mogła się udać.
 - Brytyjczykom udało się również odczytać Telegram Zimmermanna, co odegrało kluczową rolę we włączeniu USA do wojny.
-- Francuzi wiedzieli o transportach zaopatrzenia, wiedzieli kiedy i gdzie nastąpi uderzenie ofensywy wiosennej (niem. Kaiserschlacht) - Radiogram Zwycięstwa (ang. The Radiogram of Victory).
+- Francuzi wiedzieli o transportach zaopatrzenia, wiedzieli kiedy i gdzie nastąpi uderzenie ofensywy wiosennej - Radiogram Zwycięstwa (ang. The Radiogram of Victory).
 
-W Niemczech już po wojnie uświadomiono sobie, że alianci czytali ich szyfry, więc postanowiono, że nigdy się to nie powtórzy. Reichswehra poszukiwała skutecznego rozwiązania i po kilku latach prób postawili na system Enigmy.
+W Niemczech już po wojnie uświadomiono sobie, że alianci czytali ich szyfry. Postanowiono więc, że nigdy się to nie powtórzy. Reichswehra poszukiwała skutecznego rozwiązania i po kilku latach prób postawili na system Enigmy.
 
 #### Wielka Brytania
 
-Brytyjczycy na początku wojny nie posiadali w ogóle oddziału kryptoanalizy, powołali go szybko jeszcze w 1914. Ich głównym celem była komunikacja cesarskiej Hochseeflotte.
+Brytyjczycy na początku wojny nie posiadali w ogóle oddziału kryptoanalizy. Zdając sobie sprawę ze znaczenia kryptologii, powołali go dość szybko jeszcze w 1914. Ich głównym celem była komunikacja cesarskiej Hochseeflotte.
 
-W 1914 pozyskali Signalbuch der Kaiserlichen Marine (SKM) Handelsschiffsverkehrsbuch (HVB) oraz dyplomatyczny Verkehrsbuch (VB). Jesienią tego roku powołali komórkę kryptograficzną Admiralicji Room 40 - nazwa pochodzi od numeru pokoju w budynku Admiralicji. Była podporządkowana Brytyjskiego Departamentu Wywiadu Marynarki Wojennej.
+W 1914 pozyskali trzy niemieckie książki kodowe:
 
-Drugim oddziałem zajmującym się krytpologią był wywiad armii MI1 (Military Intelligence, Section 1).
+- Signalbuch der Kaiserlichen Marine (SKM), marynarka wojenna
+- Handelsschiffsverkehrsbuch (HVB), handel
+- Verkehrsbuch (VB), dyplomacja
+
+Jesienią tego roku powołali komórkę kryptograficzną Admiralicji Room 40 - nazwa pochodzi od numeru pokoju w budynku Admiralicji. Podlegała pod Brytyjski Departament Wywiadu Marynarki Wojennej. Był to ich największy sukces zabezpieczający panowanie na morzu.
+
+W wywiadzie armii MI1 (Military Intelligence, Section 1) kryptologią zajmowały się dwa oddziały:
 
 - MI1b: nasłuch i kryptoanaliza
 - MI1d: bezpieczeństwo łączności
 
-Przedstawiona powyżej praca Room 40 była wielkim sukcesem.
+Jeden z pracowników Room 40 komandor porucznik Alastair Denniston został pierwszym szefem powstałej w listopadzie 1919 Governement Code and Cypher School (GC&CS). Powstała ona z połączenia NID25 i armijnej MI1b.
 
-Jeden z jego pracowników komandor porucznik Alastair Denniston został pierwszym szefem powstałej w listopadzie 1919 Governement Code and Cypher School (GC&CS). Powstała ona z połączenia NID25 i armijnej MI1b.
-
-Playfair (czasem nazywany też szyfrem Playfaira, lub Wheatstone'a) wymyślony przez sir Charlesa Wheatstone'a w 1854 i spopularyzowany przez barona Lyona Playfaira. Szyfruje się dwuznaki, czyli parę znaków zamienia się na inną parę znaków zgodnie z opracowanym wcześniej wzorcem. W przypadku alfabetu angielskiego zamiast 26 liter mamy 600 dwuznaków, co nadal jest podatne na analizę statystyczną, ale dużo trudniejsze.
+Do własnej łączności używali szyfru Playfair (czasem nazywany też szyfrem Playfaira, lub Wheatstone'a). Była to wymyślony przez sir Charlesa Wheatstone'a w 1854 i spopularyzowana przez barona Lyona Playfaira metoda będąca rozwinięciem szyfru podstawieniowego. Szyfruje się dwuznaki. Tekst dzieli się na pary znaków, które zamienia się na inną parę znaków zgodnie z opracowanym wcześniej wzorcem. W przypadku alfabetu angielskiego zamiast 26 liter mamy 600 dwuznaków, co nadal jest podatne na analizę statystyczną, ale dużo trudniejsze.
 
 #### USA
 
-1914 porucznik US Army Joseph O. Maubourgne opisał metodę ataku na szyfr Playfaira. Była to pierwsza publikacja w armii amerykańskiej o kryptologii. Później został US Chief Signals Officer and a Major General.
+Historia amerykańskiej kryptologii podczas Wielkiej Wojny zaczyna się w 1795, kiedy to Thomas Jefferson wymyślił dysk szyfrujący (tzw. Dysk Jeffersona, ang. Wheel Cypher) proste urządzenie składające się z 26 krążków z losowo umieszczonymi literami. Być może na nim wzorował się francuski kryptolog Étienne Bazeries i prawdopodobnie jego urządzenie z 1890 było inspiracją dla urządzeń jakie w 1912 przedstawili dwaj oficerowie amerykańscy:
+
+- pułkownik Parker Hitt: tablet z przesuwanymi paskami
+- major Joseph O. Mauborgne: krążki z literami, forma cylindra; podczas Wielkiej Wojny stosowane było przez wojskowych attachés; w 1922 decyzją Williama Friedmana, głównego kryptologa Signal Corps, wprowadzono do użytku w amerykańskich siłach zbrojnych. Liczba krążków. Używano go do roku 1942 w wojskach lądowych jako M-94, a w marynarce wojennej jako CSP-488. Został zastąpiony przez elektromechaniczne maszyny rotorowe np M-209.
+
+W 1914 już jako porucznik Maubourgne opisał metodę ataku na szyfr Playfaira. Była to pierwsza publikacja kryptologiczna w armii amerykańskiej. Później już w stopniu generała został szefem Signal Corps (US Chief Signals Officer).
 
 6 kwietnia 1917 USA wypowiedziały wojnę Niemcom.
 
-W 1912 pułkownik Parker Hitt i major Joseph Mauborgne skonstruowali proste mechaniczne urządzenia szyfrujące - military attachés w WWI. Urządzenie Mauborgne'a składało się z krążków z literami, miało formę cylindra. Hitt skonstruował tablet z przesuwanymi paskami.
-W 1890 (1891) takie urządzenie zostało skonstruowane przez francuskiego kryptologa Étienne Bazeriesa
-W 1922 decyzją Williama Friedmana, głównego kryptologa Signal Corps, wprowadzono do użytku w amerykańskich siłach zbrojnych. Liczba krążków. Używano go do roku 1942 w wojskach lądowych jako M-94, a w marynarce wojennej jako CSP-488. Został zastąpiony przez elektromechaniczne maszyny rotorowe np M-209.
-Dysk Jeffersona 1795 (Wheel Cypher) urządzenie szyfrujące składające się z 26 krążków, wokół których w losowy sposób rozłożone są litery alfabetu. Nie osiągnęło wtedy zbyt dużej popularności.
+1917 Gilbert S. Vernam z Bell Telephone Laboratories przedstawił projekt dalekopisu szyfrowego (teleprinter cipher, one-time tape teletype). Uprzednio przygotowany generowany losowo klucz na taśmie papierowej służy do szyfrowania tekstu jawnego przez alternatywę rozłączną (XOR). Proces szyfrowania był w pełni automatyczny, wolny od błędów i błyskawiczny. W 1919 US Patent #1,310,719 "Secret Signaling System" - pierwszy patent na dalekopis. Skuteczność OTP została potwierdzona w artykule Claude'a Shannona w Bell Labs Technical Journal w 1949.
 
-1917 Gilbert S. Vernam z Bell Telephone Laboratories przedstawił projekt dalekopisu szyfrowego (teleprinter cipher, one-time tape teletype). Uprzednio przygotowany przypadkowy klucz na taśmie papierowej służy do szyfrowania tekstu jawnego przez alternatywę rozłączną (XOR). Proces szyfrowania był w pełni automatyczny, wolny od błędów i błyskawiczny. US Patent #1,310,719 w 1919 "Secret Signaling System" - pierwszy patent na dalekopis. Skuteczność OTP w artykule Claude'a Shannona w Bell Labs Technical Journal w 1949. Doprowadziło to do rozwinięcia elektromechanicznych urządzeń szyfrujących oraz OTP (one time pad).
+Skutkiem było zainteresowanie i rozwój elektromechanicznych urządzeń szyfrujących oraz OTP (one time pad).
 
-1917 Herbert Yardley urzędnik Departamentu Stanu po wybuchu wojny stanął na czele sekcji kryptograficznej Military Intelligence Section (MI-8) i uczestniczył w American Expeditionary Force w Signals Corps jako oficer kryptologiczny we Francji. Później został szefem powstałego w 1919 Cipher Bureau, z inicjatywy State Department i US Army.
+1917 Herbert Yardley urzędnik Departamentu Stanu po wybuchu wojny stanął na czele sekcji kryptograficznej Military Intelligence Section (MI-8) i uczestniczył w American Expeditionary Force w Signals Corps jako oficer kryptologiczny we Francji. Później został szefem powstałego w 1919 Cipher Bureau, z inicjatywy Departmentu Stanu i US Army.
 
-Kryptografią zajmował się również Riverbank Laboratory, gdzie pracowali Elizebeth Friedman, William F. Friedman i Agnes Meyer Driscoll worked. Prywatne przedsiębiorstwo pułkownika George Fabyana.
+Kryptografią zajmował się również Riverbank Laboratory, gdzie pracowali Elizebeth Friedman, William F. Friedman i Agnes Meyer Driscoll. Prywatne przedsiębiorstwo pułkownika George Fabyana.
 
-US Navy używała kodu A-1. Oddział kryptograficzny US Navy OP-20-G powstał w 1922.
-
-Edward Hebern, Hebern Rotor Machine. Freedman przeprowadził krytyczna aanalizę tego urządzenia, dlatego armia nie go nie kupiła. Hebern nigdy nie został powiadomiony o przyczynie i wyprodukował ich tylko ok 100.
-
-William F. Freedman skonstruował SIGABA, nieregularny ruch walców, użyta WWII i nie złamana.
+US Navy używała kodu A-1. Oddział kryptograficzny US Navy OP-20-G powstał dopiero w 1922.
 
 W niewielkim zakresie używano języków indiańskich. Na szerszą skalę 400 żołnierzy Navajo WWII. Nie złamane, choć schwytali niebędącego szyfrantem Navajo.
 
 #### Rosja
 
-Armia rosyjska używała przekomnbinowanego szyfru Vigenère'a. Kryptoanalityk CK Austrii Hermann Pokorny złamał go w trzy dni.
+Armia rosyjska używała przekombinowanego szyfru Vigenère'a. Kryptoanalityk CK Austrii Hermann Pokorny złamał go w trzy dni.
 
-Najważniejszym rosyjskim specjalistą od szyfrów był Ernst Fetterlein od 1896 pracujący w MSZ. Udało mu się złamać szyfry brytyjskie i państw osi. Podczas wojny był głównym wojskowym kryptologiem w randze admirała. Po rewolucji z 1917 uciekł do Wielkiej Brytanii. W czerwcu 1918 zaczął pracę dla Room 40, gdzie zajmował się szyframi CK Austrii, sowietów i Gruzji.
+Najważniejszym rosyjskim specjalistą od szyfrów był Ernst Fetterlein pracujący od 1896 w MSZ. Udało mu się złamać szyfry brytyjskie i państw osi. Podczas wojny był głównym wojskowym kryptologiem w randze admirała. Po rewolucji z 1917 uciekł do Wielkiej Brytanii. W czerwcu 1918 zaczął pracę dla Room 40, gdzie zajmował się szyframi CK Austrii, sowietów i Gruzji.
 
 Klęska Armii Czerwonej w bitwie warszawskiej w 1920 w ogromnym stopniu wynikała z kompromitacji sowieckiej kryptologii i łączności.
+
+#### Francja
+
+Bureau de Chiffre
+
+Georges Painvin
+
+#### CK Austria
+
+Kriegsschiffregruppe: Andreas Figl
+
+Pokorny
 
 #### Polska
 
@@ -126,6 +213,10 @@ Latem 1931 nastąpiła reorganizacja i z połączenia Referatu Radiowywiadu i Re
 Okres międzywojenny został zdominowany elektromechanicznymi maszynami rotorowymi.
 
 Istniały trzy linie rozwojowe:
+
+- Hebern (USA)
+- Hahelin (Szwecja, Szwajcaria)
+- Scherbius (niemiecka Enigma)
 
 #### Hebern Rotor Machine
 
@@ -195,6 +286,11 @@ Typex - brytyjska Enigma
 Bletchley Park, Turing, Colossus
 
 #### USA
+
+
+Edward Hebern, Hebern Rotor Machine. Freedman przeprowadził krytyczna aanalizę tego urządzenia, dlatego armia nie go nie kupiła. Hebern nigdy nie został powiadomiony o przyczynie i wyprodukował ich tylko ok 100.
+
+William F. Freedman skonstruował SIGABA, nieregularny ruch walców, użyta WWII i nie złamana.
 
 William Friedman
 

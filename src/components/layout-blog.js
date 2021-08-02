@@ -32,6 +32,8 @@ flex-direction: column;
   & article h2 { font-family:Alegreya, sans-serif; font-size:2.5rem; color:#333; background-color: rgba(255,255,255,.9)}
   & article h2 span {font-size:3rem; color:#666; border-bottom:3px dotted #666;}
   & article h3 { font-family:Alegreya, sans-serif; border-bottom:1px solid #ddc; margin: 2rem 0; font-size:2rem; color:#444;}
+  & article img { box-shadow: 3px 3px 14px #666;}
+  & span + em {margin: 1rem; padding: 10px; display:block; border-bottom: 1px solid #aaa; color: #444;}
 
   & p > code, & li > code {border:1px solid rgba(200,200,200, .4); padding:2px 4px; white-space: nowrap;}
 

@@ -30,7 +30,7 @@ const IndexBlog = ({ data, location }) => {
   const path = location.pathname
   const { frontmatter } = data.allMdx.nodes[0];
   const { image } = frontmatter;
-
+  console.log(data.allMdx.nodes[0])
   return (<LayoutBlog path={path}>
     <SEO title={headerTitle} image={image.childImageSharp.gatsbyImageData.images.fallback.src} />
     <article>
