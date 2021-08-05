@@ -102,6 +102,8 @@ const TurystykaMenu = ({ subsection }) => {
             <li><Link to="/it" activeClassName="active">IT</Link></li>
             <li><Link to="/it/internet/internet-net" activeClassName="active">Sieć</Link></li>
             <li><Link to="/it/internet/internet-internet" activeClassName="active">TCP/IP</Link></li>
+            <li><Link to="/it/internet/internet-warstwy" activeClassName="active">Warstwy sieci</Link></li>
+            <li><Link to="/it/internet/internet-protokoly" activeClassName="active">Protokoły</Link></li>
             <li><Link to="/it/internet/internet-dns" activeClassName="active">DNS</Link></li>
             <li><Link to="/it/internet/internet-adresowanie" activeClassName="active">Adresowanie</Link></li>
             <li><Link to="/it/internet/internet-dodatki" activeClassName="active">Dodatki</Link></li>
@@ -118,6 +120,7 @@ const TurystykaMenu = ({ subsection }) => {
             <li><Link to="/it/historia/historiait-kryptologia" activeClassName="active">Historia kryptologii</Link></li>
             <li><Link to="/it/historia/historiait-komputery" activeClassName="active">Historia komputerów</Link></li>
             <li><Link to="/it/historia/historiait-internet" activeClassName="active">Historia Internetu</Link></li>
+            <li><Link to="/it/historia/historiait-aneks" activeClassName="active">Aneks</Link></li>
         </ul>)
     }
 

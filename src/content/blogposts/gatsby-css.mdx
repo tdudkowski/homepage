@@ -2,8 +2,9 @@
 title: "Gatsby cz. 3 - CSS"
 section: "blog"
 subsection: "it"
+set: gatsby
 date: 2021-07-26
-edited:
+edited: 2021-08-03
 image: ../images/Gatsby_Monogram.png
 tags: react, gatsby, css
 description: "Jak w Gatsbym zastosować CSS: global.css, CSS-in-JS, frameworki i biblioteki CSS, preprocesory, Font Awesome, Google Fonts, Bootstrap Icons."
@@ -39,7 +40,7 @@ Więcej o CSS-in-JS:
 - Chris Coyier [The Differing Perspectives on CSS-in-JS](https://css-tricks.com/the-differing-perspectives-on-css-in-js/)
 - [tuchk4 / awesome-css-in-js](https://github.com/tuchk4/awesome-css-in-js) Awesome CSS in JS
 - [polished](https://polished.js.org) A lightweight toolset for writing styles in JavaScript
-- [Harry Wolff "CSS in JS: My favorite" [YT 17:36]](https://www.youtube.com/watch?v=rKz6cLXhpwA)
+- Harry Wolff ["CSS in JS: My favorite" [YT 17:36]](https://www.youtube.com/watch?v=rKz6cLXhpwA)
 
 ### W tym wpisie
 
@@ -101,7 +102,7 @@ Style globalne tak samo jak plik layout.css mają zastosowanie tylko na stronach
 
 Podstawowym problemem, z którego wynika ich niekompatybilność z innymi rozwiązaniami, jest nieograniczone, trudne do powstrzymania przenikanie i nieprzewidywalność rezultatu.
 
-Natomiast można je to zastosować do plików resetu, czy normalizacji. Do sprawdzenia.
+Natomiast można je to zastosować do plików resetu, czy normalizacji. Kolejne style, czy to layoutu, czy Styled Components nadpisują je.
 
 - [Standard Styling with Global CSS Files](https://www.gatsbyjs.com/docs/how-to/styling/global-css/)
 
@@ -303,22 +304,21 @@ import Indicator from "../components/indicator"
 Tutaj tylko zarysowałem najważniejsze, najczęściej używane właściwości Styled Components. Podobnie jak w przypadku niżej wymienionych po więcej odsyłam do dokumentacji.
 
 - [styled-components](https://styled-components.com)
-- [Wojciech Snopkowski "Gatsby Navigation using Styled Components and useState hook"](https://snopkowski.com/blog/gatsby-navigation-styled-components)
+- Wojciech Snopkowski ["Gatsby Navigation using Styled Components and useState hook"](https://snopkowski.com/blog/gatsby-navigation-styled-components)
+- hello roman ["Styled components + Gatsby.js" [YT playlista 5 filmów]](https://www.youtube.com/playlist?list=PLKnxnWdLGM48DUzxZ1uSYBhgPNETsgWA_)
 - ScottSpence.com ["Globally Style the Gatsby Default Starter with styled-components v5"](https://scottspence.com/2020/02/06/globally-style-gatsby-styled-components/)
-- [Daniel Stout "Using styled-components in Gatsby"](https://www.digitalocean.com/community/tutorials/gatsbyjs-using-styled-components-in-gatsbyjs)
-- [hello roman "Styled components + Gatsby.js" [YT playlista 5 filmów]](https://www.youtube.com/playlist?list=PLKnxnWdLGM48DUzxZ1uSYBhgPNETsgWA_)
-- [Adrian Twarog "Styled Components" [YT playlist 3 filmy]](https://www.youtube.com/playlist?list=PLsprmdocuVe-tQy47UBnXjrZYu8QOCtnv)
-- [Hungry Turtle Code "What are Styled Components? - A Beginners Guide" [YT 20:10]](https://www.youtube.com/watch?v=JFE_UuHtHT4)
-- [Classsed "React Styled Components (Next Level CSS?)" [YT 18:27]](https://www.youtube.com/watch?v=3SpAg5tr7Ws)
-- [Academind "Why you should look into these React component styling options!" [YT 28:35]](https://www.youtube.com/watch?v=NMiEREulVLc)
-- [Ben Awad "React Styled Components Tutorial" [YT 13:27]](https://www.youtube.com/watch?v=syqw5UJrfoc)
-- [Better Coding Academy "Learn Styled Components In 15 Minutes! | React Tutorials" [YT 15:12]](https://www.youtube.com/watch?v=17AwVXg5lHk)
-- [Fidalgo "Styled Components Tutorial - Crash Course [2020]" YT 47:42]](https://www.youtube.com/watch?v=c5-Vex3ufFU)
-- [Wrong Akram "How To Code With Styled Components and React.js" [YT 24:25]](https://www.youtube.com/watch?v=TWODzlTeZUM)
-- [James Q Quick "Convert CSS in React To Styled Components" [YT 22:17]](https://www.youtube.com/watch?v=feYJ5D7VknE)
-- [Karl Hadwen "React Tutorial - Compound Components in React - Styled Components - React Tutorial 2020" [YT 23:48]](https://www.youtube.com/watch?v=nHMAMS38x-E)
-- [Adrian Twarog "Styled Components React Tutorial: CSS in JS! (React Styling with Javascript)" [YT 10:08]](https://www.youtube.com/watch?v=eQkkoUEVY-Q)
-- [ComScience Simplified "Styled Components with React | All you need to know" [YT 10:06]](https://www.youtube.com/watch?v=kClcUzAhz9g)
+- Academind ["Why you should look into these React component styling options!" [YT 28:35]](https://www.youtube.com/watch?v=NMiEREulVLc)
+- Ben Awad ["React Styled Components Tutorial" [YT 13:27]](https://www.youtube.com/watch?v=syqw5UJrfoc)
+- Daniel Stout ["Using styled-components in Gatsby"](https://www.digitalocean.com/community/tutorials/gatsbyjs-using-styled-components-in-gatsbyjs)
+- Adrian Twarog ["Styled Components" [YT playlist 3 filmy]](https://www.youtube.com/playlist?list=PLsprmdocuVe-tQy47UBnXjrZYu8QOCtnv)
+- Hungry Turtle Code ["What are Styled Components? - A Beginners Guide" [YT 20:10]](https://www.youtube.com/watch?v=JFE_UuHtHT4)
+- Classsed ["React Styled Components (Next Level CSS?)" [YT 18:27]](https://www.youtube.com/watch?v=3SpAg5tr7Ws)
+- Better Coding Academy ["Learn Styled Components In 15 Minutes! | React Tutorials" [YT 15:12]](https://www.youtube.com/watch?v=17AwVXg5lHk)
+- Fidalgo ["Styled Components Tutorial - Crash Course [2020]" [YT 47:42]](https://www.youtube.com/watch?v=c5-Vex3ufFU)
+- Wrong Akram ["How To Code With Styled Components and React.js" [YT 24:25]](https://www.youtube.com/watch?v=TWODzlTeZUM)
+- James Q Quick ["Convert CSS in React To Styled Components" [YT 22:17]](https://www.youtube.com/watch?v=feYJ5D7VknE)
+- Karl Hadwen ["React Tutorial - Compound Components in React - Styled Components - React Tutorial 2020" [YT 23:48]](https://www.youtube.com/watch?v=nHMAMS38x-E)
+- ComScience Simplified ["Styled Components with React | All you need to know" [YT 10:06]](https://www.youtube.com/watch?v=kClcUzAhz9g)
 
 ### Emotion
 

@@ -1,0 +1,264 @@
+---
+title: "Internet - Warstwy sieci"
+comment: ""
+section: "it"
+subsection: "internet"
+---
+
+### Modele
+
+#### Model OSI
+
+Na początku lat 80-tych ISO opracowała warstwowy model protokołów stanowiący wzorzec do konstrukcji wszelkich innych międzyplatformowych rozwiązań. Jest to model OSI (Open Systems Interconnect Reference Model - Model Referencyjny Połączonych Systemów Otwartych). Został opublikowany w celu ułatwienia realizacji otwartych (czyli występujących w środowiskach wielosystemowych) połączeń komputerowych. Wydzielił warstwy funkcjonalne wymagane do obsługi połączeń.
+Pozwala to na podzielenie całego problemu komunikacji na oddzielne części, tzw. warstwy.
+
+Tak naprawdę podczas sesji komunikacyjnej pracują nie poszczególne protokoły lecz ich stos (złożenie).
+
+W nawiasie kwadratowym numer warstwy.
+
+[7] warstwa aplikacji (ang. _application layer_)
+
+Protokoły bezpośrednio wykorzystywane przez aplikacje (np. HTTP, FTP).
+Stanowi interfejs pomiędzy aplikacjami użytkownika a usługami sieci.
+
+[6] warstwa prezentacji (ang. _presentation layer_)
+
+Protokoły przygotowujące i formatujące odpowiednio dane (np. do wydruku).
+Dane z niższych warstw są przekształcane tak aby mogły być odebrane przez aplikację użytkownika, np konwersja między różnymi formatami liczb używanych przez serwer i klienta.
+Nie wszystkie stosy protokołów wyodrębniają tą warstwę, czasem traktowana jest jako pozostałość z epoki terminalowej. Jest odpowiedzialna za wygląd, a ściśle rzecz biorąc kodowanie wszelkich danych, także szyfrowanie i rozszyfrowanie.
+W większości przypadków warstwa prezentacji i sesji są połączone w jedną całość.
+
+[5] warstwa sesji (ang. _session layer_)
+
+Koordynacja wymienianych informacji za pomocą technik konwersacyjnych.
+Podobnie jak poprzednia pochodzi ze starszych rozwiązań komunikacyjnych. Zarządzanie połączeniami pomiędzy aplikacjami (gniazda - ang. _sockets_). Na tym poziomie nabiera znaczenia rodzaj przesyłanych informacji, kończy się czysta wymiana bitów. Pozwala zrealizować usługi w rodzaju pobierania z serwera zawartości katalogu dyskowego.
+Rzadko wydzielana ponieważ wiele protokołów funkcje tej warstwy dołącza do swoich warstw transportowych.
+
+[4] warstwa transportowa (ang. _transport layer_)
+
+Odpowiada na żądania usługi od warstwy sesji wysyła żądania do warstwy sieci. Zapewnia przezroczyste przesyłanie danych pomiędzy hostami, oraz zwolnienie wyższych warstw od zajmowania się wiarygodnym i efektywnym przesyłaniem danych. Przesyła wiadomości kanałem stworzonym przez warstwę sieciową. Zajmuje się bezpieczeństwem i pewnością wymiany danych.
+Odpowiada za to, żeby dane dotarły bez zniekształceń do odbiorcy. Zamienia mało wiarygodne bardzo podstawowe usługi sieciowe zapewniane przez warstwę sieciową w wiarygodną komunikację. Zapewnia poprawność komunikacji, integralność przesyłanych danych. Kontrola kompletności przekazywania informacji, właściwego uporządkowania pakietów, jest także odpowiedzialne za korektę błędów i kontrolę przepływu.
+Wszystkie warstwy leżące poniżej pomijają bezpieczeństwo skupiając się na szybkości.
+Funkcja podobna do warstwy łącza danych, ale w odróżnieniu od niej umożliwia również ich weryfikację poza lokalnym segmentem sieci LAN, potrafi np. wykrywać pakiety, które zostały odrzucone przez ruter i żądać ich ponownej transmisji. Ważną funkcją jest układanie nadchodzących danych w kolejności wysyłania, identyfikacja oryginalnej sekwencji pakietów przed wysłaniem ich do warstwy sesji.
+Istnieje wiele usług warstwy transportowej, ale najczęsciej używane są:
+
+- TCP - bardziej skomplikowany, zapewniający połączenie i zorientowany na bajty strumień, z kontrolą błędów, kierowaniem przepływem i dostarczeniem pakietów we właściwej kolejności
+- UDP - bardzo prosta datagramowa usługa, która zapewnia kontrolę błędów w ograniczonym stopniu
+
+Niektóre rzeczy takie jak orientacja na połączenie mogą zostać zaimplementowane albo na poziomie warstwy transportowej albo (co jest łatwiejsze) warstwy sieci.
+
+[3] warstwa sieciowa/sieci (ang. _network layer_)
+
+Ustalenie drogi jaką będą przesyłane dane.
+Dostarczenie pakietu pod wskazany adres, niezależnie od stopnia złożoności sieci. Odnajdywanie optymalnej trasy transmisji pomiędzy urządzeniem nadającym a odbierającym (ruting), w zależności od danych warunków (kontrola przepływu), przy czym dla kolejnych pakietów tej samej wiadomości drogi do celu mogą być różne.
+Zamienia ciąg bitów w kanał komunikacyjny, dba o to by informacje przepływały między odpowiednimi komputerami. Dane wymieniane są w postaci pakietów, ale nie jest sprawdzana ich zawartość, brak mechanizmów korekcji błędów.
+Odpowiada za żądania usług od warstwy transportowej i wydaje żądania do warstwy danych. Adresuje wiadomości i tłumaczy nazwy na adresy fizyczne, także określa drogę z żródła do miejsca przeznaczenia i reguluje ruch używając przełączników, ruterów i kontroli zagęszczenia pakietów danych.
+Zapewnia funkcjonalne i proceduralne środki przesyłu różnych długości sekwencji danych ze źródła do przeznaczenia przez jedną lub więcej sieci, utrzymując jakość usług żądaną przez warstwę transportową.
+Jeśli nie można skontaktować się z miejscem na poziomie tej warstwy to w ogóle nie można się z tym miejscem skontaktować.
+Protokoły dynamicznego trasowania pakietów (RIP czy OSPF) oraz ICMP kontrolują komunikację i informują o osiągalności hosta docelowego
+
+[2] warstwa łącza danych (ang. _link layer_)
+
+Protokoły definiujące zasady komunikacji pomiędzy połączonymi łączem fizycznym urządzeniami (protokoły warstwy wyższej nie wymagają istnienia bezpośredniego połączenia). Dane pakowane są w bloki zwane ramkami (PPP).
+Steruje fizyczną wymianą bitów; w większości przypadków połączona z warstwą fizyczną w jedną całość tworząc kartę sieciową.
+Odpowiedzialna za upakowanie instrukcji, danych w tzw. ramki zwierające informacje wystarczające do pomyślnego przesłania danych do ich miejsca przeznaczenia. Zbiera także bity danych przesłanych przez warstwę fizyczną i składa je ARP zapewniający odwzorowanie adresu logicznego warstwy internetu na adres sprzętowy karty sieciowej, co jest konieczne dla nawiązania komunikacji na obu tych warstwach
+Wykrycie oraz usuwanie błędów jakie mogły się pojawić w warstwie fizycznej.
+
+[1] warstwa fizyczna (ang. _physical layer_)
+
+Warstwa określająca specyfikacje techniczne łączących się urządzeń (np. parametry elektryczne, rodzaje złącz, parametry czasowe, itp.), zwane inaczej interfejsami fizycznymi (interfejsem jest np. RS 232, definiujący standardowy port szeregowy, do którego podłączony jest modem).
+Fizyczna transmisja danych bez kontroli ruchu i bez uwzględnienia rodzaju informacji, ciągłość transmisji nie jest zabezpieczona.
+Przesyłanie i odbieranie strumieni bitów. Nie rozróżnia wysyłanych sygnałów, "widzi" tylko zera i jedynki, jest zajęta tylko fizycznymi właściwościami elektrycznych, optycznych lub innych technik przenoszenia sygnałów.
+Fizyczne parametry urządzeń transmisyjnych, np. standard okablowania
+
+Tak wygląda odniesienie rzeczywistej komunikacji TCP/IP do modelu OSI (za Aeleen Frisch "UNIX - Administracja systemu").
+
+```
+                OSI                 TCP/IP
+                -------------------------------------------------------------------------
+                Warstwa aplikacji                | Warstwa aplikacji
+                określa jak aplikacje łączą się   |obsługuje wszystko inne. Usługi sieci
+                z siecią i zapewnia odpowiednie   |TCP/IP (zazwyczaj implementowane
+                usługi    |jako demony) muszą wykonać swoje
+                ----------------------------------|z warstwy prezentacji modelu
+                Warstwa prezentacji               |OSI i częściowo z warstwy sesji
+                określa sposób przedstawienia     |
+                danych aplikacji                  |Wiele protokołów, w tym NFS, DNS,
+                ----------------------------------|FTP, Telnet, SSH, HTTP itd.
+                Warstwa sesji                     |
+                tworzy połączenia sieciowe,       |--------------------------------------
+                zarządza nimi i je kończy         | Warstwa transportowa
+                |zarządza wszystkimi aspektami
+                ----------------------------------|dostarczania danych, w tym
+                Warstwa transportowa              |inicjowaniem sesji, kontrolą błędów
+                zapewnia kontrolę błędów          |i kolejności
+                i kolejności danych               |
+                przekazywanych siecią             |Protokoły TCP i UDP
+                |--------------------------------------
+                ----------------------------------| Warstwa internetowa
+                Warstwa sieciowa                  |odpowiada za adresowanie, transmisję
+                odpowiada za adresowanie          |i rutowanie danych oraz fragmentację
+                danych, rutowanie i sterowanie    |pakietów i ich ponowne składanie
+                przepływem|
+                |Protokoły IP i ICMP
+                -------------------------------------------------------------------------
+                Warstwa łącza danych              | Warstwa dostępu do sieci
+                definiuje metody dostępu          |określa procedury przekazywania
+                do nośnika fizycznego przez       |danych siecią, w tym sposoby
+                karty sieciowe i związane         |dostępu do nośnika fizycznego
+                z nimi sterowniki urządzeń        |
+                ----------------------------------|Protokoły Ethernetu i ARP
+                Warstwa fizyczna                  |(chociaż aktualnie nie
+                Określa parametry działania       |jest zaliczany do TCP/IP
+                nośnika fizycznego                |
+                -------------------------------------------------------------------------
+```
+
+#### Model DoD
+
+Model DoD (skrót DoD pochodzi od angielskiego Department of Defense, czyli Departament Obrony USA) to teoretyczny model warstwowej struktury protokołów komunikacyjnych. Model DoD został stworzony w latach 70-tych XX wieku w DARPA, aby pomóc w tworzeniu odpornych na atak sieci komputerowych. Potem stał się on podstawą struktury internetu.
+
+Podstawowym założeniem Modelu DoD jest podział całego zagadnienia komunikacji sieciowej na szereg współpracujących ze sobą warstw (ang. _layers_). Każda z nich może być tworzona przez programistów zupełnie niezależnie, jeżeli tylko ustali się zasady według, których wymieniają się one informacjami. Założenia Modelu DoD są pod względem organizacji warstw zbliżone do Modelu OSI. Jednak ilość warstw jest mniejsza i bardziej odzwierciedla prawdziwą strukturę Internetu. Model DoD składa się z czterech warstw:
+
+##### Warstwa aplikacji (ang. _process layer_)
+
+Najwyższy poziom, w którym pracują aplikacje użytkownika takie jak, np. serwer WWW czy przeglądarka internetowa. Obejmuje ona zestaw gotowych protokołów, które aplikacje wykorzystują do przesyłania różnego typu informacji w sieci.
+
+##### Warstwa transportowa (ang. _host-to-host layer_)
+
+Zapewnia pewność przesyłania danych oraz kieruje właściwe informacje do odpowiednich aplikacji. Opiera się to na wykorzystaniu portów określonych dla każdego połączenia. W jednym komputerze może istnieć wiele aplikacji wymieniających dane z tym samym komputerem w sieci i nie nastąpi wymieszanie się przesyłanych przez nie danych. To właśnie ta warstwa nawiązuje i zrywa połączenia między komputerami oraz zapewnia pewność transmisji.
+
+##### Warstwa sieciowa (ang. _internet protocol layer_)
+
+Warstwa sieciowa lub warstwa protokołu internetowego to podstawa działania internetu. W tej warstwie przetwarzanie są pakiety posiadające adresy IP. Ustalana jest odpowiednia droga do docelowego komputera w sieci. Niektóre urządzenia sieciowe posiadają tą warstwę jako najwyższą. Są to routery, które zajmują się kierowaniem ruchu w Internecie, bo znają topologię sieci. Proces odnajdywania przez rutery właściwej drogi określa się jako ruting (ang. _routing_).
+
+##### Warstwa dostępu do sieci (ang. _network access layer_)
+
+Warstwa dostępu do sieci lub warstwa fizyczna jest najniższą warstwą i to ona zajmuje się przekazywaniem danych przez fizyczne połączenia między urządzeniami sieciowymi. Najczęściej są to karty sieciowe lub modemy. Dodatkowo warstwa ta jest czasami wyposażona w protokoły do dynamicznego określania adresów IP.
+
+Model DoD a Internet:
+Każdy protokół sieciowy można przyporządkować do określonej warstwy Modelu DoD. Pewną szczególną cechą rodziny protokołów TCP/IP używanej w internecie jest podział protokołów z warstwy aplikacyjnej i połączeniowej. Niektóre protokoły z warstwy aplikacji wykorzystują tylko pewne protokoły z warstwy transportowej.
+Protokoły DNS, NTP wykorzystują tylko protokół UDP z warstwy transportowej. Protokoły FTP, SMTP, POP3, SSH, IRC posługują się tylko TCP. Natomiast ED2k czy SMB używają obu protokołów.
+Protokół SSL ma szczególną rolę. Może zostać umieszczony pomiędzy każdym połączeniowym protokołem warstwy aplikacji, a TCP. Dzięki jego wykorzystaniu dane przesyłane przez aplikacje mogą zostać zaszyfrowane.
+Niektóre protokoły z warstwy aplikacji, jak np. SMB nie działają zwykle w Internecie. Są wykorzystane w sieciach lokalnych do udostępniania usług, jak np. zdalne drukarki czy dyski.
+Od ogólnego modelu DoD są w Internecie wyjątki. Przykładem może być tutaj usługa Ping, w której aplikacja wysyła bezpośrednio pakiety ICMP w celu ustalenia jakości połączenia z innym komputerem.
+
+#### Zestaw protokołów internetowych (ang. _Internet protocol suite_)
+
+Jeszcze innym sposobem opisu jest tzw. zestaw protokołów internetowych
+
+##### Warstwa aplikacji (ang. _application layer_)
+
+Jest to warstwa sieciowych interfejsów programów działających w sieci; procesy w tej warstwie są specyficzne dla danej aplikacji, dane idą od programów sieciowych w ich wewnętrznym formacie i są kodowane w standard protokołu.
+W tej warstwie działają pewne specyficzne programy: HTTP (The World Wide Web), FTP (File transport), SMTP (Email), SSH (Secure remote login), DNS (Name &lt;-&gt; IP Address lookups) i inne (np. IRC, SNMP, SIP, RTP).
+Kiedy są już zakodowane w standard protokołu idą dalej w dół.
+W warstwie transportowej aplikacje najczęściej używają TCP lub UDP, najcześciej zwiazane z dobrze znanymi numerami portów, pierwotnie alokowane przez IANA - niektóre z nich:
+
+- HTTP - TCP port 80 lub 8080
+- SSH - TCP port 22
+- Telnet - TCP port 23
+- DNS lookups - UDP (a czasem TCP) port 53
+- RIP routing updates - UDP port 520
+
+Inne: DHCP (Kind-of), Echo, Finger, Gopher, HTTP, HTTPS, IMAP, IMAPS, IRC, NNTP, NTP, POP3, POPS, QOTD, RTSP, SNMP, Telnet, XDMCP.
+
+##### Warstwa transportowa (ang. _transport layer_)
+
+TCP, UDP, ICMP, SCTP, DCCP itd.
+Protokoły na poziomie transportowym są odpowiedzialne za niezawodność dotarcia pakietów do celu i zapewnienie, że dotrą tam we właściwym porządku. W zestawie protokołół TCP/IP warstwa transportowa określa również, dla jakiej aplikacji przeznaczone są dane.
+Protokoły dynamicznego rutingu, które technicznie występują w tej warstwie w zestawie TCP/IP (ponieważ idą przez IP) są generalnie uważane, za przynależne do warstwy sieci (przykładem jest OSPF - protokół IP numer 89).
+TCP (protokół IP numer 6) jest zorientowanym na połączenie mechanizmem transportowym zapewniającym wiarygodny ciąg bajtów, zapewniającym, że dane dotrą kompletne, nie zniekształcone i we właściwym porządku. TCP nieustannie sprawdza jak bardzo obciążona jest sieć i zapełnia ją dostosowując prędkość wysyłania danych tak by nie przeciążyć sieci. Ponadto TCP usiłuje dostarczyc dane we właściwym porządku. Są to główne różnice w porównaniu z UDP i może stanowić wadę np. w streamingu czasu rzeczywistego.
+UDP (protokół IP numer 17) jest bezpołączeniowym protokołem datagramu. Jest to protokół "najlepszych starań" lub "niewiarygodny" ponieważ nie przeprowadza weryfikacji czy pakiety osiągnęły miejsce przeznaczenia i nie daje żadnej gwarancji, że dotrą we właściwym porządku. Jeśli aplikacja potrzebuje takich mechanizmów musi sama ich dostarczyć lub użyć TCP. UDP jest zwykle używany dla takich aplikacji jak media strumieniowe (audio i wideo) kiedy przyjście na czas jest ważniejsze niż wiarygodność, lub dla prostych pytanie/odpowiedź aplikacji jak DNS lookups, gdzie koszt ustanowienia wiarygodnego połączenia byłby nieproporcjonalnie duży.
+Oba protokoły - TCP i UDP są używane by transportować dane aplikacje wysokiego poziomu, są rozróżniane według swojego numeru portu TCP lub UDP. Zazwyczaj pewne dobrze znane porty (ang. _well known ports_) są powiązane z pewnymi określonymi usługami.
+
+##### Warstwa sieci (ang. _network layer_)
+
+IPv4, IPv6, ARP itd.
+Tak jak to pierwotnie zdefiniowano warstwa sieciowa rozwiązuje problem przesyłania pakietów przez sieć. Przykładami takiego protokołu są X.25 i ARPANET-owy Host/IMP Protocol
+Kiedy pojawiła się koncepcja międzysieci (_internetworking_) została dodana dodatkowa funkcja - przesłanie danych z sieci źródłowej do sieci docelowej. Ogólnie rzecz biorąc włącza to rutowanie pakietów poprzez sieć sieci znaną jako internet.
+W zestawie protokołów internetowych IP spełnia zadanie przesyłania pakietów ze źródła do miejsca przeznaczenia. IP może przenosić dane dla pewnej liczby protokołów wyższego rzędu, są one zidentyfikowane przez unikalny _IP Protocol Number_. Np. ICMP i IGMP są odpowiednio protokołami 1 i 2.
+Niektóre protokoły przenoszone przez IP takie jak ICMP (używany do transmitowania danych diagnostycznych) i IGMP (używany do danych typu multicast) są umieszczone nad IP, ale wykonują zadania warstwy sieci, co ilustruje niezgodność pomiędzy modelem internetowym a modelem OSI.
+Wszystkie protokoły rutingu takie jak BGP, OSFP i RIP są również częścią warstwy sieci, chociaż mogłoby się wydawać, że są w stosie umieszczone wyżej.
+
+##### Warstwa łącza danych (ang. _data link layer_)
+
+Ethernet, Wi-Fi, Token ring, FDDI itd.
+Określa jak pakiety są transportowane w warstwie fizycznej, włączając w to dzielenie na ramki (tzn. specjalny wzór bitów, który oznacza początek i koniec pakietu). Ethernet np. włącza pola w nagłówek pakietu, które określają dla której/których maszyny/maszyn jest przeznaczony pakiet. Przykładami protokołów warstwy łącza danych są Ethernet, Wireless Ethernet, SLIP, Token Ring i ATM.
+PPP jest bardziej złożony ponieważ był początkowo zaprojektowany jako oddzielny protokół który działa nad innymi protokołami tej warstwy, HDLC/SDLC.
+Czasem jest dzielona na Logical Link Control oraz Media Access Control.
+
+##### Warstwa fizyczna (ang. _physical layer_)
+
+RS 232, Rs 449, itd.
+Opisuje fizyczną charakterystykę komunikacji, taką jak charakterystykę medium użytego do komunikacji (kable, światłowód lub łącza radiowe) i wszystkie inne powiązane szczegóły łącza.
+Zestaw protokołów internetowych nie dotyczy fizycznej warstwy żadnej sieci.
+
+Zestaw protokołów internetowych jest zbiorem protokołów komunikacyjnych, składających się na stos protokołów, umożliwiającą działalność internetu. Ponieważ dwa najważniejsze z nich to TCP i IP czasem jest nazywany złożeniem protokołów TCP/IP.
+Może być opisany przez analogię z modelem OSI, który opisuje warstwy stosu protokołów. Są pomiędzy nimi różnice. W stosie protokołów każda warstwa rozwiązuje pewien zestaw problemów, włączajac w to transmisję danych, oraz zapewnienie dobrze zdefiniowanych usług dla wyższych warstw, które są logicznie bliżej użytkownika i przetwarzają bardziej abstrakcyjne dane, na niższe warstwy przekładając przetworzenie danych w postać, która może być fizycznie przetwarzana.
+Model internetowy został powstał jako rozwiązanie praktycznych problemów inżynieryjnych. Z drugiej strony model OSI jest podejściem bardziej teoretycznym i powstał na wcześniejszym etapie ewolucji sieci, więc model OSI łatwiej zrozumieć, ale tak naprawdę model internetowy wszedł w życie.
+
+### Praktycznie
+
+Warstwy w stosie TCP/IP
+Model OSI nie jest dość bogaty w dolnych warstwach by uchwycić prawdziwe warstwy, potrzebna byłaby dodatkowa warstwa pomiędzy warstwą sieci a transportową (warstwa internetowa).
+Następujące warstwy istnieją w oryginalnym modelu OSI:
+
+- 7 - Aplikacji (_Application_) np. HTTP, SMTP, SNMP, FTP, Telnet, SSH i Scp, NFS, RTSP
+- 6 - Prezentacji (_Presentation_) np. XDR, ASN.1, SMB, AFP
+- 5 - Sesji (_Session_) np. TLS, SSH, ISO 8327 / CCITT X.225, RPC, NetBIOS, ASP
+- 4 - Transportowa (_Transport_) np. TCP, UDP, RTP, SCTP, SPX, ATP
+- 3 - Sieci (_Network_) np. IP, ICMP, IGMP, X.25, CLNP, ARP, RARP, BGP, OSPF, RIP, IPX, DDP
+- 2 - Łącza danych (_Data Link_) np. Ethernet, Token ring, PPP, HDLC, Frame relay, ISDN, ATM, 802.11 WiFi, FDDI
+- 1 - Fizyczna (_Physical_) np. elektryczność, radio, laser
+
+Najcześciej górne trzy warstwy tego modelu (aplikacji, prezentacji i sesji) są traktowane jako pojedyncza warstwa aplikacji w modelu TCP/IP. Ponieważ nie ma tam warstwy sesji funkcje te przejmują indywidualnie aplikacje, lub w ogóle nie są realizowane.
+Uproszczony model TCP/IP:
+
+- Aplikacji (_Application "layer 7"_) - np. HTTP, FTP, DNS (protokoły rutingu takie jak BGP i RIP, które z różnych powodów działają na odpowiednio TCP i UDP mogą być również uważane za część warstwy sieci)
+- 4 - Transportowa (_Transport_) np. TCP, UDP, RTP, SCTP (protokoły rutingu takie jak OSPF, które biegną na IP mogą być również uważane za warstwę sieci)
+- 3 - Sieci (_Network_) - dla TCP/IP jest to IP (wymagane protokoły takie jak ICMP and IGMP biegną na IP, ale nadal mogą być rozważane jako warstwa sieciowa; ARP nie biegnie na IP)
+- 2 - Łącza danych (_Data Link_) np. Ethernet, Token ring, etc.
+- 1 - Fizyczna (_Physical_) np. warstwa fizyczna i techniki kodowania, T1, E1
+
+W skrócie wygląda to tak: dane z aplikacji przekazywane są od warstwy aplikacji w dół do warstwy fizycznej, transmitowane do punktu docelowego, gdzie dokonywana jest czynność odwrotna: dane wędrują w górę od warstwy fizycznej do warstwy aplikacji.
+
+Transmisję danych można podzielić na dwa rodzaje:
+
+- połączeniowe - dane sa wysyłane po zestawieniu kanału komunikacyjnego
+- bezpołączeniowe - dane są po prostu wysyłane na adres, a sama trasa czy kolejność wysyłania poszczególnych pakietów nie ma znaczenia
+
+Komunikacja połączeniowa może być symulowana w kanale bezpołączeniowym poprzez wymianę pakietów danych i potwierdzeń ich odbioru. Możliwa jest też sytuacja odwrotna.
+
+W komunikacji sieciowej wszystkie dane dzielone są na fragmenty o pewnej, możliwej do jednorazowego przesłania długości nazwane ogólnie pakietami. Każdy protokół posiada własny rodzaj pakietu, np. dla IP nazywa się on datagramem, dla TCP segmentem, a na poziomie warstwy łącza danych ramką.
+
+Struktura pakietu zawsze jest podobna: na początku znajduje się nagłówek zawierający różne specyficzne dla danego protokołu informacje (w tym również polecenia), a następnie blok danych, których treść nie jest dla protokołu istotna, traktuje on je wyłącznie jako ciąg danych do przesłania.
+
+Dane po kolei przechodzą do protokołów niższych warstw, które uzupełniają otrzymany pakiet własnym nagłówkiem, przekazują go niżej, aż do warstwy fizycznej, a po dotarciu do celu zaczyna się odwrotny proces. W każdej warstwie następuje "rozebranie" pakietu o jeden stopień, tak aby odczytać dane przesłane przez odpowiednią warstwę po drugiej stronie. A mogą być one najróżniejsze - np. numer kolejny bieżącego pakietu, potwierdzenie otrzymania kolejnego pakietu, informacja o błędzie, informacja o chęci zakończenia połączenia, kontroli parzystości, itp.
+Każda warstwa świadczy pewne usługi w określonym zakresie wobec warstw wyższych, np. warstwa sieciowa, w której działa protokół IP, odpowiada za dostarczenie pakietu pod wskazany adres, niezależnie od złożoności struktury sieciowej, przez którą musi być przesłany (dlatego stał się taki popularny). Nie zawiera jednak żadnych mechanizmów, pozwalających na weryfikację poprawności, czy kontrolę kompletności otrzymanych danych. Tym zajmuje się funkcjonujący szczebel wyżej - czyli w warstwie transportowej - protokół TCP. Czyli IP tylko przesyła dane na właściwy adres, a TCP sprawdza czy dotarły nienaruszone.
+
+Na samej górze mamy do czynienia z blokami danych na których operują aplikacje użytkownika, są to pliki w jakimś określonym formacie i bezpośrednio nimi zajmują się protokoły warstwy aplikacji.
+Warstwa transportowa dzieli te pliki na własne jednostki nazwane pakietami, które zawierają nagłówek zawierający m.in. adres portu docelowego i portu źródłowego oraz porcję informacji do wysłania.
+
+TCP zajmuje się ustanawianiem i kończeniem połączeń między procesami, dba o niezawodność transmisji, odpowiednią kolejność danych. TCP gwarantuje poprawność transmisji, musi sprawdzać czy wszystkie wysyłane pakiety dotarły do adresata, a po odebraniu porcji informacji wysyła potwierdzenie do nadawcy. W przypadku braku potwierdzenia odbioru protokół żąda ponownego wysłania aż do chwili nadejścia potwierdzenia. Ten mechanizm zapewnia ciągłość danych, ale obniża wydajność całego systemu.
+UDP natomiast jest znacznie uboższy, nie realizuje kontroli przepływu, ale jest szybki i nieskomplikowany. Używany w aplikacjach, które same dbają o poprawność transmisji. Posiada tylko dwie właściwości, których nie posiada IP: numer portu oraz nieobowiązkowa suma kontrolna.
+
+Z kolei warstwa sieciowa leżąca poniżej warstwy transportowej, w ogóle nie zajmuje się portami, jedyne co ma tutaj znaczenie to adres sieciowy docelowego i źródłowego komputera. Protokołem działającym w tej warstwie jest IP, który pakuje każdy pakiet TCP lub UDP w inny pakiet (datagram IP) zawierający adresy źródłowy i docelowy IP. Jest bezpołączeniowy co oznacza, że każdy z datagramów jest traktowany niezależnie, a wszelkimi połączeniami pomiędzy kolejnymi paczkami informacji zajmują się wyższe warstwy. Oblicza sumy kontrolne dla pakietów i w przypadku wykrycia błędów nie przesyła go dalej - oczekuje się, że protokół wyższego poziomu ponowi wysłanie.
+
+Adres często określony jest w postaci przyjaznej dla człowieka (domena internetowa) ale zupełnie niezrozumiałej dla komputera, za translację pomiędzy tymi rodzajami adresów odpowiada rozproszona baza danych - DNS - zawierająca informacje jakiemu dokładnie adresowi IP odpowiada dana domena.
+
+Po trafieniu do interfejsu sieciowego docelowego komputera zaczyna się odwrotna droga. Dane są "odpakowywane".
+
+### Podsumowanie
+
+1. host wysyła zapytanie do znanego sobie serwera DNS (konfiguracja w parametrach protokołu TCP/IP)
+2. zapytanie wędruje przez hierarchię NDS i wraca jako adres IP
+3. host sprawdzi za pomocą maski podsieci, że adres należy do innego segmentu więc wysyła pakiet na adres rutera (również konfiguracja w parametrach protokołu TCP/IP)
+4. pakiet zostanie zapakowany do ramek, zgodnych z istniejącym w danej sieci standardem kart sieciowych i okablowania, ustalenie adresu MAC rutera następuje w wyniku protokołu ARP lub korzystając z tabeli odwzorowań w jego pamięci podręcznej
+5. ruter po odebraniu ramek ponownie składa pakiet i stwierdza, że nie należy on do żadnej przyłączonej do niego sieci i wysyła do następnego rutera
+6. podział na ramki odpowiednie dla sieci drugiego rutera i wysłanie na jego adres MAC
+7. drugi ruter składa z ramek pakiet IP i kiedy stwierdzi, że adres należy do jego sieci, przy pomocy ARP pyta o adres MAC danego IP (jeśli nie ma go we własnej tablicy odwzorowań)
+8. pakiet po podziale na ramki idzie do odbiorcy
+
+Dane nie są zamykane w jednym pakiecie, ale są w pakiecie, który jest w innym pakiecie itd., średnio używa się 4 takich warstw, są jak koperta włożone jedna w drugą, jest to tzw "kapsułkowanie" (ang. _encapsulation_).
+Jest to niezbędne, bo trasa przesyłania jest skomplikowana, a na każdym etapie nie powinno się zawierać w danych pakietu więcej informacji niż jest niezbędne. Trasa prowadzi przez różne sieci, różne systemy, koperta zawiera tylko te informacje, które są potrzebne w sieci bieżącej.
+Ruter zdejmuje warstwę pakietu i nakłada drugą zawierającą informację na temat podróży do kolejnej sieci bez potwierdzenia powodzenia transmisji - bezpołączeniowe.

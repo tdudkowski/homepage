@@ -2,7 +2,8 @@
 title: "Gatsby cz. 7 - blog MDX cz. 1"
 section: "blog"
 subsection: "it"
-date: 2021-07-31
+set: gatsby
+date: 2021-08-02
 edited:
 image: ../images/Gatsby_Monogram.png
 tags: react, gatsby
@@ -397,7 +398,7 @@ W przedstawionym w pierwszym wpisie schemacie strony do wygenerowania ścieżek 
 - /src/pages/{Mdx.frontmatter\__section}/{Mdx.frontmatter__subsection}/index.js
 - /src/pages/{Mdx.frontmatter\__section}/{Mdx.frontmatter__subsection}/{mdx.slug}.js
 
-Jak widać do utworzenia dowolnej strony z sekcjami, podsekcjami mogącej zawierać dowolną liczbę dokumentów wystarczą dwa katalogi i pięć plików. 
+Jak widać do utworzenia dowolnej strony z sekcjami, podsekcjami mogącej zawierać dowolną liczbę dokumentów wystarczą dwa katalogi i pięć plików. A całą treść, która pojawi się na tej stronie trzymamy w jednym katalogu, w dogodnych do edycji, przejrzystych plikach .mdx. I nie ma bazy danych. Aktualizacji pluginów na stronie, itd.
 
 Do tego, używając sterowanego propsami wyświetlnia komponentów, można dowolnie wybierać dla nich wg parametrów section i subsection oraz location: layout, design i wyświetlane elementy stron, np. przypisane dla danej kategorii menu. 
 

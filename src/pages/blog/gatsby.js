@@ -22,6 +22,8 @@ const GatsbyBlog = ({ data, location }) => {
 
             <p>Wszystkie przedstawione tu rozwiązania sprawdziłem, nie jest to copypaste dokumentacji. Jednak żadnej gwarancji nie mogę udzielić, bo na pewno wkradło się tu trochę błędów. Będę wdzięczny za wskazanie ich i wszystkie tak szybko jak to będzie możliwe poprawię. Kontakt przez formularz kontaktowy lub <a href="https://www.facebook.com/dygresje.info/">facebooka dygresje.info</a>.</p>
 
+            <p>Innym rodzajem będu, który mogłem tu popełnić jest uznanie czegoś za zbyt oczywiste i pominięcie tego w opisie. Tutaj też proszę o zwrócenie uwagi.</p>
+
             <h3>Dotychczasowe wpisy</h3>
 
             <ul>
@@ -67,7 +69,7 @@ export default GatsbyBlog
 export const query = graphql`
         query AllGatsbyBlogPosts {
             allMdx(
-                filter: {fileAbsolutePath: {glob: "**/src/content/blogposts/*.mdx" }, frontmatter : {tags : {ne: "sth" } } }
+                filter: {fileAbsolutePath: {glob: "**/src/content/blogposts/*.mdx" }, frontmatter : {set : {eq: "gatsby" } } }
         sort: {order: ASC, fields: frontmatter___date }
         ) {
             nodes {
