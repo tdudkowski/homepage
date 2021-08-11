@@ -16,9 +16,12 @@ const GatsbyBlog = ({ data, location }) => {
 
             <p>Bloga rozpoczynam serią wpisów o <a href="https://www.gatsbyjs.com/">Gatsbym</a>, popularnym i coraz popularniejszym frameworku Reacta.</p>
 
-            <p>Zainteresowanym Gatsbym polecam darmowy kurs Przeprogramowanych: <a href="https://przeprogramowani.pl/darmowy-kurs-gatsby">Gatsby - krok po kroku, od zera do gotowej aplikacji</a>, jest to seria, w tej chwili siedmiu artykułów, na pewno wartych przeczytania. Lektura obowiązkowa.</p>
+            <p>Zainteresowanym Gatsbym polecam:</p>
 
-            <p>Zapraszam również do lektury artykułu na tej stronie: <Link to="/it/js/gatsby">GatsbyJS</Link>, choć prawdę mówiąc po wykasowaniu / przeniesieniu zdublowanej treści niewiele tam już pozostało.</p>
+            <ul>
+                <li>darmowy kurs Przeprogramowanych: <a href="https://przeprogramowani.pl/darmowy-kurs-gatsby">Gatsby - krok po kroku, od zera do gotowej aplikacji</a>, jest to seria, w tej chwili siedmiu artykułów, na pewno wartych przeczytania. Lektura obowiązkowa.</li>
+                <li>artykuł na mojej stronie: <Link to="/it/js/gatsby">GatsbyJS</Link>, choć prawdę mówiąc po wykasowaniu / przeniesieniu zdublowanej treści niewiele tam już pozostało.</li>
+            </ul>
 
             <p>Wszystkie przedstawione tu rozwiązania sprawdziłem, nie jest to copypaste dokumentacji. Jednak żadnej gwarancji nie mogę udzielić, bo na pewno wkradło się tu trochę błędów. Będę wdzięczny za wskazanie ich i wszystkie tak szybko jak to będzie możliwe poprawię. Kontakt przez formularz kontaktowy lub <a href="https://www.facebook.com/dygresje.info/">facebooka dygresje.info</a>.</p>
 

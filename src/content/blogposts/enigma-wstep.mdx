@@ -1,0 +1,218 @@
+---
+title: "Enigma cz. 1 - wstęp"
+section: "blog"
+subsection: "historia"
+set: enigma
+date: 2021-08-11
+edited:
+image: ../images/Enigma-logo.jpg
+tags: enigma, kryptologia, wwii
+description: "Wstęp. Wyjaśnienie pojęć kryptologicznych. Łączność: telegraf, dalekopis, radio, teleks... i gołębie pocztowe"
+---
+
+Stały adres serii wpisów o Enigmie - [/blog/enigma](/blog/enigma)
+
+### Intro
+
+Kryptologia jest dziedziną nauki, która ściśle bazuje na technologii, tzn. jej rozwój zależny jest od potrzeb i możliwości użytkownika.
+
+Kryptologia wojenna to ochrona własnej łączności i wywiad na obszarze łączności nieprzyjaciela. Dlatego od łączności trzeba zacząć. Tylko wtedy zrozumiemy, dlaczego stosowano takie, a nie inne techniki i dlaczego na początku Wielkiej Wojny kryptologia była tak zapóźniona.
+
+Potem, w kolejnych wpisach, opiszę na przykładzie każdego kraju istotnego dla przebiegu wojny i rozwoju kryptologii. To będzie kontekst powstania, rozwoju i złamania Enigmy rozdzielony na cztery części, zaś o samej historii Enigmy i tym jaki wpływ wywarła na kryptologię w osobnym wpisie.
+
+W tym wpisie przedstawię:
+
+- najważniejsze pojęcia używane w kolejnych wpisach
+- zmiany w metodach i narzędziach łączności, jakie zaszły od połowy XIX wieku
+- dlaczego tak wielki postęp techniki nie przerodził się w postęp krytpologii.
+
+### Podstawowe pojęcia
+
+Zanim zaczniemy kwestię łączności, trzeba wyjaśnić pewne podstawowe pojęcia, które często będą się pojawiać w kolejnych wpisach. Nie będę wchodził głęboko w temat, wystarczy że zrozumiesz ogólną ideę.
+
+#### Kryptosystem
+
+Cały, kompletny zestaw utajnionej komunikacji. Zawiera nie tylko sam system szyfrowy / kodowy, ale również procedury łączności, rutyny (regulamin), ściśle określony sposób modyfikacji zarówno klucza jak metod łączności, a także samego kryptosystemu, uwierzytelnienie, sprzęt, metody zachowania tajemnicy i dopuszczenia do tajemnicy.
+
+#### Szyfr a kod, książka kodowa
+
+Najbardziej ogólne pojęcia związane z kryptologią, które często są mylone i używane niewłaściwie to kod i szyfr. Pomijając znaczenie słowa kodowanie w telekomunikacji, kod jest to zmiana słów tekstu jawnego na słowa kodu, szyfr natomiast rozbija wiadomość na znaki i przekształca serię znaków tekstu jawnego w znaki szyfru.
+
+W skrócie: kod operuje na słowach i frazach, zamienia konkretne słowa lub całe frazy tekstu jawnego w ściśle określone słowo, lub znak kodu. Żeby być kompletną metodą łączności, musi zawierać wszystkie potrzebne do komunikacji pojęcia, a z rozwojem techniki wojskowej jest ich coraz więcej. Książki kodowe są obszerne, trudne w zastosowaniu, muszą składać się z kodera i dekodera, a kiedy wpadną w ręce nieprzyjaciela, cała nasza komunikacja jest na jego stole sztabowym. Wielka wojna zakończyła historię ksiąg kodowych i kodowania w kryptologii wojskowej.
+
+#### Szyfr
+
+Szyfr inaczej mówiąc jest:
+
+- albo znormalizowaną procedurą ukrycia treści operująca na znakach lub grupach znaków, jest to zasadnicza część kryptosystemu
+- albo zaszyfrowaną wiadomością, zaszyfrowanym tekstem jawnym
+
+Istnieje wiele sposobów klasyfikacji szyfrów, ale tutaj najbardziej przydatny i często w tekście używany będzie podział szyfrów na:
+
+- monoalfabetyczne - jeden wzór przekształcenia na całą wiadomość, jeden znak tekstu jawnego, to jeden znak szyfrogramu, pojedynczy alfabet przekształcenia
+- polialfabetyczne - dla kolejnych znaków lub kolumn, lub sekcji tekstu jawnego stosuje się odmienne wzorce przekształceń, daje on większe bezpieczeństwo, ale również ma obecnie znaczenie tylko historyczne
+
+##### Szyfr podstawieniowy
+
+Poszczególne znaki tekstu jawnego są zamieniane na konkretne znaki szyfrogramu wg wzoru zawartego w tablicy podstawieniowej. Najprostszym wzorem przekształcenia wiadomości alfabetycznej jest zamiana każdej litery na następną literę w alfabecie: A staje się B, B zamienia się w C itd. Jest to tzw. szyfr Cezara, czyli przesunięcie o stałą wartość wszystkich liter alfabetu. W najpopularniejszej wersji ROT13 - jego popularność bierze się z tego, że przy 26 znakowym alfabecie ASCII jest odwracalny.
+
+##### Szyfr przestawieniowy
+
+Tutaj znaki tekstu jawnego umieszczamy w dwuwymiarowej strukturze tabeli z ustaloną liczbą kolumn, czasem hasło określa szerokość kolumny.
+
+Potem według wzoru przestawienia zamieniamy ich miejsca. Najczęściej stosowany łącznie z jakąś metodą przestawienia.
+
+##### Szyfr Playfaira
+
+Wersja szyfru podstawieniowego polegająca na tym, że cały tekst jawny dzielony jest na pary liter (dwuznaki) i te pary są poddawane podstawieniom. Tak więc szyfruje się dwuznaki, w przypadku alfabetu angielskiego zamiast 26 znaków mamy 600 dwuznaków, co znacznie utrudnia analizę statystyczną.
+
+Nazwa bierze się od propagatora tego systemu barona Lyona Playfaira. Rzeczywistym wynalazcą w 1854 był sir Charles Wheatstone.
+
+##### Szyfr Vigenère'a
+
+Szyfr polialfabetyczny używający klucza. Kolejne litery klucza wyznaczają alfabet przekształcenia dla odpowiadających im literom tekstu jawnego. Jeżeli klucz jest krótszy od wiadomości (a zwykle tak jest) to jest powtarzany.
+
+Bardzo długo uważany za odporny na atak. Jeszcze w 1917 potwierdzał to Scientific American, ale już w 1863 rozwiązanie podał pruski kryptograf wojskowy Friedrich Wilhelm Kasiski "Die Geheimschriften und die Dechiffrir-Kunst", choć trzeba przyznać, że długo nie zostało to dostrzeżone.
+
+Nazwa bierze się od Blaise de Vigenère, ale rzeczywistym wynalazcą był Leon Battista Alberti w 1467.
+
+Miał zastosowanie w mechanicznych urządzeniach szyfrowych - dyskach Vigenère'a.
+
+#### Dysk Jeffersona
+
+Skonstruowany w 1795 przez Thomasa Jeffersona (prezydent USA 1801-09). Proste urządzenie mechaniczne składające się z pierścieni na walcu, na jednym z tych pierścieni były litery w porządku alfabetycznym, na pozostałych w losowym porządku oddającym wzór przekształcenia. Po angielsku Wheel Cypher.
+
+#### Tablica Polibiusza
+
+Jest to forma szyfru podstawieniowego. Najlepszą analogią jest zwykła szachownica. Wyobraźmy sobie, że zamiast pól czarnych i białych mamy pola z losowo, chaotycznie rozmieszczonymi znakami alfabetu, liczbami itp. Jeden znak na każde pole. Teraz znajdujemy literę z tekstu jawnego na tej szachownicy i przekazujemy ją w formie koordynatów szachowych. I tak litera po literze.
+
+Żeby ten system działał, odbiorca musi dysponować taką samą tablicą przekształceń, a ponieważ po pewnej liczbie wiadomości można już ją odtworzyć, te tabele muszą być systematycznie zmieniane; co kilka dni, albo najlepiej codziennie.
+
+#### Analiza statystyczna
+
+Podstawowe narzędzie ataku na szyfry klasyczne. Szuka się elementów odpowiadających literom tekstu jawnego i potem wg częstotliwości występowania ich w alfabecie identyfikuje się na początku najczęściej występujące frazy (np. w języku angielskim będą to "the", "are" itp.), a potem drogą eliminacji i dedukcji resztę treści.
+
+#### Klucz
+
+W kryptologii jest to dodatkowy i niezbędny element szyfru, bez którego nie mamy możliwości odszyfrowania szyfrogramu. W dobrze skonstruowanym kryptosystemie wszystko, łącznie z algorytmem szyfru i szyfrogramem może być znane atakującemu, a tajemnica jest zachowana, o ile nie ma klucza.
+
+Żeby dorzucić kamyczek do tej stery pomieszania pojęć - klucz stosowany jako hasło jest czasem określany "tajnym kodem" niezbędnym do odczytania zaszyfrowanej wiadomości. Nie róbcie tego. Klucz to hasło.
+
+### Łączność
+
+Do XIX wieku kryptologia nie odgrywała w skali państwa czy całej armii wielkiej roli. Cała łączność odbywała się na zapleczu pomiędzy pierwszą linią a sztabem, więc szansa na przechwycenie posłańca, czy sekretnego listu nie była wielka. Szyfrowaną łączność stosowano w komunikacji z jednostkami zamorskimi i placówkami dyplomatycznymi. Kryptologia była domeną dyplomacji, handlu i kultury popularnej (gazetowe quizy i szarady).
+
+Sytuację tę zmieniły dwa dziewiętnastowieczne wynalazki: telegraf i radio.
+
+#### Telegraf
+
+Telegraf w znanej nam formie, tzn. telegraf elektryczny używający taśmy dziurkowanej i alfabetu Morse'a wszedł do powszechnego użytku w latach 50 XIX wieku. Linie telegraficzne zwykle były rozciągane wzdłuż linii kolejowych, które w tym czasie były również nowym wynalazkiem - największe inwestycje kolejowe przypadają na lata 40 i 50 XIX wieku. Telegraf i kolej w zupełnie nowy sposób łączyły kolejne miasta i kraje. To był futurystyczny teleport tamtej epoki, który gruntownie odmienił świat.
+
+Od razu dostrzeżono militarne znaczenie tych wynalazków. Dla armii pruskiej fundamentalne znaczenie miała misja wojskowa wysłana do USA w celu obserwowania przebiegu wojny secesyjnej (1861-65). Koleją błyskawicznie można było wprowadzić w pobliże frontu świeże oddziały, w zaskakujący sposób dokonać koncentracji oraz szybko i tanio dostarczyć środki prowadzenia walki. Telegraf zapewniał błyskawiczny i niezawodny obieg meldunków i rozkazów.
+
+W Prusach, które w tym czasie zmierzały do integracji całych Niemiec pod swoim przywództwem, kolej i telegraf rozumiano nie tylko jako metodę unifikacji, ale również kluczowy element obronności - ze względu na położenie Niemiec jako centralnego państwa kontynentalnego. Podczas wojen Bismarcka o zjednoczenie Niemiec (1864-71) używanie telegrafu i kolei było już rutynową praktyką armii. W sztabie armii cesarskiej było mocne stronnictwo kolejowe. Jak to ujął von Moltke w 1872 na posiedzeniu Komisji Obrony Krajowej:
+>Rozwój kolei jest szczególnie korzystny dla armii, a kilka milionów na nowe linie daje wiele więcej dla obronności kraju niż na nasze nowe fortece
+
+Nie tylko polityka państwa, ale i potrzeby wojska były główną przyczyną kosztownego procesu upaństwowienia kolei niemieckich rozpoczętego po zjednoczeniu i ukończonego w 1885.
+
+W drugiej połowie XIX wieku Brytyjczycy opletli cały świat kontrolowaną przez siebie siecią podwodnych kabli telegraficznych ("All Red Line").
+
+Znaczenie dla kryptologii podsumował David Kahn, pisząc, iż to telegraf stworzył nowoczesną kryptologię.
+
+#### Radio
+
+W latach 90. XIX pojawiło się radio. Technika radiowa jest dużo trudniejsza do opanowania, ale już w 1901 udaje się radiowo przesyłać telegramy przez Atlantyk. Już w 1897 brytyjska Admiralicja rozpoczęła własne eksperymenty i w 1899 podczas ćwiczeń na Kanale uzyskała zasięg 125 km. To potwierdziło teoretyczne dotąd przypuszczenia, że bieg fal radiowych nie jest ograniczony krzywizną Ziemi. Podobne eksperymenty jeszcze w XIX wieku prowadziły marynarki francuska i włoska. Amerykanie też byli zainteresowani, ale czekali na dalsze postępy techniki. Eksperymentalnie zainstalowali radio na pancerniku USS Massachusetts (BB-2) i krążowniku pancernym USS New York (ACR-2).
+
+Początkowo radiem przesyłano wiadomości telegraficznie, używając alfabetu Morse'a. Dlatego radio nazywano "telegrafem bez drutu" (fr. Télégraphie sans fil aka TSF, niem. drahtlose Telegrafie, eng. wireless telegraphy aka radiotelegraphy), dopiero po Wielkiej Wojnie upowszechniło się radio cywilne we współczesnym tego słowa znaczeniu, nadające wiadomości głosowe i muzykę.
+
+Pierwszym konfliktem lądowym, w którym zastosowano radio, była druga wojna burska (1899-1902), ale tam pogoda i wzgórza uniemożliwiły skuteczne zastosowanie nowej dla piechoty techniki, więc sprzęt przekazano marynarce.
+
+W ciągu kilku lat radio stało się na morzu standardem. Już w 1909 wszystkie 90 niemieckich okrętów były wyposażone w łączność radiową. W 1912 admirał Sir John Fisher określił radio "podstawowym narzędziem wojny" ("the pith and marrow of war!").
+
+W pierwszej dekadzie XX wieku Niemcy dla uniezależnienia się od kontrolowanego przez Brytyjczyków kabla wprowadzili na zależnych od siebie terenach kolonialnych nadajniki radiowe. Stały się strategicznym celem ataku podczas wojny.
+
+- Niemiecka Afryka Południowo-Zachodnia (niem. Deutsch-Südwestafrika, DSWA) nadajniki zaatakowane już na początku 1915
+- Afryka Wschodnia, brytyjska stacja w Mombasie wykryła niemiecką aktywność radiową w rejonie Jeziora Wiktorii
+- Azja Wschodnia, Qingdao w Chinach
+- Pacyfik:
+- Nauru (Mikronezja)
+- Nowa Brytania, we wrześniu 1914 wojska australijskie zaatakowały niemiecką stację (bitwa o Bita Paka), której przejęcie było ważne dla zdobycia całej niemieckiej Nowej Gwinei
+- W październiku 1914 Brytyjczycy zaatakowali wyspy Yap (Karoliny)
+
+#### Dalekopis
+
+Pierwsze elektryczne telegrafy Morse'a były urządzeniami działającymi w trybie online, tzn. nadawca i odbiorca musieli być jednocześnie na końcach sieci i komunikacja odbywała się w czasie rzeczywistym. Asystent Morse'a Alfred Vail stworzył podstawy techniczne tego systemu: skonstruował klucz telegraficzny, brzęczyk i urządzenie zapisujące sygnały kodu Morse'a na taśmie papierowej. Tak wyglądała pierwsza komercyjna aplikacja telegrafu.
+
+Pierwszym krajem używającym tej techniki były USA: w 1844 telegraf połączył NY z Baltimore, a do 1861 połączono Wschodnie Wybrzeże z Zachodnim.
+
+Niemiecki dziennikarz i entuzjasta nowej techniki Friedrich Clemens Gerke dokonał rewizji kodu Morse'a na potrzeby innych języków i w 1848 opublikował swoją propozycję, która wkrótce potem została przyjęta jako tzw. wersja międzynarodowa kodu Morse'a. Już w 1851 na konferencji w Wiedniu Deutsch-Österreichischer Postverein przyjęła ją jako standard w komunikacji międzynarodowej. W maju 1865 w Paryżu zbierają się delegacje 20 krajów na pierwszej międzynarodowej konferencji komunikacyjnej, powstaje International Telecommunication Union, a międzynarodowa wersja staje się światowym standardem.
+
+Amerykański wynalazca Royal Earl House w 1846 skonstruował urządzenie komunikacyjne zupełnie nowej generacji - pierwszy telegraf drukujący. Używając tych samych linii telegraficznych, mógł przesyłać nie tylko serię bitów (tym właśnie są sygnały Morse'a), ale zakodowane znaki alfabetu. Nadawca miał do dyspozycji klawiaturę, a odbiorca dostawał tekst wybity na taśmie papierowej. Jeżeli urządzenie działało poprawnie, osiągał prędkość 40 słów na minutę. Rzecz w tym, że było zbyt duże, zbyt skomplikowane i trudne w obsłudze. W 1849 udoskonalił je i w tej wersji od 1850 było używane w USA na Wschodnim Wybrzeżu. Wciąż zbyt zawodne, rzeczywista prędkość spadała czasem poniżej prędkości zwykłego telegrafu.
+
+David Edward Hughes amerykański muzyk i wynalazca w 1855 opatentował kolejny telegraf drukujący, tym razem było to urządzenie, któremu można było zaufać. Szybkość transmisji osiągnęła 180 znaków na minutę i zadowalającą niezawodność. Ponieważ system Hughesa został przyjęty przez amerykańskiego monopolistę komunikacyjnego de facto, czyli Western Union Telegraph Company zdominował Amerykę i zwrócił uwagę na możliwości nowego medium.
+
+Telegraf Hughesa był pierwszym znanym na świecie dalekopisem (ang. teleprinter aka teletypewriter aka teletype aka TTY, niem. Fernschreiber aka Fernschreibmaschine aka Fernschreibapparat, fr. téléscripteur aka téléimprimeur aka télétype aka TTY).
+
+Jean-Maurice-Émile Baudot francuski inżynier i wynalazca dokonał standaryzacji sygnału dalekopisowego. Od 1869 był telegrafistą francuskiej poczty i tam w trakcie czteromiesięcznego kursu zapoznał się z systemem Hughesa. Po zakończeniu służby wojskowej w 1872 został zachęcony przez pracodawcę do opracowania podobnego systemu (oczywiście w czasie wolnym). Baudot wprowadził multipleksing z podziałem czasu (ang. time division multiplexing, TDM), które w jego implementacji pozwalało jednocześnie na tej samej linii przesyłać do pięciu wiadomości. Każda z wiadomości jest dzielona na części i najpierw są wysyłane kolejno pierwsze części wszystkich wiadomości, potem drugie itd. aż do samego końca. Z punktu widzenia użytkownika wszystko dzieje się w tym samym czasie.
+
+Zaraz po zapoznaniu się z systemem Hughesa już w 1870 zaczął pracować nad własnym systemem kodowym i opatentował go w 1874. Kod Baudot został przyjęty przez wszystkie organizacje telekomunikacyjne jako International Telegraph Alphabet No. 1 (ITA1). Od jego nazwiska pochodzi nazwa jednostki prędkości przesyłania zmian medium transmisyjnego, określa on, ile razy sygnał może zmienić się w ciągu sekundy - Bod (ang. Baud).
+
+Na przełomie wieków zaczęto wysyłać sygnał telegraficzny i dalekopisowy radiem.
+
+Dotychczasowe dalekopisy z klawiaturą używały uproszczonej klawiatury pianina. Było to rozwiązanie łatwo dostępne i wielu ludzi umiało grać na pianinach. W 1867 Christopher Latham Sholes skonstruował pierwszą użyteczną maszynę do pisania i od 1974 producent broni Remington zaczyna seryjną, masową produkcję jego maszyny. Nota bene jest to częste połączenie, przypomnijmy choćby radomskiego Łucznika.
+
+W 1901 Donald Murray zmodyfikował go, dostosowując do klawiatury znanej z maszyny do pisania. Dodał też możliwość zapisania wiadomości przed wysłaniem, oddzielając proces pisania od wysyłania. System Murraya został przyjęty przez Western Union i w 1924 CCIT (International Telegraph and Telephone Consultative Committee, od 1993 ITU-T, czyli International Telecommunication Union – Telecommunication Standardization Sector) przyjął jako kolejny międzynarodowy standard komunikacyjny International Telegraph Alphabet No. 2 (ITA2).
+
+W 1876 Alexander Graham Bell opatentował bezpośrednie połączenie głosowe - telefon. Już dwa lata później działa pierwsza centrala telefoniczna. W latach 90. XIX pojawiają się pierwsze automatyczne centrale telefoniczne (ang. telephone exchange aka telephone switch aka central office) i połączenia międzynarodowe. Sieć telefoniczna - public switched telephone network (PSTN). Telefon jest usługą abonencką, użytkownik musi być podpięty do sieci usługodawcy i ma swój unikalny numer, końcówkę, adres na którym można się z nim połączyć.
+
+#### Teleks
+
+Dotychczasowy telegraf czy dalekopis dostarcza wiadomość do urzędu pocztowego, tam paski z wydrukowaną wiadomością są naklejane na druczek i białkowym komponentem systemu pieszo lub rowerem dostarczane w fizycznej postaci pod adres pocztowy odbiorcy. To powoduje opóźnienie i może być przyczyną niedyskrecji. A co jeżeli byśmy połączyli wyłączność komunikacji znaną z telefonu - czyli unikalny adres odbiorcy i możliwości dalekopisu, a więc wiarygodną, uwierzytelnioną transmisję tekstów?
+
+Tym właśnie jest teleks, telex (**TEL**egraph **EX**change Service) abonencka sieć komunikacyjna dalekopisowa, w poważnie zmodyfikowanej postaci znana od lat 70. do dziś jako fax (telefax). W skrócie: telex to tekst, telefaks to przesyłanie obrazu. Terminal, końcówka teleksu to dalekopis.
+
+Pierwsza usługa teleksowa była oferowana w 1910 w USA. Szybko pojawiły się kolejne. Dopiero po Wielkiej Wojnie, w szalonych latach 20. dalekopisy stają się powszechną metodą komunikacji. Oczywiście ze względu na koszty i brak potrzeby takiej komunikacji ze strony indywidualnego odbiorcy usługi dalekopisowe używane były tylko w biznesie, wojsku i dyplomacji. Biznes oznacza tu zarówno przemysł, handel jak i media. W Polsce teleks istniał do 2007.
+
+Najważniejszym europejskim producentem dalekopisów był Siemens & Halske, firma niemiecka założona w 1847 w Kreuzbergu (od 1920 Berlin-Kreuzberg), od 1966 część Siemens AG.
+
+To właśnie te urządzenia będą obecne w części dotyczącej WWII.
+
+Końcówka dalekopisowa była podpięta do sieci publicznej lub prywatnej (w wyłącznym posiadaniu danej instytucji, np. urzędy państwowe, wojsko). Jeżeli urządzenie działało tylko w trybie online, musiało najpierw wybrać numer odbiorcy i po ustanowieniu połączenia można było transmitować wiadomość.
+
+Tryb offline oznaczał, że wiadomość można było zapisać po stronie nadawcy i transmisji dokonać, kiedy to było dogodne, albo po prostu kiedy było to możliwe.
+
+Znak wbity w klawiaturze przekazywany był do kodera, który sprowadzał go do postaci bitowej. Potem modulator generował sygnał sieci teleksowej. ITA2 tak samo jak ITA1 przekazywała znaki w formie 5-bitowej.
+
+Nieoczekiwanym i ostatnim epizodem w karierze dalekopisów były mainframowe komputery używane do lat 70. Z braku innych metod jako końcówki / interfejsu użytkownika używano specjalnie dostosowanych dalekopisów. Wprowadzano polecenia przygotowane w trybie offline i odczytywano wyniki z taśmy perforowanej. Ponieważ trzeba było oszczędzać taśmę, komputery te były tak zaprogramowane, że jeżeli polecenie zakończy się bez błędu i bez drukowanego rezultatu to nic nie mamy na wydruku, terminal milczy. To jest źródło uniksowej (obecnej w Linuksie) tradycji, że niedrukujące polecenia zakończone pomyślnie nic nie zwracają.
+
+Standardy teleksowe wciąż są używane przez radioamatorów. Ci surferzy eteru są ostatnimi telegrafistami.
+
+#### Gołębie pocztowe
+
+Nikt się nie spodziewał gołębi pocztowych? Do łączności, w tym także wojskowej, używane były od starożytności. Bardzo ważnym rozdziałem w historii tej łączności jest oblężenie Paryża w 1870-71. Były wtedy jedyną łącznością ze światem, i to używaną w nowoczesny sposób. Do kompresji wiadomości użyto mikrofilmów. Dla zakłócenia wektora łączności Niemcy sprowadzili sokoły.
+
+Wprowadzenie łączności radiowej nie przerwało wojskowej kariery gołębi. Tylko podczas pierwszej bitwy nad Marną Francuzi ściągnęli 72 gołębniki wojskowe. Amerykanie we Francji używali 600 gołębi. Pierwszy amerykański lotniskowiec USS Langley (CV-1) zwodowany w 1922 był wyposażony w gołębnik.
+
+Armia niemiecka również sformalizowała użycie gołębi. Urząd Fortyfikacyjny w Spandau organizował 10-miesięczne kursy specjalistów gołębiarzy. Wrocławska forteczna stacja gołębi pocztowych znajdowała się na Kępie Mieszczańskiej w Remizie Artyleryjskiej nr 2. Budynek ten rozebrano w 1935, obecnie jest to adres Mieszczańska 9. Gołębi pocztowych używano do łączności pomiędzy fortecami. Już w XXI wieku w Kostrzynie nad Odrą odnaleziono dwa szyfrogramy ÜBCHI wysłane z Wrocławia.
+
+Uczestniczyły w obu wojnach światowych. Dopiero w 1948 zlikwidowano Pigeon Section w brytyjskim Air Ministry (zajmowało się wyłącznie lotnictwem wojskowym). MI5 aż do 1950 prewencyjnie trzymało ptaki drapieżne jako środek do walki w nieprzyjacielskimi gołębiami.
+
+W oczywisty sposób wojskowe gołębie są ważnym w historii kryptologii medium transmisji zaszyfrowanych wiadomości.
+
+#### Kryptologia w 1914
+
+Podsumowując: telegraf jako kablowa metoda łączności znacznie przyspieszył komunikację, ale tylko ten, kto kontrolował przebieg kabla, mógł uznać cały kanał łączności za bezpieczny. Problematyczna była jak to dziś określamy strefa zdemilitaryzowana, czyli infrastruktura znajdująca się poza kontrolą: jednostki zamorskie czy placówki dyplomatyczne.
+
+Zupełnie inną sytuację stworzyło radio. Tu kanał łączności był otwarty na całej przestrzeni objętej zasięgiem nadajnika. Nieprzyjaciel słyszał wszystko. Wdrożenie łączności radiowej na morzu było kompletne i szybko postępowało w wojskach lądowych, które wciąż dysponowały telegrafem z oczywistych powodów preferowanym. W ciągu kilkunastu lat poprzedzających Wielką Wojnę sytuacja zmieniła się diametralnie. Rzecz w tym, że zmiana ta nastąpiła szybko i tuż przed Wielką Wojną. Kryptologia nie nadążyła za tą zmianą.
+
+W powszechnym użyciu były książki kodowe. Była to obszerna lista słów kodujących jakieś znaczenie. Każde słowo kodu oznaczało jakieś inne słowo lub frazę i było przeznaczone do wysłania tzw. tekstu kodowego. Odbiorca dysponujący taką samą książką kodową mógł odczytać wiadomość. Miały one same wady:
+
+- były trudne i czasochłonne w opracowaniu
+- wymagały bardzo starannego procesu druku i dystrybucji, każdy egzemplarz musiał być pilnowany i kontrolowany
+- w warunkach wojennych były trudne w użyciu
+- jeżeli choć jeden egzemplarz wpadł w ręce nieprzyjaciela, czy to w wyniku akcji wywiadowczej, czy podczas operacji wojennej tajemnica łączności przestała istnieć; co gorsza nie było sposobu, aby sprawdzić, czy utracone książki zostały zgodnie z procedurą zniszczone przed opuszczeniem, czy też zostały przejęte przez nieprzyjaciela
+- nawet jeżeli udało się ustalić, że nieprzyjaciel jest w posiadaniu książki kodowej, opracowanie i dystrybucja nowej zajmowała miesiące, co w warunkach wojennych było katastrofą
+
+Popularność książek kodowych wynikała z faktu, że ich alternatywa, czyli maszyny szyfrujące były niezwykle prymitywne. A były takie, ponieważ do czasu wdrożenia łączności radiowej nikt ich tak naprawdę nie potrzebował. I tak koło się zamykało. Dopiero katastrofa wojenna uświadomiła wszystkim, że po pierwsze książki kodowe są zawodne, a po drugie fakt, iż maszyny szyfrujące są prymitywne to okazja biznesowa, a nie nieprzezwyciężalna przeszkoda.
+
+- International Encyclopedia of the First World War (WW1) [Wireless Telegraphy](https://encyclopedia.1914-1918-online.net/article/wireless_telegraphy)

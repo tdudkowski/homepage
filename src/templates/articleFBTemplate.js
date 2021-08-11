@@ -4,7 +4,9 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Helmet } from 'react-helmet'
 import LayoutFB from "../components/layout-fb"
 import SEO from "../components/seo";
+import { MenuArmiaNiemiecka } from "../components/menu-armia-niemiecka.js"
 // import { useSiteMetadata } from "../hooks/useSiteMetadata";
+const shortcodes = { MenuArmiaNiemiecka }
 
 const articleFB = ({ data }) => {
   const { frontmatter, body, fields, excerpt } = data.mdx;
@@ -17,7 +19,7 @@ const articleFB = ({ data }) => {
       <p>Aktualizacja: {frontmatter.date}</p>
       <p><Link to="../../">Powrót do strony głównej Bloga</Link></p>
       <section className="article">
-        <MDXRenderer>{body}</MDXRenderer>
+        <MDXRenderer components={shortcodes}>{body}</MDXRenderer>
         <hr />
         <p><Link to="../../">Powrót do strony głównej Bloga</Link></p>
       </section>

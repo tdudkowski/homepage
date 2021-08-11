@@ -2,6 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import LayoutBlog from "../../components/layout-blog"
 import SEO from "../../components/seo"
+import backgroundImage from "../../content/images/Enigma-logo.jpg"
 
 const GatsbyBlog = ({ data, location }) => {
     const headerTitle = `dygresje.info / wpisy o Gatsbym`
@@ -10,13 +11,13 @@ const GatsbyBlog = ({ data, location }) => {
     const { image } = frontmatter;
 
     return (<LayoutBlog path={path}>
-        <SEO title={headerTitle} image={image.childImageSharp.gatsbyImageData.images.fallback.src} />
+        <SEO title={headerTitle} image={backgroundImage} />
         <article>
             <h3>Das ist Enigma</h3>
 
-            <p>Druga seria na blogu to cztery wpisy dotyczące hitlerowskiej maszynie szyfrującej Enigma.</p>
+            <p>Druga seria wpisów na blogu miała pierwotnie dotyczyć hitlerowskiej maszyny szyfrującej Enigma. Taki był plan. Pierwszym elementem tego planu był opis historii kryptologii w okresie do Wielkiej Wojny po koniec Drugiej Wojny Światowej. Kiedy w końcu w trochę lepszej, lub trochę gorszej formie ten punkt planu zrealizowałem - okazało się, że jest to tekst stanowczo zbyt długi, więc nikt tego nie będzie czytał. Dlatego podzieliłem go na cztery części: wstęp, WWI, międzywojnie, WWII. W rezultacie główny temat serii - Enigma - nieco zeszła z pierwszego planu. Nic to jednak nie szkodzi. Tytuł serii jest dość uniwersalny i pasuje do kryptologii zawsze, niezależnie od tego ile jest Enigmy w Enigmie. A Enigmy będzie tu wystarczająca ilość.</p>
 
-            <p></p>
+            <p>Zainteresowanych kryptologią zapraszam do lektury artykułu na tej stronie: <Link to="/it/kryptologia">Kryptologia praktycznie</Link></p>
 
             <h3>Dotychczasowe wpisy</h3>
 
@@ -33,6 +34,9 @@ const GatsbyBlog = ({ data, location }) => {
             <p>Plan:</p>
 
             <ul>
+                <li>Historia kryptologii wojennej okresu Wielkiej Wojny</li>
+                <li>Okres międzywojenny</li>
+                <li>WWII</li>
                 <li>Historia Enigmy, dekryptaż i wpływ.</li>
                 <li>Opis działania mechanizmu szyfrującego Enigmy, z kontekstem matematycznym i kryptologicznym</li>
                 <li>Reko</li>

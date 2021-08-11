@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 import "./layout-fb.css"
 // import 'gatsby-remark-vscode/styles.css'
 import background from "../content/img/header-blur.jpg"
+import MenuArmiaNiemiecka from "./menu-armia-niemiecka.js"
 
 // bgcolor rgb(68, 21, 0) #441500
 // txt color rgb(255, 238, 204) #fec
@@ -269,6 +270,11 @@ const StyledFooter = styled.footer`
 .dark & a, .dark & a:hover {background-color:transparent;}
 `;
 
+
+
+// import { useSiteMetadata } from "../hooks/useSiteMetadata";
+const shortcodes = { MenuArmiaNiemiecka }
+
 const LayoutFB = ({ children, sub, data }) => {
 
     let menu
@@ -369,7 +375,7 @@ const LayoutFB = ({ children, sub, data }) => {
                     </ul>
                 </aside>
 
-                <StyledArticle className="content-container">{children}</StyledArticle>
+                <StyledArticle className="content-container" components={shortcodes}>{children}</StyledArticle>
 
             </StyledMain>
             <StyledFooter>

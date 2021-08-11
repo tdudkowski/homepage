@@ -1,0 +1,157 @@
+---
+title: "Gatsby cz. 9 - Headless CMS"
+section: "blog"
+subsection: "it"
+set: gatsby
+date: 2021-09-05
+edited:
+image: ../images/Gatsby_Monogram.png
+tags: react, gatsby
+description: "Integracje z zewnętrznymi bibliotekami"
+---
+
+Stały adres serii wpisów o Gatsbym - [/blog/gatsby](/blog/gatsby)
+
+### Templates
+
+### Integracje
+
+### PWA
+
+### SSR
+
+### hydration
+
+### Application
+
+### Hooks
+
+### Bazy danych
+
+### Headless Drupal
+
+- [Maciej Łukiański "Headless Drupal - What, When,How & Where -The Ultimate Guide To Decoupled Drupal"](https://www.droptica.com/blog/headless-drupal-what-whenhow-where-ultimate-guide-decoupled-drupal/)
+- [Ana "A Short Introduction to Headless Drupal"](https://www.agiledrop.com/blog/short-introduction-headless-drupal)
+- [ADCI Solutions "How to create a headless Drupal site"](https://hackernoon.com/how-to-create-a-headless-drupal-site-a88519f8ce7b)
+- [Dries Buytaert "How to decouple Drupal in 2019"](https://dri.es/how-to-decouple-drupal-in-2019)
+
+Instalacja Drupala z bazą danych.
+
+Włączenie wszystkich Usług Web
+
+```
+HAL
+ Serializacja encji przy użyciu formatu Hypertext Application Language.
+
+ HTTP Basic Authentication
+ Dostarcza uwierzytelnienie w trybie HTTP Basic authentication
+
+ JSON:API
+ Exposes entities as a JSON:API-specification-compliant web API.
+
+ RESTful Web Services
+ Udostępnia encje i inne zasoby w postaci RESTful web API
+
+ Serialization
+ Provides a service for (de)serializing data to/from formats such as JSON and XML.
+```
+
+Utworzenie nwego rodzaju zawartości, np. Blog.
+
+Utworzenie nwego widoku np. "Blog API"
+
+```
+ Ścieżka: /api/blog
+ Uwierzytelnianie: Bez autoryzacji
+ Dostęp: Rola | Użytkownik anonimowy
+```
+
+Sprawdzic w trybie anonimowym czy jest dostepny pod adresem /jsonapi
+
+Trzeba opublikować przynajmniej jeden wpis.
+
+Instalacja pluginu [gatsby-source-drupal](https://www.gatsbyjs.org/packages/gatsby-source-drupal/)
+
+```
+ {
+  resolve: `gatsby-source-drupal`,
+  options: {
+  baseUrl: `http://api.domena/`,
+  apiBase: `jsonapi`, // optional, defaults to `jsonapi` ; old 'api' - z każdą zmianą trzeba restartować Gatsby'ego
+  },
+```
+
+I dopiero teraz można znowu uruchomić Gatsbiego, tak żeby pociągnął dane z Drupala.
+
+graphQL
+
+```
+ query MyQuery {
+  allNodeBlog {
+  nodes {
+  id
+  title
+  body {
+  value
+  }
+  }
+  }
+  }
+```
+
+[Brian Perry "Understanding the Limitations of Gatsby-Source Drupal"](https://www.bounteous.com/insights/2018/08/17/understanding-limitations-gatsby-source-drupal/), [Andrew Larcombe "Gatsby, Drupal, inline images and friends"](https://www.andrewl.net/article/gatsby-drupal-inline-images)
+
+[Contenta CMS](https://www.contentacms.org) an API-First Drupal distribution
+
+### Headless WordPress
+
+Pluginy
+
+- Headless Mode (jedno rozszerzenie działające w prosty sposób, które załatwia większość spraw)
+- WP Editor.md (albo klasyczny edytor)
+
+API
+
+```
+ adres/wp-json/
+```
+
+- [gatsby-source-wordpress](https://www.gatsbyjs.org/packages/gatsby-source-wordpress/)
+- Gatsby ["Why Gatsby Chose Headless WordPress for our Blog"](www.gatsbyjs.com/blog/gatsby-blog-wordpress/)
+
+login: domena/wp-login.php
+
+### Strapi
+
+[Cyril Lopez "How to change the WYSIWYG in Strapi"](https://strapi.io/blog/how-to-change-the-wysiwyg-in-strapi) - [Image upload on custom CKEditor #4369](https://github.com/strapi/strapi/issues/4369)
+
+[gatsby-source-strapi](https://www.gatsbyjs.org/packages/gatsby-source-strapi/)
+
+GraphGL i query i import. Potem {data} w propsie i mapowanie po wynikach zapytania. W gatsby-config podać typy importowanych danych.
+
+### Netlify CI
+
+Drupal: [Build Hooks](https://www.drupal.org/project/build_hooks) - [Drupal 9 compatibility](https://www.drupal.org/project/build_hooks/issues/3153199) (ta łata niestety stawia nadzwyczajne opory, więc trzeba pójść za radą [Hunk #1 FAILED at 1. What's that mean?](https://stackoverflow.com/questions/14282617/hunk-1-failed-at-1-whats-that-mean) i (zakładając, że jesteśmy w rozpakowanym /build_hooks a łata jest w tym samym katalogu co katalog modułu) zadać jej:
+
+```
+ patch --ignore-whitespace --fuzz 3 -p1 < ../3153199-5.patch
+```
+
+Potem zzipowanie i instalacja z pliku.
+
+["Deploy content changes for your Gatsby Drupal site on Netlify - Daily Dose of Gatsby Episode 9" [YT 12:45]](https://www.youtube.com/watch?v=RQydUpcjUPg)
+
+### PrismJS
+
+```
+ npm install --save gatsby-transformer-remark gatsby-remark-prismjs prismjs
+```
+
+- [Prism](https://prismjs.com)
+- [Fidel Sanchez-Bueno "The definitive guide for using PrismJs in Gatsby"](https://dev.to/fidelve/the-definitive-guide-for-using-prismjs-in-gatsby-4708)
+- [Jason Brown "Markdown Syntax Highlighting with PrismJS using Unified, Remark, and Rehype"](https://codedaily.io/tutorials/76/Markdown-Syntax-Highlighting-with-PrismJS-using-Unified-Remark-and-Rehype)
+- ["Code highlighting in React using Prism.js"](https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/)
+- Prince Wilson ["Migrating from gatsby-remark-prismjs to prism-react-renderer"](https://prince.dev/prism-react-renderer)
+- Niklas Metje ["Implement PrismJS in GatsbyJS"](https://niklasmtj.de/blog/prismjs-in-gatsbyjs)
+- [jason ewins "Get PrismJS working in React"](https://medium.com/get-it-working/get-prismjs-working-in-react-a6d989e59290)
+- ["Using the Prism.js syntax highlighter"](https://gomakethings.com/using-the-prism-js-syntax-highlighter/)

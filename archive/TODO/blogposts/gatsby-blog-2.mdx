@@ -1,12 +1,158 @@
 ---
-title: "Gatsby cz. 7 - blog MDX cz. 2"
+title: "Gatsby cz. 8 - blog cz.2"
 section: "blog"
 subsection: "it"
-date: 2021-07-08
+set: gatsby
+date: 2021-09-02
 edited:
-img: ../images/gatsby.jpg
+image: ../images/Gatsby_Monogram.png
 tags: react, gatsby
+description: "Dodatkowe ficzery na blogu"
 ---
+
+Stały adres serii wpisów o Gatsbym - [/blog/gatsby](/blog/gatsby)
+
+### Tagi
+
+**Rozdział o tagach na razie umieszczam tu, ale docelowo znajdzie się on w części drugiej wpisu o blogu MDX.**
+
+Potrzebujemy tagów: łatwych w utrzymaniu, wyświetlanych z blogiem i linkujących do strony z automatycznie generowaną listą wszystkich wpisów z tym samym tagiem.
+
+Najpierw trzeba utworzyć pole tagi we frontmatterze. Można to zrobić elegancko jako tablicę ze stringami, ale jest to trudne w utrzymaniu, bo łatwo zapomnieć lub popełnić błąd. Wystarczy string, w którym tagi będą oddzielone przecinkami. Można przy tym zrobić założenie, że zawsze będziemy używać małych liter.
+
+**/src/blogposts/any-blogpost.mdx**
+
+```js
+---
+tags: tag1, tag2, tag3
+---
+```
+
+W dalszym przetwarzaniu tego pola trzeba pamiętać, żeby przekazać je w zapytaniu graphql. Założenie: mamy ten sam plik gatsby-node.js, który jest powyżej.
+
+- W gatsby-node najpierw przekazujemy ścieżkę do szablonu (o którym za chwilę).
+- Potem tworzymy tabelę tags ze stringów pobranych z pól tags. Klasyczna pętla for ma największą wydajność. Dla normalizcji można użyć metody [String.prototype.toLowerCase()](https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase)
+- Mając już tabelę tags ze wszystkimi unikalnymi tagami zebranymi z requestu graphql, tworzymy ścieżki dokładnie tą samą metodą co ścieżki do wpisów blogowych. Proszę zwrócić uwagę na dodatkowy element "/tags" w ścieżce dostępu. Zapobiega to sytuacji, kiedy slug wpisu jest identyczny z tagiem. Jest to raczej mało prawdopodobne, ale jeżeli do tego dojdzie, nie dostaniemy się do wpisu.
+
+**/gatsby-node.js**
+
+```js
+
+//
+
+  const tagTemplate = path.resolve("./src/templates/blogTagListTemplate.js");
+
+//
+
+    const tags = []
+    for (let i = 0; i < posts.length; i++) {
+      const arrOfTags = posts[i].frontmatter.tags.split(",")
+      for (let j = 0; j < arrOfTags.length; j++) {
+        if (!tags.includes(arrOfTags[j].trim())) {
+          tags.push(arrOfTags[j].trim())
+        }
+      }
+    }
+
+//
+
+    tags.forEach(tag => {
+      createPage({
+        path: "/blog/tag/" + tag,
+        component: tagTemplate,
+        ...tag,
+        context: {
+          ...tag.context,
+          slug: tag,
+        },
+      });
+    });
+```
+
+Szablon strony danego tagu.
+
+- Pobieramy tag ze ścieżki
+- Na końcu pliku jest taki sam request graphql, jak na głównej stronie bloga. Wystarczy usunąć te pola, których nie będziemy potrzebowali.
+- Już po inicjalizacji tagu za jego pomocą filtrujemy dane graphql, przekazując te wpisy, które mają ten tag do nowej tablicy.
+- W efekcie mamy tablicę wpisów, które można mapować na listę.
+
+**/src/templates/blogTagListTemplate.js**
+
+```js
+
+//
+
+const blogPage = ({ data, location }) => {
+
+    const tag = location.pathname.slice(10)
+    const filteredPosts = [...data.allMdx.nodes].filter(item => item.frontmatter.tags.includes(tag))
+
+    return (
+        <LayoutBlog>
+            <article>
+                <h2>Strony z tagiem {tag}</h2>
+                <section>
+                    {filteredPosts.map(({ id, frontmatter, slug }) => (
+                        <li key={id}>
+                            <Link to={`/blog/${slug}`}>{frontmatter.title}</Link>
+                        </li>
+                    ))}
+                </section>
+            </article>
+            <aside>
+                <Link to="/blog">blog main page</Link>
+            </aside>
+        </LayoutBlog>
+    );
+};
+
+export default blogPage
+
+export const query = graphql`
+query AllTags {
+     allMdx(
+      filter: { fileAbsolutePath: { glob: "**/src/blogposts/*.mdx" } }
+      sort: { order: ASC, fields: frontmatter___date }
+      ) {
+        nodes {
+            frontmatter {
+                title
+                tags
+            }
+            slug
+            id
+        }
+    }
+}
+`;
+```
+
+Na końcu dodajemy listę wpisów do szablonu wpisu blogowego
+
+**/src/templates/blogPostTemplate.js**
+
+```js
+
+//
+
+const blogPage = ({ data }) => {
+
+  const { frontmatter, id, body, slug } = data.mdx;
+  const tagsArray = [...frontmatter.tags.split(",")]
+
+//
+
+<div className="tagsDiv">
+    Tagi: <ul>
+        {tagsArray.map(tag => <li key={tag}><Link to={`/blog/tag/${tag.trim()}`}>{tag.trim()}</Link></li>)}
+    </ul>
+</div>
+
+//
+
+```
+
+W efekcie mamy sytuację, w której przy każdym wpisie pojawia się lista klikalnych tagów, każdy kieruje do automatycznie generowanej strony z listą linków wszystkich wpisów mających ten tag.
 
 ### Blog cz 2
 
@@ -17,22 +163,3 @@ tags: react, gatsby
 - popularne posty
 - tagi z numerami
 - Headless CMS: WP i Strapi
-
-### Headless CMS
-
-### Templates
-
-### Integracje
-
-### PWA
-
-### SSR
-
-### hydration
-
-### Application
-
-### Hooks
-
-### Bazy danych
-
