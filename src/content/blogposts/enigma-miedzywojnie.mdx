@@ -1,0 +1,266 @@
+---
+title: "Enigma cz. 3 - kryptologia 1918 - 1939"
+section: "blog"
+subsection: "historia"
+set: enigma
+date: 2021-08-13
+edited:
+image: ../images/Enigma-logo.jpg
+tags: enigma, kryptologia, wwii
+url: https://dygresje.info/blog/enigma-miedzywojnie
+description: "Kontekst historyczny. Ogólna historia kryptologii w okresie międzywojennym, OTP i maszyny rotorowe. Oraz polska kryptologia okresu do WWII (z wyłączeniem dekryptażu Enigmy)."
+---
+
+Stały adres serii wpisów o Enigmie - [/blog/enigma](/blog/enigma)
+
+Okres pomiędzy wojnami światowymi odznaczył się dwoma najważniejszymi rzeczami:
+
+- Szyfr Vernama (OTP)
+- maszyny rotorowe
+
+Zacznijmy od pierwszej, bo w tej kwestii panuje pewne pomieszanie terminów używanych potem w opisie niektórych maszyn szyfrujących.
+
+Dodatkowo - polska kryptologia od odzyskania niepodległości aż do wojny (w zakresie poza dekryptażem Enigmy).
+
+### Szyfr Vernama (OTP)
+
+Najczęściej pojęcia szyfr Vernama i OTP (one-time-pad) stosuje się zamiennie. Nie jest to jednak tak do końca jednoznaczne.
+
+Gilbert Sandford Vernam (1890-1960) to amerykański inżynier wynalazca. W 1914 ukończył Worcester Polytechnic Institute, potem pracował dla AT&T Bell Labs.
+
+- w 1917 wymyślił polialfabetyczny (używający wielu wzorców przekształceń) szyfr strumieniowy.
+- 22 lipca 1919 przyznany [U.S. Patent 1,310,719](https://patents.google.com/patent/US1310719A/en) (złożony 13 września 1918) na przypominające OTP szyfrowanie danych wykonujące XOR z zapisanej przypadkowym danymi tamy na znakach wpisanych z klawiatury w kodzie Baudota (dodanie modulo 26 jednego znaku tekstu jawnego i znaku jednorazowego klucza). Pierwotna idea Vernama to była zapętlona taśma dalekopisowa, co nie było dobrym rozwiązaniem.
+- Vernam opisuje w artykule w AIEE journal w lutym 1926 użycie dwóch zapętlonych taśm o niejednakowej długości ok. 2 m, co miało zapewniać baaardzo długi okres kryptograficzny, ale samo istnienie powtarzalności jest sprzeczne z ideą OTP
+- Ta idea nie jest nowa - już w 1885 sformułował ją amerykański kryptolog Frank Miller: [Steven M. Bellovin "Frank Miller: Inventor of the One-Time Pad"](http://www.cs.columbia.edu/~CS4HS/talks/FrankMillerOneTimePad.pdf)
+- Dopiero później wprowadzono ideę jednorazowego klucza - teoretycznie nieskończenie długiego ciągu całkowicie przypadkowych danych pozbawionych okresu krytpograficznego, czyli powtarzalności. Joseph Mauborgne udowodnił, że jeżeli klucz jest całkowicie przypadkowy, szyfr jest matematycznie nie do złamania.
+
+Pomieszanie pojęć wynika z tego, że "szyfr Vernama" czasem oznacza szyfr strumieniowy, czasem zapętlony klucz dalekopisu, ale najczyściej OTP, choć jak widać, Vernam samego OTP nie wymyślił, tym bardziej nie on udowodnił jego siłę.
+
+Jakkolwiek sama idea szyfru, który nie da się złamać, brzmi bardzo atrakcyjnie, to szereg warunków, które trzeba spełnić, sprawia, że rzecz jest bardzo trudna do praktycznej realizacji:
+
+- potrzebny jest klucz zawierający kompletnie przypadkowe dane
+- klucz musi być dłuższy niż wiadomość
+- muszą go posiadać obie strony komunikacji i musi pozostać ich tajemnicą, bo każdy kto go posiada, może odczytać wiadomość
+- nigdy nie może zostać użyty ponownie ani w całości, ani w części
+
+Najważniejszym problemem jest dystrybucja kluczy. Inną trudnością jest samo generowanie przypadkowych i niepowtarzalnych sekwencji znaków, sowieci zatrudniali maszynistki z zasłoniętymi oczami, które na maszynie wystukiwały serie przypadkowych znaków. Nawet zapewnienie dyscypliny użytkowników potrafi nastręczyć trudności.
+
+Choć Vernam miał na myśli dalekopis to powstały uproszczone aplikacje OTP zdatne do użytku polowego.
+
+Kryptolodzy niemieckiego MSZ: Werner Kuntze, Rudolf Schauffler i Erich Langlotz zaproponowali jednorazowe bloczki szyfrowe. Na 50 stronach zapisano tablice każda ma 48 pięciocyfrowych liczb. Najpierw przekształcano tekst jawny w ciąg cyfr, potem dodawano do nich cyfry klucza (modulo 10). Odszyfrowanie to samo tylko w drugą stronę. W latach 1921–1923 takie bloki wprowadzono do użytku w niemieckiej korespondencji dyplomatycznej.
+
+Używano również bloczków z literami, wtedy i klucz i tekst jawny zamieniano na dwucyfrowe liczby, potem je dodawano (modulo 26).
+
+Cryptographically-secure pseudorandom number generator, SPRNG.
+
+- [Szyfr z kluczem jednorazowym](https://pl.wikipedia.org/wiki/Szyfr_z_kluczem_jednorazowym)
+- Crypto Museum [One-Time Pad OTP](https://www.cryptomuseum.com/crypto/otp/index.htm)
+
+### Maszyny rotorowe
+
+Okres międzywojenny został zdominowany elektromechanicznymi maszynami rotorowymi.
+
+Istniały trzy niezależne linie rozwojowe:
+
+- **Hebern** (USA)
+- **Hagelin** (Szwecja, od 1940 Szwajcaria)
+- Scherbius (niemiecka **Enigma**)
+
+Analiza słabości konstrukcji Heberna oraz informacje o europejskich urządzeniach sprawiły, że William F. Friedman skonstruował maszynę **SIGABA** używaną przez US Army od 1940. Nie złamana. Była utajniona aż do 2001, więc pomimo technicznej doskonałości nie wpłynęła na inne konstrukcje.
+
+### Hebern Rotor Machine
+
+Edward Hugh Hebern (USA, patent 1917) słaba maszyna bez sukcesu komercyjnego.
+
+Udało mu się sprzedać ogólnie ok. 100 maszyn, w tym 12 dla US Navy. Ostatecznie biznes zbankrutował mimo intensywnej promocji. Jak się później okazało spory udział w tej klęsce miał Wiliam Friedman, który ocenił ją bardzo negatywnie.
+
+### Hagelin
+
+Tak naprawdę to Damm/Hagelin, ponieważ inicjatywa i początek biznesu to Arvid Gerhard Damm, ale finalnie w jego wykonaniu rzecz była skazana na porażkę. Jego dzieło kontynuował i w sukces przekuł Boris Hagelin. Obaj byli Szwedami. Tutaj podobnie jak w przypadku Painvina mamy wiele sprzecznych ze sobą wersji, ale będę się trzymał tego, co napisał David Kahn, bo jest to udokumentowane i spójne.
+
+Arvid Gerhard Damm: uzdolniony inżynier i konstruktor, jego pierwsza maszyna szyfrująca powstała w 1914 (Cryptotyper), 1916 współzałożyciel Aktiebolaget Cryptograph, w której inwestorami byli Emmanuel Nobel (bratanek tego Nobla) i K. W. Hagelin dyrektor spółki naftowej Noblów w Baku (dlatego jego syn Boris ma takie imię). 1917 A-1 aka Mecano Cryptographer. Wniosek patentowy 10 października 1919. A-1b 1921 Electromechanical Cryptographer.
+
+Brzmi to interesująco, ale ciągle nie ma zysków. Damm byłby świetnym bohaterem zarówno dramatu, jak i komedii, zdecydowanie brakowało mu dyscypliny i rzetelności, jego życie osobiste... ok zostawmy to, pierwsza maszyna szyfrująca, którą oferowano na sprzedaż zagraniczną (1925 Paryż, 1926 Haga) Model B 1, była kompletną porażką. Od 1922 z polecenia Nobla i Hagelina ojca w firmie był Boris Ceasar Wilhelm Hagelin, który miał nadzorować ich inwestycje. Tymczasem Damm popadł w tarapaty finansowe i nie miał żadnych sukcesów. Hagelin natomiast mając solidne wykształcenie techniczne, poprawił jego maszynę i jako Model B-21 zaoferował armii szwedzkiej. Zdobył wielkie zamówienie. W 1925 praktycznie przejmuje zarządzanie firmą.
+
+W 1927 (lub jak inne źródła mówią w 1928) Damm już na marginesie firmy umiera w wieku 58 lat. Aktiebolaget Cryptograph w fatalnej kondycji, ale z dobrymi perspektywami została kupiona przez grupę kapitałową Nobla i Hagelina i od tej pory działa jako Aktiebolaget Cryptoteknik. Boris Hagelin jest dyrektorem i głównym konstruktorem.
+
+W 1936 nawiązał pierwsze kontakty z kryptologami amerykańskimi zainteresowanym jego maszyną B-36, przed wojną wyjechał dwa razy do USA w 1937 i 1939. 9 kwietnia 1940 z radia dowiedział się, że Niemcy napadli na Norwegię i natychmiast uciekł z żoną i dokumentacją techniczną, przez Berlin do Szwajcarii. Włoskim statkiem przypłynęli do Nowego Jorku. Szwedzką firmą zarządza zdalnie. Dopiero po wojnie wracają do Europy.
+
+W 1948 z powodów finansowych i politycznych przeniósł laboratorium ze Sztokholmu do Zug w Szwajcarii, a w 1959 całą resztę firmy, która od tej pory działała jako Crypto Aktiengesselschaft (Crypto AG). W 1955 zawarł porozumienie z NSA gwarantujące Amerykanom backdoora we wszystkich jego urządzeniach.
+
+Zmarł w 1983 w wieku 91 lat, jak to pisze Kahn, jako jedyny konstruktor maszyn szyfrujących, który zbił na nich majątek.
+
+- [Arvid Gerhard Damm](https://www.cryptomuseum.com/people/damm/arvid.htm)
+- [Boris Hagelin](https://www.cryptomuseum.com/people/hagelin/boris.htm)
+
+#### Hagelin B-21 / B-211
+
+Hagelin B-21 to było właśnie to urządzenie, które w 1926 kupiła od niego szwedzka armia. Był to uproszczony, poprawiony i dostosowany do użytku polowego Model B 1. Pod wpływem Enigmy dodał lampki.
+
+Mechanizm szyfrujący składał się z walców mających niejednakową liczbę bolców na obrzeżach. Bolce mogły być wysunięte lub cofnięte (bierne). Podstawienie polialfabetyczne z okresem równym iloczynowi wszystkich bolców. Przypisanie wierszy i kolumn na szachownicy 25x25.
+
+W 1932 powstała kolejna wersja B-21, czyli B-211. Zamiast lampek miała drukarkę. Waga 18 kg, 200 znaków na minutę, rozmiar niewielkiej przenośnej skrzynki.
+
+Pierwszym kupcem była sieć przedstawicielstw Ericssona w Ameryce Południowej. 500 tych maszyn zostało wyprodukowanych przez L.M. Ericsson w Colombes k. Paryża i tuż przed wybuchem wojny dostarczonych armii francuskiej. Po wojnie zamówili kolejne 100.
+
+- [B-21](https://www.cryptomuseum.com/crypto/hagelin/b21/index.htm)
+- [Hagelin B-211](https://www.cryptomuseum.com/crypto/hagelin/b211/index.htm)
+
+#### Hagelin C-35 / C-36 / C-37
+
+Z oczywistych powodów Francuzi nie chcieli niemieckiej maszyny szyfrującej. Pod koniec lat 20. Enigmy używała Reichswehra. Armia francuska złożyła u Hagelina kolejne zamówienie, tym razem wydawałoby się niemożliwe do realizacji: kieszonkowa maszyna drukująca szyfrogramy, obsługiwana przez jednego człowieka (w przypadku lampek było potrzebnych trzech ludzi, jeden obsługiwał klawiaturę, drugi na głos odczytywał litery z lampek, trzeci zapisywał).
+
+Hagelin wiedząc, że próba miniaturyzacji istniejących maszyn jest ślepą uliczką, spróbował z drugiej strony - wystrugał z drewna model docelowej wielkości, mieszczący się w regulaminowej kieszeni i zaczął się zastanawiać jaki mechanizm mógłby się zmieścić w środku i jak można by takie urządzenie używać.
+
+Ostatecznie połączył dwie maszyny w jednej. Dotychczasowy bęben znany z B-21 połączył ze zliczarką monet, do której miał prawa, bo klient, który ją zamówił, wycofał się z kupna. Był to rodzaj cylindrycznej klatki z prętów, na których były uchwyty. Walce miały kolejno 25, 26, 21, 19 i 17 kroków co zapewniało okres 3,900,225. Bolce z walców łączyły się z uchwytami na prętach - stąd określenie tego mechanizmu "pin-and-lug" (bolec i uchwyt), który odtąd staje się klasycznym rozwiązaniem Hagelina. Wprawdzie wymagana kieszeń jest dość spora, ale powstaje najmniejsze urządzenie szyfrujące na świecie: waga 1,5 kg, wielkość 15x11x5 cm.
+
+Literę wprowadzono przez wybór pokrętłem, potem obrót korbką uruchamiał szyfrowanie i druk na gumowanej taśmie. Wyszkolony operator osiągał szybkość 25 znaków na minutę.
+
+Armia francuska natychmiast zamówiła 5 tysięcy tych maszyn.
+
+C-36 i C-37 to zmodyfikowane nieco wersje, mające inną konfigurację sprzętową.
+
+- [Hagelin C-35](https://www.cryptomuseum.com/crypto/hagelin/c35/index.htm)
+- [Hagelin C-36](https://www.cryptomuseum.com/crypto/hagelin/c36/index.htm)
+- [Hagelin C-37](https://www.cryptomuseum.com/crypto/hagelin/c37/index.htm)
+
+#### Hagelin BC-38 / BC-543
+
+Elektromechaniczna maszyna szyfrująca, rozwinięcie mechanicznej C-38. Wyposażona w motor i klawiaturę (to właśnie oznacza litera B). Zbudowana 1938.
+
+Wielkość 34x32x12 cm, zasilanie z sieci 110 lub 220 V. Możliwość działania wyłącznie mechanicznego co w warunkach wojennych jest ogromną zaletą. Drukarka jest podwójna, może jednocześnie drukować szyfrogram (do wysłania) i tekst jawny (do archiwizacji).
+
+Używana podczas WWII głównie przez US Army. Po wojnie przez Szwecję i Norwegię.
+
+BC-543 to nieco ulepszona i w pełni kompatybilna wersja BC-38.
+
+- [Hagelin BC-38](https://www.cryptomuseum.com/crypto/hagelin/bc38/index.htm)
+
+#### M-209
+
+Najliczniej produkowana wojskowa maszyna szyfrująca na świecie. Dostosowana do potrzeb US Army BC-38, znana jako M-209 w US Army, w US Navy nazywana CSP-1500, Niemcy mówili na nią AM-1 (niem. Amerikanische Maschine Nr. 1). Wielkość 178x140x83 mm.
+
+W 1942 w zatrudniającej 900 robotników fabryce L.C. Smith & Corona Typewriters Inc. w Groton (stan Nowy Jork) produkowano dziennie 400 M-209 (dla porównania, również dziennie 600 maszyn do pisania). Ogółem wyprodukowano ich 140 tys.
+
+Czasem używana w tej samej sieci łączności razem z wersją zmotoryzowaną, czyli BC-543.
+
+Nie dawała wielkiego zabezpieczenia kryptograficznego. W 1943 Niemcy potrzebowali 4h do odczytania wiadomości, ale ponieważ używano och do łączności na poziomie taktycznym, takie zabezpieczenie wystarczało.
+
+W 1952 zastąpiona przez C-52 i CX-52.
+
+- [M-209](https://www.cryptomuseum.com/crypto/hagelin/m209/index.htm)
+
+#### Hagelin C-443 / C-48 / C-48A
+
+Seria mechanicznych maszyn szyfrujących, będących kontynuacją rozwiązań Hagelina z lat 30.
+
+w 1946 na podstawie doświadczeń wojennych powstaje Hagelin C-446.
+
+- [Hagelin C-443](https://www.cryptomuseum.com/crypto/hagelin/c443/index.htm)
+- [Hagelin C-446](https://www.cryptomuseum.com/crypto/hagelin/c446/index.htm)
+
+### Enigma
+
+Arthur Scherbius i Richard Ritter (Niemcy). Wniosek patentowy 23 lutego 1918.
+
+Obaj przedstawili projekt maszyny zarówno niemieckiej Kriegsmarine, jak i Ministerstwu Spraw Zagranicznych, ale nie uzyskali zainteresowania żadnej z tych instytucji.
+
+Wobec tego przekazali prawa patentowe założonej przez nich firmie Gewerkschaft Securitas. 9 lipca 1923 przekształciła się w Chiffriermaschinen Aktien-Gesellschaft (Maszyny Szyfrujące Spółka Akcyjna), w której Scherbius i Ritter zostali członkami zarządu.
+
+Scherbius w 1928 wykupił nieużywany komercyjnie patent Holendra Hugo Kocha.
+
+Enigma szczegółowo zostanie opisana w kolejnym wpisie.
+
+Tak więc podsumowując, w okresie międzywojennym na rynku komercyjnym konkurowały tylko dwie konstrukcje:
+
+- **Enigma** Scherbiusa, który skorzystał z cudzej idei, a ostatecznie, choć zainspirowała cały świat, była kolejną katastrofą armii niemieckiej
+- **Hagelin**, czyli biznes przejęty od oryginalnego wynalazcy, który po latach został celowo skompromitowany przez właściciela
+
+### Polska
+
+**Uwaga: ten rozdział ma charakter tymczasowy do czasu napisania kolejnego wpisu dotyczącego ściśle samej Enigmy. Chcę oddzielić sprawę dekryptażu Enigmy od reszty polskiej kryptologii do 1945.**
+
+#### Powstanie
+
+Jednym z pierwszych rozkazów Naczelnika Państwa Józefa Piłsudskiego było powołanie Oddziału Informacyjno-Wywiadowczego Sztabu Generalnego Wojska Polskiego (późniejsza "Dwójka"). 12 grudnia 1918 na jego czele stanął dopiero co przybyły z Wiednia podpułkownik Józef Rybak. były oficer Sztabu Generalnego CK Austrii. Znali się jeszcze sprzed Wielkiej Wojny, Rybak bowiem wówczas w stopniu kapitana był szefem wywiadu wojskowego (niem. Haupt Kundschaft Stellen – HK Stelle) w sztabie korpusu krakowskiego i służbowo był skierowany do kontaktów z Piłsudskim.
+
+Podpułkownik Rybak ściągnął do pracy w polskim wywiadzie majora austriackiego Sztabu Generalnego Karola Bołdeskuła. Jego nazwisko wskazuje na skomplikowane pochodzenie, ale z wyboru Bołdeskuł był Polakiem. Był też jednym z najlepszych w Europie specjalistów od radia. To on od jesieni 1915 do sierpnia 1917 stworzył i organizował radiowywiad państw centralnych na wschód. Koordynował prace kilku austriackich i niemieckich grup radiostacji (niem. Radiogruppe), które nasłuchiwały i zbierały dane radiogoniometryczne (lokalizację) rosyjskich radiostacji od Rygi po Odessę. Ogólna komenda na froncie wschodnim była niemiecka, ale radiowywiad i dekryptaż na kierunku rosyjskim był pod kontrolą austriacką, byli w tym po prostu lepsi. Historycznym łutem szczęścia było to, że w austriackim Abhorchdienst pracowało wielu Polaków. Złożyło się to z konspiracyjnym pochodzeniem założycieli państwa polskiego, którzy doskonale rozumieli wagę kryptologii. Od końca listopada 1918 polskie radiostacje prowadziły systematyczny nasłuch sieci radiowych i ruchu radiowego wszystkich państw sąsiednich.
+
+Pierwszą polską radiostacją była zbudowana przez Niemców w latach 1915-16 na warszawskiej Cytadeli ogromna radiostacja pośrednicząca na linii Berlin - Poznań - Warszawa - dowództwo Ober Ost w Brześciu Litewskim. Miała maszty wysokości 70 m i zasięg do 1,5 tys. km. Pierwszym polskim operatorem był pochodzący ze Śląska Jan Predellok, który wbrew rozkazowi nie zniszczył jej. Polacy zdobyli ją w nocy z 18 na 19 listopada 1918. To za jej pośrednictwem nowe polskie władze nawiązały pierwsze kontakty dyplomatyczne.
+
+Radionasłuch prowadzono też w kolejnych polskich radiostacjach: Krakowie już od 4 listopada, w Poznaniu od końca grudnia 1918, w Przemyślu od stycznia 1919, we Lwowie od wiosny 1919. Major, a od 1 kwietnia 1920 pułkownik Karol Bołdeskuł jest bardzo tajemniczą postacią. Stworzył podstawowe narzędzie polskiego wywiadu i w 1922 w wieku 35 lat został emerytowany. Resztę życia spędził w Warszawie, prawdopodobnie, bo dalsze losy nie są znane, ostatnia wzmianka o nim pochodzi z 1934.
+
+Pierwszym organizatorem polskich służb kryptologicznych był Eugeniusz Chilarski, oficer armii CK Austrii. Po odzyskaniu niepodległości przyjęty do Wojska Polskiego w stopniu kapitana. Adiutant Polskiej Wojskowej Komisji Likwidacyjnej w Wiedniu, potem przydzielony do Sztabu Generalnego, gdzie na przełomie 1918/19 kierował Sekcją Organizacyjną w Oddziale VI Informacyjnego (wywiad i kontrwywiad wojskowy), a potem od sierpnia już w stopniu majora Wydziałem Mobilizacyjnym w Oddziale I Organizacyjno–Mobilizacyjnym.
+
+W styczniu 1919 w Oddziale VI powstała sekcja spraw organizacyjnych i szyfrów z kapitanem Chilarskim na czele.
+
+W lutym 1919 Sekcję Szyfrów przejął kapitan Józef Stanslicki również dawny oficer CK Austrii. Opracował szyfry do komunikacji radiotelegraficznej Naczelnego Dowództwa z placówkami zagranicznymi, Dowództwami Okręgów Generalnych, dowództwami frontowymi: kod stacyjny – St. (Stanslicki) wraz z dodanymi cyframi rzymskimi (od I do IX) oraz szyfry St. I – XL, czyli 40 odmian, tzw. zmienników, zmienianych co kilka dni.
+
+Dzięki pochodzeniu większości oficerów wywiadu i służb kryptologicznych armia polska miała kompletny wgląd w cały dorobek austriackiej Abhorchdienst łącznie z wiedzą na temat rosyjskiej komunikacji.
+
+Dowództwa frontów i dowództwa dywizji korzystały nadal z Kodu Ch. i szyfru "Sigma" opartego na wzorach austro-węgierskich.
+
+11 maja 1919 w wyniku kolejnej reorganizacji Oddział VI przemianowano na Oddział II Informacyjny (stąd nazwa "Dwójki") z Sekcją Szyfrową w składzie.
+
+#### Wojna polsko-bolszewicka 1920
+
+Szefem "Dwójki" od lipca 1920 był major Ignacy Matuszewski, Piłsudski o udziale wywiadu w tej wojnie powiedział:
+>Była to pierwsza wojna, którą Polska prowadziła od wielu stuleci, w czasie której mieliśmy więcej informacji o nieprzyjacielu niż on o nas.
+
+Jan Kowalewski absolwent Szkoły Handlowej Zgromadzenia Kupców w Łodzi, później studiował chemię na Uniwersytecie w Liege. Poliglota, znał języki niemiecki, francuski i rosyjski. Podczas Wielkiej Wojny służył w armii rosyjskiej w łączności. W dywizji generała Żeligowskiego został szefem wywiadu. To on stworzył polską kryptologię lat 20.
+
+Praca Kowalewskiego w wywiadzie zaczęła się od przypadku w sierpniu 1919. Jego kolega radiowiec porucznik Bronisław Sroka bardzo chciał zatańczyć na ślubie siostry, niestety akurat w ten dzień wypadł mu dyżur. Poprosił Kowalewskiego o zastępstwo. Tak się składa, że porucznik Sroka zajmował się czytaniem korespondencji w językach obcych. I tak od przysługi zaczęła się kryptologiczna kariera Kowalewskiego, która miała decydujące znaczenie i dla polskiego wywiadu i dla przebiegu wojny polsko-bolszewickiej. Po przetłumaczeniu jawnych wiadomości z czystej ciekawości zajął się szyfrogramami. Podobnie jak Friedman zainspirował się "Złotym żukiem" Poego i niespodziewanie odniósł sukces.
+
+W latach 1919-24 był organizatorem i naczelnikiem Wydziału II Radiowywiadu Biura Szyfrów "Dwójki". Jego specjalnością był kierunek wschodni, który bardzo dobrze znał z własnego doświadczenia. Nauczył się czytać analizą statystyczną sowieckie szyfry i korzystał ze świetnie działającego skutecznego nasłuchu radiowego. Polskie stacje nasłuchowe były wpięte w sieć z dalekopisami Hughesa na końcach. Wszystkie meldunki sowieckie z eteru miał od razu na papierze.
+
+Kowalewski nie tylko miał świetną intuicję i był dobrym organizatorem, rozumiał, jak bardzo się zmieniła kryptologia. Był jednym z pierwszych organizatorów kryptologii, który doceniał rolę matematyki. A Polska miała wówczas jednych z najlepszych matematyków na świecie. Już jesienią 1919 zatrudnił profesora matematyki Stefana Mazurkiewicza.
+
+Kiedy zbliżała się do Warszawy bolszewicka nawała, choć wojsko polskie było w defensywie, polska kryptologia zwyciężała. W lipcu 1920 do pracy przy szyfrach skierował również dwóch słynnych matematyków, których armia pierwotnie wyznaczyła do liczenia onuc: Stanisława Leśniewskiego i Wacława Sierpińskiego (tak, tego od fraktali). Tylko w lipcu 1920 przechwycili i odczytali ponad 400 sowieckich depesz, najczęściej tego samego dnia, m.in. rozkazy Tuchaczewskiego, Trockiego, Budionnego i Gaja Gaja.
+
+O tym, jak ważne zadanie wyznaczono wywiadowi, świadczy fakt, że w polskim nasłuchu działało 6 z wszystkich 26 posiadanych przez nas radiostacji. Dla porównania - sama Konnarmia miała ich 30.
+
+12 sierpnia w krytycznym momencie operacji warszawskiej Armia Czerwona wprowadziła szyfr "Rewolucja" (ros. Революция). Pamiętacie, jak Painvin tuż przed ofensywą niemiecką w czerwcu 1918 musiał zmagać się ze zmianą szyfru i jak jego sukces zapewnił sukces armii francuskiej? Dwa lata i dwa miesiące później dokładnie taka sama sytuacja miała miejsce w Polsce. Szyfr Rewolucja był dwustopniowy, ale tylko kilka godzin intensywnej pracy Kowalewskiego i Mazurkiewicza wystarczyło, żeby dać polskim sztabowcom bezpośredni wgląd w sowiecką łączność.
+
+Złamali ponad 100 szyfrów Armii Czerwonej, odczytali tysiące tajnych wiadomości. Co więcej, wiedza zdobyta z tego źródła była przekazywana dalej tak, że sowieci nigdy nie dowiedzieli się, jak łatwo było ich przeczytać.
+
+Kowalewski w 1922 otrzymał Krzyż Srebrny Orderu Wojskowego Virtuti Militari. Wręczając go, gen. Władysław Sikorski powiedział:
+>To za wygraną wojnę Panie Kapitanie!
+
+Łączenie metod lingwistycznych znanych z czasów szyfrów klasycznych i zaawansowanej analizy matematycznej stało się polską tradycją w całym okresie międzywojennym i pozwoliło na złamanie Enigmy.
+
+Armia Czerwona systematycznie zmieniała klucze, czasem nawet co tydzień. Polakom odtworzenie klucza zajmowało początkowo dwa / trzy dni, potem już tylko godziny. I to podobno aż do 1947.
+
+#### Biuro Szyfrów
+
+Latem 1931 nastąpiła reorganizacja i z połączenia Referatu Radiowywiadu oraz Referatu Szyfrów Własnych powstało Biuro Szyfrów z siedzibą w Pałacu Saskim w Warszawie (tak się składa, że była to siedziba Sztabu Generalnego). Jego pierwszym i głównym zadaniem było złamanie Enigmy.
+
+Kuzynem Hermana Pokornego był major dyplomowany Franciszek Pokorny. Przez większość służby był zwykłym oficerem piechoty, ale w 1923 roku został wyznaczony na stanowisko szefa komórki radiowywiadu (Referat Radia i Szyfrów), która dysponowała stacjami nasłuchowymi: w Warszawie, Starogardzie Gdańskim, Poznaniu i Krzesławicach k. Krakowa. Ponadto Pokorny, razem z inżynierem Antonim Palluthem i kapitanem Maksymilianem Ciężkim był wykładowcą na tajnym kursie w Poznaniu w 1929. Z osób, które wyróżniły się na tym kursie, sformowano Biuro Szyfrów.
+
+10 lat później Marian Rejewski we Francji odkrył, że kurs był prowadzony na podstawie książki generała Marcela Givièrge "Cours de cryptographie" z 1925.
+
+W 1937 Biuro Szyfrów Referat Niemiecki zostało przeniesione do specjalnie zbudowanych obiektów w Lesie Kabackim niedaleko miejscowości Pyry, na południe od Warszawy. Było to bezpieczniejsze, bo Pałac Saski był pod obserwacją Abwehry.
+
+#### Lacida
+
+Znana też jako LCD. Polska maszyna szyfrująca, elektromechaniczna, rotorowa zaprojektowana w 1929-1930 przez Biuro Szyfrów do łączności sztabowej. Nazwa brała się z nazwisk twórców: Karola Gwidona Langera, Maksymiliana Ciężkiego i któregoś z braci Danilewiczów (Leonarda Stanisława lub Ludomira).
+
+Było to słabe urządzenie, o którym niewiele wiadomo. Marian Rejewski dokonał bardzo negatywnej oceny.
+
+Składała się z trzech części:
+
+- klawiatura Remingtona
+- w tej samej skrzynce zespół elektromagnesów i przełącznik szyfr-deszyfr
+- skrzynka szyfrowa, mieszacz składający się z 8 walców:
+  - 3 ruchome
+  - 3 nieruchome z możliwością ustawienia (klucz)
+  - 2 nieruchome ze stałym położeniem, znajdowały się na końcach
+
+
+#### Odnośniki
+
+- [Wojtek Duch "Zwycięskie szyfry. Złamanie kodów sowieckiej armii pozwoliło wygrać bitwę warszawską"](https://historia.org.pl/2020/08/13/zwycieskie-szyfry-zlamanie-kodow-sowieckiej-armii-pozwolilo-wygrac-bitwe-warszawska/)
+- [Paweł Wroński "Bolszewik złamany"](https://web.archive.org/web/20070312094712/http://serwisy.gazeta.pl/df/1,34467,2856516.html)
+- [Kryptologia w II RP - od „Rewolucji” do „Enigmy”](https://niepodlegla.gov.pl/o-niepodleglej/kryptologia-w-ii-rp-od-rewolucji-do-enigmy/)
+- [Andrzej Fedorowicz "Bitwa Warszawska: "Cud nad Wisłą" czy wywiadowczy majstersztyk?"](https://forsal.pl/lifestyle/nauka/artykuly/7798400,bitwa-warszawska-cud-nad-wisla-czy-wywiadowczy-majstersztyk.html)
+- [Krzysztof Pięciak "Kryptolog, który złamał „Rewolucję”"](https://www.tygodnikpowszechny.pl/kryptolog-ktory-zlamal-rewolucje-164483)
+- [Grzegorz Nowik "Wojna polsko-bolszewicka. Najważniejszy jest wywiad!"](https://dzieje.pl/aktualnosci/najwazniejszy-jest-wywiad)

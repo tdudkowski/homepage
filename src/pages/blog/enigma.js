@@ -36,7 +36,6 @@ const GatsbyBlog = ({ data, location }) => {
             <p>Część historyczna jest już napisana całkiem, lub prawie całkiem i zostanie zamknięta w przyszłym tygodniu.</p>
 
             <ul>
-                <li>Okres międzywojenny</li>
                 <li>WWII</li>
                 <li>Historia Enigmy, dekryptaż i wpływ</li>
                 <li>Opis działania mechanizmu szyfrującego Enigmy, z kontekstem matematycznym i kryptologicznym</li>
