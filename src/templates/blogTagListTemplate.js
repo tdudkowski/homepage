@@ -12,7 +12,7 @@ const blogPage = ({ data, location }) => {
     const path = location.pathname
     const headerTitle = `dygresje.info / blog: tag: ${tag}`
 
-    const filteredPosts = [...data.allMdx.nodes].filter(item => item.frontmatter.tags.includes(tag))
+    const filteredPosts = [...data.allMdx.nodes].filter(item => item.frontmatter.tags.split(", ").includes(tag))
 
     return (
         <LayoutBlog path={path}>

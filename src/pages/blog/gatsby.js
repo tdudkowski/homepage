@@ -23,7 +23,7 @@ const GatsbyBlog = ({ data, location }) => {
                 <li>artykuł na mojej stronie: <Link to="/it/js/gatsby">GatsbyJS</Link>, choć prawdę mówiąc po wykasowaniu / przeniesieniu zdublowanej treści niewiele tam już pozostało.</li>
             </ul>
 
-            <p>Wszystkie przedstawione tu rozwiązania sprawdziłem, nie jest to copypaste dokumentacji. Jednak żadnej gwarancji nie mogę udzielić, bo na pewno wkradło się tu trochę błędów. Będę wdzięczny za wskazanie ich i wszystkie tak szybko jak to będzie możliwe poprawię. Kontakt przez formularz kontaktowy lub <a href="https://www.facebook.com/dygresje.info/">facebooka dygresje.info</a>.</p>
+            <p>Wszystkie przedstawione tu rozwiązania sprawdziłem, nie jest to copypaste dokumentacji. Jednak żadnej gwarancji nie mogę udzielić, bo na pewno wkradło się tu trochę błędów. Będę wdzięczny za wskazanie ich i wszystkie tak szybko jak to będzie możliwe poprawię. Kontakt przez formularz kontaktowy na stronie lub <a href="https://www.facebook.com/dygresje.info/">facebooka dygresje.info</a>.</p>
 
             <p>Innym rodzajem będu, który mogłem tu popełnić jest uznanie czegoś za zbyt oczywiste i pominięcie tego w opisie. Tutaj też proszę o zwrócenie uwagi.</p>
 
@@ -39,7 +39,7 @@ const GatsbyBlog = ({ data, location }) => {
 
             <h3>Co dalej?</h3>
 
-            <p>W ciągu dwóch tygodni napisałem / dopracowałem siedem wpisów, które były już wcześniej w różnym stopniu gotowe, w tym dwa kompletnie od zera. To było interesujące, ale czekaja inne obowiązki, m.in. muszę w końcu ruszyć z cyklem wpisów o Enigmie (BTW znalazłem wreszcie książkę w której jest porządnie opisana: Richard E. Klima "Cryptology: Classical and Modern"). Dlatego teraz nastąpi dłuższa przerwa. Prawdopodobnie już we wrześniu pojawią się kolejne wpisy.</p>
+            <p>W ciągu dwóch tygodni napisałem / dopracowałem siedem wpisów, które były już wcześniej w różnym stopniu gotowe, w tym dwa kompletnie od zera. To było interesujące, ale czekaja inne obowiązki, m.in. <a href="/blog/enigma">ruszyłem z cyklem wpisów o Enigmie</a> (BTW znalazłem wreszcie książkę w której jest porządnie opisana: Richard E. Klima "Cryptology: Classical and Modern"). Dlatego teraz nastąpi dłuższa przerwa. Prawdopodobnie już we wrześniu pojawią się kolejne wpisy.</p>
 
             <p>Plan jest dość płynny, ale na tę chwilę przedstawia się następująco:</p>
 
