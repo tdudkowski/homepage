@@ -20,12 +20,12 @@ const GatsbyBlog = ({ data, location }) => {
 
             <ul>
                 <li>darmowy kurs Przeprogramowanych: <a href="https://przeprogramowani.pl/darmowy-kurs-gatsby">Gatsby - krok po kroku, od zera do gotowej aplikacji</a>, jest to seria, w tej chwili siedmiu artykułów, na pewno wartych przeczytania. Lektura obowiązkowa.</li>
-                <li>artykuł na mojej stronie: <Link to="/it/js/gatsby">GatsbyJS</Link>, choć prawdę mówiąc po wykasowaniu / przeniesieniu zdublowanej treści niewiele tam już pozostało.</li>
+                <li>artykuł na mojej stronie: <Link to="/it/js/gatsby">GatsbyJS</Link>, choć, prawdę mówiąc, po wykasowaniu / przeniesieniu zdublowanej treści niewiele tam już pozostało.</li>
             </ul>
 
-            <p>Wszystkie przedstawione tu rozwiązania sprawdziłem, nie jest to copypaste dokumentacji. Jednak żadnej gwarancji nie mogę udzielić, bo na pewno wkradło się tu trochę błędów. Będę wdzięczny za wskazanie ich i wszystkie tak szybko jak to będzie możliwe poprawię. Kontakt przez formularz kontaktowy na stronie lub <a href="https://www.facebook.com/dygresje.info/">facebooka dygresje.info</a>.</p>
+            <p>Wszystkie przedstawione tu rozwiązania sprawdziłem, nie jest to copypaste dokumentacji. Jednak żadnej gwarancji nie mogę udzielić, bo na pewno wkradło się tu trochę błędów. Będę wdzięczny za wskazanie ich i wszystkie tak szybko jak to będzie możliwe, poprawię. Kontakt przez formularz kontaktowy na stronie lub <a href="https://www.facebook.com/dygresje.info/">facebooka dygresje.info</a>.</p>
 
-            <p>Innym rodzajem będu, który mogłem tu popełnić jest uznanie czegoś za zbyt oczywiste i pominięcie tego w opisie. Tutaj też proszę o zwrócenie uwagi.</p>
+            <p>Innym rodzajem błędu, który mogłem tu popełnić, jest uznanie czegoś za zbyt oczywiste i pominięcie tego w opisie. Tutaj też proszę o zwrócenie uwagi.</p>
 
             <h3>Dotychczasowe wpisy</h3>
 
@@ -39,19 +39,19 @@ const GatsbyBlog = ({ data, location }) => {
 
             <h3>Co dalej?</h3>
 
-            <p>W ciągu dwóch tygodni napisałem / dopracowałem siedem wpisów, które były już wcześniej w różnym stopniu gotowe, w tym dwa kompletnie od zera. To było interesujące, ale czekaja inne obowiązki, m.in. <a href="/blog/enigma">ruszyłem z cyklem wpisów o Enigmie</a> (BTW znalazłem wreszcie książkę w której jest porządnie opisana: Richard E. Klima "Cryptology: Classical and Modern"). Dlatego teraz nastąpi dłuższa przerwa. Prawdopodobnie już we wrześniu pojawią się kolejne wpisy.</p>
+            <p>W ciągu dwóch tygodni napisałem / dopracowałem siedem wpisów, które były już wcześniej w różnym stopniu gotowe, w tym dwa kompletnie od zera. To było interesujące, ale czekają inne obowiązki, m.in. <a href="/blog/enigma">ruszyłem z cyklem wpisów o Enigmie</a> (BTW znalazłem wreszcie książkę, w której jest porządnie opisana: Richard E. Klima "Cryptology: Classical and Modern"). Dlatego teraz nastąpi dłuższa przerwa. Prawdopodobnie już we wrześniu pojawią się kolejne wpisy.</p>
 
             <p>Plan jest dość płynny, ale na tę chwilę przedstawia się następująco:</p>
 
             <ul>
                 <li>Blog cz. 2. dodatkowe elementy: paginacja, poprzedni / następny, publikacja danego dnia, komentarze...</li>
                 <li>Headless CMS: Wordpress, Drupal, Strapi i inne,</li>
-                <li>Integracje, szablony, PWA, SSR itp, itd.</li>
+                <li>Integracje, szablony, PWA, SSR itp. itd.</li>
             </ul>
 
-            <p>Docelowo powinno wyjść pomiędzy 10 a 15 wpisów i w tej formule seria powinna się zamknąć jeszcze w tym roku (2021). Oczywiście w miarę rozwoju Gatsby'ego będą się pojawiać nowości i dopóki będę zainteresowany tym frameworkiem treść będzie aktualizowana.</p>
+            <p>Docelowo powinno wyjść pomiędzy 10 a 15 wpisów i w tej formule seria powinna się zamknąć jeszcze w tym roku (2021). Oczywiście w miarę rozwoju Gatsby'ego będą się pojawiać nowości i dopóki będę zainteresowany tym frameworkiem, treść będzie aktualizowana.</p>
 
-            <p>Możliwe, że z czasem będę przenosił z wpisu do wpisu; może w ogole inaczej to zorganizuję. Więc wszystko może się zmienić, ale w razie gdyby jakaś informacja zniknęła z dotychczasowego miejsca - ten adres: `https://dygresje.info/blog/gatsby` zostaje i nie ulegnie zmianie.</p>
+            <p>Możliwe, że z czasem będę przenosił z wpisu do wpisu; może w ogóle inaczej to zorganizuję. Więc wszystko może się zmienić, ale w razie gdyby jakaś informacja zniknęła z dotychczasowego miejsca - ten adres: `https://dygresje.info/blog/gatsby` zostaje i nie ulegnie zmianie.</p>
 
             <h3>Założenia</h3>
 
@@ -59,9 +59,9 @@ const GatsbyBlog = ({ data, location }) => {
 
             <p>Założeniem każdego odcinka serii jest bycie success-complete, chodzi o to, żeby po przeczytaniu można było coś zbudować. Już w pierwszym odcinku zobaczysz własną stronę w Gatsbym.</p>
 
-            <p>Zakładam, że czytelnik dobrze zna podstawy JS, rozumie jak działa React i zna <a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a>, używa gita, umie poruszać się w konsoli i wie jak działa strona WWW. Pisząc o konsoli, mam na myśli konsolę linuksową i naprawdę tylko podstawowe polecenia typu cd, mkdir, rm, ls.</p>
+            <p>Zakładam, że czytelnik dobrze zna podstawy JS, rozumie jak działa React i zna <a href="https://reactjs.org/docs/introducing-jsx.html">JSX</a>, używa gita, umie poruszać się w konsoli i wie, jak działa strona WWW. Pisząc o konsoli, mam na myśli konsolę linuksową i naprawdę tylko podstawowe polecenia typu cd, mkdir, rm, ls.</p>
 
-            <p>Postaram się też odróżniać kiedy używamy mechanizmów Gatsby'ego, kiedy samego Reacta, a kiedy jest to sam JS.</p>
+            <p>Postaram się też odróżniać, kiedy używamy mechanizmów Gatsby'ego, kiedy samego Reacta, a kiedy jest to sam JS.</p>
 
         </article>
     </LayoutBlog >)
