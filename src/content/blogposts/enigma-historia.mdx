@@ -1,0 +1,605 @@
+---
+title: "Enigma cz. 5 - historia Enigmy"
+section: "blog"
+subsection: "historia"
+set: enigma
+date: 2021-08-18
+edited:
+image: ../images/Enigma-logo.jpg
+tags: enigma, kryptologia, wwii
+url: https://dygresje.info/blog/enigma-historia
+description: "Historia Enigmy, opis wszystkich wersji i wpływ. Kryptoanaliza Enigmy."
+---
+
+Stały adres serii wpisów o Enigmie - [/blog/enigma](/blog/enigma)
+
+### Kto wynalazł Enigmę?
+
+W 2003 okazało się, że historia wynalezienia maszyny rotorowej wyglądała inaczej, niż dotąd uważano.
+
+Dwaj oficerowie marynarki holenderskiej służący w Holenderskich Indiach Wschodnich, Theo van Hengel i Rudolf Spengler, przedstawili prototyp szyfrującego urządzenia rotorowego - latem 1915 w Dżakarcie (wówczas Batawii), stolicy Indonezji, na pokładzie okrętu flagowego marynarki holenderskiej, pancernika De Zeven Provinciën. Holandia podczas Wielkiej wojny była neutralna. Marynarka nie była zainteresowana ich wynalazkiem, ale w obawie by nie był używany przez inne kraje, chcąc ukryć sprawę, zabroniła im publikacji. Po wojnie zakaz przestał obowiązywać. Wynajęli urzędnika patentowego Huybrechta Verhagena.
+
+Co za przypadek, że jego szwagier Hugo Koch opatentował takie urządzenie 7 października 1919. Dopiero w listopadzie patent dostali prawdziwi wynalazcy: Hengel i Spengler.
+
+Wcześniej Koch ujawnił tę ideę Arthurowi Scherbiusowi, twórcy Enigmy - wniosek patentowy złożony 23 lutego 1918.
+
+O Hengelu i Spenglerze świat zapomniał. Analiza wniosków patentowych ujawniła, że wszystkie trzy przedstawiają to samo urządzenie. Dodatkową wskazówką jest fakt, że ani Koch, ani Scherbius nie mieli wielkiego doświadczenia, ani nie byli kryptologami.
+
+1918 założona firma Scherbius & Ritter. Obaj przedstawiają projekt maszyny zarówno niemieckiej Kaiserliche Marine, jak i Ministerstwu Spraw Zagranicznych, ale nie uzyskali zainteresowania żadnej z tych instytucji. W tej sytuacji przekazali prawa patentowe firmie Gewerkschaft Securitas, z której 9 lipca 1923 powstało Chiffriermaschinen Aktien-Gesellschaft (Maszyny Szyfrujące Spółka Akcyjna), w której Scherbius i Ritter zostali członkami zarządu.
+
+Od tej pory Chiffriermaschinen AG produkuje, reklamuje i od 1923 przedstawia na targach nowatorską maszynę szyfrującą, jakiej świat nie widział. Szybko o nowym wynalazku robi się głośno. Konstrukcją Scherbiusa interesuje się Reichswehra. Już w 1926 zaczyna jej używać Reichsmarine, w 1928 Reichsheer, czyli odpowiednio marynarka i siły lądowe Reichwehry.
+
+Z biznesu Kocha nic nie wyszło, ale dla porządku w papierach Scherbius odkupił jego patent w 1928. W tym samym zmarł Koch, a rok po nim zmarł również Scherbius. Nie dożył sukcesu Enigmy, ale dostrzegł jego początek. Jego maszyna stała się zasadniczym elementem kryptosystemu armii niemieckiej.
+
+Taki był początek Enigmy.
+
+- [Cryptology - Historical Rotor Machines](https://www.staff.uni-mainz.de/pommeren/Cryptology/Classic/5_Rotor/HistRot.html)
+- [THE DUTCH INVENTION OF THE ROTOR MACHINE, 1915–1923](https://www.tandfonline.com/doi/abs/10.1080/0161-110391891775)
+
+### Enigma cywilna
+
+Enigma cywilna to kolejno modele A, B, C, D i ta ostatnia była najpopularniejszą tzw. Enigmą handlową.
+
+Było to elektromechaniczne urządzenie szyfrujące po raz pierwszy publicznie zaprezentowane w 1923, którego główny mechanizm poprzez ruch walców umieszczonych na wspólnej osi zestawiał połączenie, a potem sygnał elektryczny przechodził przez walce od walca wprowadzającego przez walce szyfrujące. Każdy walec (rotor, wirnik) miał odmienne uzwojenie, czyli był sprzętową transpozycją sygnału. Obrót tych walców następujący przed każdym wprowadzeniem znaku zapewniał, że transpozycja za każdym razem przebiega według innego wzorca. Mogły być umieszczone w dowolnej kolejności i mieć dowolne ustawienie początkowe.
+
+Przez cały okres istnienia konstrukcji były trzy walce szyfrujące, od prawej pierwszy wykonywał przesunięcie o jedną pozycję przed każdym prowadzeniem znaku, drugi po pełnym obrocie pierwszego (czyli po 26 znakach), trzeci po pełnym obrocie drugiego (czyli po 26x26 znakach). Zapadki na walcach dodawały komplikację do tego prostego algorytmu, otóż czasem drugi i trzeci walce poruszał się dodatkowo.
+
+W modelu C (1927) wprowadzono istotną zmianę - dodano piąty walec: odwracający. W wersjach cywilnych był nieruchomy, ale można go było ustawiać w różnych pozycjach. Teraz sygnał wychodził z walca wprowadzającego, przez trzy szyfrujące, dodatkowo podlegał transpozycji na walcu odwracającym i wracał przez trzy walce szyfrujące do wprowadzającego.
+
+Ten mechanizm działał tak, że najpierw poruszające się walce zestawiały połączenie, a dopiero potem przez ich uzwojenie przechodził sygnał elektryczny. Wprowadzony z klawiatury i każdy z osobna po kolei zaszyfrowany szedł na wyjście, czyli najpierw drukarkę paskową (A, B), a potem zestaw lampek (C, D).
+
+Enigma cywilna nigdy nie miała przełącznicy kablowej. Były tylko trzy dostępne walce szyfrujące oznaczone numerami rzymskimi (I, II, III) i jeden walec odwracający.
+
+#### Model A (1923)
+
+Zaprezentowana na kongresie Powszechnego Związku Pocztowego 1923
+
+Duży 65×45×35 cm i ciężki (ok. 50 kg), głównie ze względu na zintegrowaną drukarkę
+
+- Crypto Museum [Die Handelsmaschine](https://www.cryptomuseum.com/crypto/enigma/pe23/index.htm)
+
+#### Model B
+
+Udoskonalona wersja A.
+
+#### Model C (1926)
+
+Przełomowa konstrukcja.
+
+- Rezygnacja ze zintegrowanej drukarki, w rezultacie była dużo mniejsza i lżejsza. Nadawała się do przenoszenia.
+- Wprowadzenie walca odwracającego – kluczowy element Enigmy, wymyślony przez Williego Korna. Walec odwracający mógł być zainstalowany w jednej z dwóch pozycji.
+- Panel z literami podświetlanymi żarówkami - dlatego nazywana była świecącą Enigmą.
+
+Była używana dość krótko.
+
+- Crypto Museum [Enigma C](https://www.cryptomuseum.com/crypto/enigma/c/index.htm)
+
+#### Enigma D (1927)
+
+Udoskonalona wersja C. Najpopularniejszy model cywilny Enigmy. W zasadzie, jeśli mówimy o "wersji handlowej" lub "komercyjnej" możemy bezpiecznie przyjąć założenie, że chodzi o Model D. Jako Enigma K używają jej Szwajcarzy.
+
+- Walec odwracający mógł być zainstalowany w jednej z 26 pozycji
+
+Poza Niemcami była używana również w Szwecji, Holandii, Anglii, Japonii, Włoszech, Hiszpanii, Stanach Zjednoczonych i Polsce.
+
+- Crypto Museum [Enigma D](https://www.cryptomuseum.com/crypto/enigma/d/index.htm)
+
+### Enigma wojskowa
+
+Enigma wojskowa to na początku model G, a od 1930 jego znacznie poprawiona wersja: Enigma I (z przełącznicą kablową) używana praktycznie bez zmian do końca wojny.
+
+Najważniejszą zmianą było dodanie przełącznicy kablowej. Oprócz tego dodano kilka typów walców szyfrujących (w Wehrmachcie 3, w Kriegsmarine 5) i drugi model walca odwracającego.
+
+Osobno i równolegle do wojskowej rozwija się Enigma Kriegsmarine, która od początku miała 29 znaków. W model M4 (1942) dodano jeszcze jeden walec szyfrujący.
+
+#### Enigma G
+
+- Cztery ruchome walce (walec odwracający również się obracał) z wieloma wcięciami mechanizmu zapadkowego
+- Jeszcze bez przełącznicy kablowej
+- Dodatkowo licznik, którego stan zwiększał się po każdym naciśnięciu klawisza
+
+Używana przez służby wywiadu i kontrwywiadu wojskowego III Rzeszy. Nazywana: Abwehr Enigma i Zahlwerk Enigma (pl. Enigma licznikowa)
+
+- Crypto Museum [Zählwerk Enigma](https://www.cryptomuseum.com/crypto/enigma/g/a28.htm)
+
+#### Funkschlüssel C (Koder radiowy C)
+
+Kriegsmarine eksperymenty w 1925, a do służby prowadzono w 1926.
+
+- klawiatura maszyny i panel z lampkami zawierały 29 liter – A–Z, Ä, Ö i Ü – które były umieszczone alfabetycznie, a nie tak jak na standardowej klawiaturze niemieckiej QWERTZU.
+- walce posiadały 28 znaków, a styki litery X były połączone na wprost, bez zamiany.
+
+Do szyfrowania wybierano trzy z zestawu pięciu typów walców, a walec odwracający mógł być zainstalowany w jednej z czterech pozycji oznaczonych jako α, β, γ i δ.
+
+W lipcu 1933 konstrukcja maszyny została zmodyfikowana.
+
+#### Enigma I
+
+Najpopularniejsza wersja wojskowej Enigmy. Używana praktycznie bez zmian od 1930 do końca wojny.
+
+15 lipca 1928 Reichswehra wprowadziła do służby własną wersję Enigmy G. W lipcu 1930 została zmodyfikowana do wersji Enigma I - jest ona również nazywana Enigmą Wehrmachtu lub Enigmą Służb i była intensywnie używana także przez inne niemieckie organizacje wojskowe i rządowe (takie jak kolej niemiecka), zarówno przed jak i w czasie II wojny światowej.
+
+Różnice:
+
+- dodanie łącznicy kablowej do zamiany liter parami, co znacznie zwiększało bezpieczeństwo szyfru maszyny.
+- zastosowanie nieruchomego walca odwracającego.
+- przeniesienie wcięć zębatki obracającej walec z obudowy na pierścień alfabetyczny.
+
+W sierpniu 1935 również Luftwaffe zaczęła stosować do komunikacji maszyny Enigma I.
+
+Od grudnia 1938 także inne formacje Wehrmachtu zaczęły wykorzystywać rozszerzony do pięciu typów zestaw walców. To uniemożliwiło Polakom odczytywanie Enigmy.
+
+W 1944 Luftwaffe wprowadziła dodatkowy przełącznik łącznicy kablowej (niem. Uhr), pudełko z 40-pozycyjnym przełącznikiem obrotowym. Zastępował przełącznicę kablową. Klucz dzienny odpowiadający kombinacji okablowania.
+
+- Crypto Museum [Enigma I](https://www.cryptomuseum.com/crypto/enigma/i/index.htm)
+
+#### Enigma M3
+
+1930 OKH zasugerował Kriegsmarine zaadaptowanie Enigmy I do własnych potrzeb, argumentując to zwiększonym bezpieczeństwem wersji z łącznicą kablową oraz unifikacją łączności między rodzajami sił zbrojnych.
+
+Kriegsmarine przyjęła Enigmę I na wyposażenie w 1934, modyfikując wersję, używaną przez siły lądowe. Była oznaczona jako Funkschlüssel M lub M3.
+
+- zestaw 5 typów walców
+- 29-znakowa klawiatura
+
+1938 Kriegsmarine dodała dwa typy walców i kolejny typ w 1939, co w efekcie dało zestaw 8 typów walców.
+
+#### Enigma M4
+
+Czterowalcowa Enigma została wprowadzona po raz pierwszy w Kriegsmarine 1 lutego 1942 z przeznaczeniem do łączności z U-Bootami. Oficjalnie maszyna nosiła oznaczenie M4, a sieć w której je wykorzystywano, została oznaczona przez aliantów kryptonimami TRITON (Tryton) oraz SHARK (rekin).
+
+Dodatkowy, znacznie cieńszy walec został umieszczony w maszynie wraz z nowym, również cieńszym walcem odwracającym. Ten dodatkowy walec nie poruszał się, służył tylko do ustawień klucza.
+
+Schreibmax, mała drukarka, która mogła drukować cały zestaw 26 znaków na papierowej taśmie.
+
+#### Enigma II
+
+Bardziej skomplikowana: 8 walców i zintegrowana drukarka (niem. Schreibmax).
+
+W 1933 polskie stacje nasłuchowe przechwyciły transmisje szyfrogramów między niemieckim dowództwem najwyższego szczebla.
+
+Jako zbyt zawodna i podatna na częste zacięcia nie znalazła większego zastosowania i została wkrótce wycofana.
+
+- Crypto Museum [Enigma H](https://www.cryptomuseum.com/crypto/enigma/h/index.htm)
+
+### Inni użytkownicy Enigmy
+
+- Marynarka wojenna Włoch zaadaptowała do celów wojskowych handlową wersję maszyny, nazwaną "Koderem Marynarki D".
+- Hiszpania wykorzystywała Enigmy podczas wojny domowej.
+- W szwajcarskiej armii i dyplomacji korzystano z maszyn Enigma, oznaczonych jako model K lub Swiss K; były bardzo podobne do handlowej wersji cywilnej Enigmy D. Ta wersja maszyny została rozszyfrowana przez wiele zespołów kryptologów z Polski, Francji, Wielkiej Brytanii i Stanów Zjednoczonych (ostatnia nazwa kodowa to INDIGO).
+- Enigma T, nazwa kodowa Tirpitz, skonstruowana specjalnie dla Japonii.
+
+### Złamanie Enigmy
+
+Już w połowie lat 20. zaczęto mówić o Enigmie. Maszyna miała ogromny potencjał i dawała nowe możliwości.
+
+W latach 20. zaczyna jej używać armia niemiecka:
+
+- 1926 Reichsmarine
+- 15 lipca 1928 Reichsheer
+
+Rozpoczyna się polowanie na tajemnicę Enigmy.
+
+#### Działania wywiadowcze
+
+Już 1927 Brytyjczycy oficjalną drogą kupili handlową Enigmę, zajął się nią czołowy brytyjski kryptolog Alfred Dillwyn "Dilly" Knox (weteran z Room 40), ale nie mając niemieckich meldunków, mógł badać jej działanie tylko na własnych wiadomościach. Knox długo był najważniejszym brytyjskim ekspertem od Enigmy.
+
+W czerwcu 1931 Hans-Thilo Schmidt pseudo "Asché" wówczas pracownik niemieckiego Centrum Szyfrów (Chiffrierstelle) Reichswehry przez francuską ambasadę w Berlinie zaoferował sprzedaż tajnych dokumentów dotyczących Enigmy. Od listopada zaczął przekazywać dokumenty, były to instrukcje użytkowania i klucze do szyfrów (ustawienia przełącznicy kablowej). Anglicy i Francuzi nie byli tym zbyt zainteresowani, to czego najbardziej potrzebowali to uzwojenie walców.
+
+Pośrednikiem był agent "Rex" czyli Rodolphe Lemoine, z urodzenia Niemiec, z wyboru Francuz (["Enigma before Bletchley: the German spies who betrayed Hitler"](https://www.historyextra.com/period/second-world-war/enigma-before-bletchley-the-german-spies-who-betrayed-hitler/)). Pierwsze spotkanie ze Schmidtem 1 listopada 1931 w Grand Hôtel de Verviers (Verviers, Belgia). 8 listopada 1931 spotkali się we trójkę z kapitanem Gustavem Bertrandem. Potem kontakt utrzymywany przez Leomoine. W marcu 1938 Gestapo aresztowało Lemoine w Kolonii. Po uwolnieniu był badany przez francuski kontrwywiadu. Uwolniony od podejrzeń, ale od tej pory trzymany z daleka od Schmidta i sprawy Enigmy.
+
+Gustave Bertrand, wówczas od 1924 w stopniu kapitana, był od 1926 pracownikiem radiowywiadu, który we Francji podlegał służbie wywiadowczej Service de Renseignement (S.R.). W 1930 przekazano jej należące do tej pory do armii służby kryptologiczne i powstał oddział Section D (fr. Decryptement), a Bertrand stanął na jej czele. Potem został szefem całego radiowywiadu. W całej historii dekryptażu Enigmy jest kluczową postacią. W 1950 awansowany na generała.
+
+Bertrand przekazuje dokumenty kryptologom z Section du Chiffre, ale są bezradni. Tak samo zareagowali brytyjscy kryptoanalitycy. W tej sytuacji decyduje się na ścisłą współpracę z Polakami. Z francuskiego punktu widzenia sprawa się okazała niewarta ryzyka i wydanych pieniędzy. Natomiast pozyskane tą drogą informacje znacznie skróciły Polakom drogę do odczytania Enigmy. 7 grudnia 1931 pierwsze dokumenty zostały przekazane polskiemu wywiadowi. W 1932 kapitan Gustave Bertrand przekazał dwa dokumenty: "Instrukcja obsługi szyfru maszynowego" i klucze dnia na październik i grudzień 1931. Ogółem w ciągu kilku następnych lat Francuzi przekazali ustawienia klucza na łączny okres 38 miesięcy. Polskim łącznikiem był major Gwido Langer szef polskiego radiowywiadu. Nie wiadomo jaką część tych danych przekazano polskim kryptoanalitykom, na pewno nie wszystko, może nie chcąc uzależnić polskich kryptologów od danych wywiadowczych, a może dlatego, że zobowiązał się do przekazania z powrotem wszystkich informacji uzyskanych dzięki francuskiej pomocy.
+
+Do lata 1939 Polacy nie przekazali na temat Enigmy żadnych informacji ani Francji, ani UK.
+
+Polskie Biuro szyfrów zdecydowało o kupnie handlowe Enigmy okrężną drogą. O ile wiem, nic z tego nie wyszło, m.in. z powodu braku funduszy.
+
+Zmodyfikowane maszyny handlowe zostały wysyłane na front wojny domowej w Hiszpanii. Używała ich również włoska marynarka pomagająca frankistom. Po raz pierwszy Brytyjczycy mogli podsłuchiwać Enigmy używane wojskowo.
+
+W kwietniu 1937 Dilly Knox po raz pierwszy odczytał depesze Enigmy, użył prostej techniki odgadywania ustawień rotorów, pomagały mu też znane teksty jawne (ang. cribs). Biorąc pod uwagę fakt, że żadna z tych maszyn nie używała przełącznicy, a jego metoda była czasochłonna i ograniczona, był to skromny sukces i utwierdził go w przekonaniu, że wojskowa Enigma jest nie do złamania. Do czasu otrzymania pomocy z Polski Brytyjczycy nie mieli żadnych możliwości odczytania wojskowej niemieckiej Enigmy.
+
+#### Polski radiowywiad
+
+W latach 20. bez większych problemów czytaliśmy niemiecką łączność. Reichswehra używała prostych szyfrów.
+
+Zimą 1927/28 przedstawiciel niemieckiej firmy nagle i stanowczo zażądał zwrotu przesyłki skierowanej do polskiej filii jego przedsiębiorstwa. Zadeklarowano urządzenie radiowe. Takie zachowanie wzbudziło podejrzenia w Urzędzie Celnym w Warszawie, więc powiadomili "Dwójkę". Było to sobotnie popołudnie, eksperci mieli więc dość czasu, by dyskretnie otworzyć przesyłkę. Okazało się, że jest to cywilna Enigma. Została sfotografowana, pomierzona i zwrócona bez wzbudzania podejrzeń.
+
+Od tego wydarzenia datuje się zainteresowanie polskiego wywiadu Enigmą.
+
+15 lipca 1928 Wehrmacht zaczął nadawać pierwsze komunikaty z szyfrem maszynowym. Polacy je przechwytywali, ale kryptolodzy w sekcji niemieckiej polskiego radiowywiadu nie potrafili ich przeczytać.
+
+W styczniu 1929 major Gwido Langer został szefem Referatu Radiowywiadu (a potem Biura Szyfrów). Jego zastępcą i szefem sekcji niemieckiej (Referat B.S.4) był kapitan Maksymilian Ciężki, w "Dwójce" od marca 1923. Oficjalnie kierownictwo BS4 objął 1 stycznia 1933.
+
+#### Kurs w Poznaniu
+
+Biuro Szyfrów uznało, że dotychczasowe metody lingwistyczne są bezradne wobec szyfrowania maszynowego. A metody analizy statystycznej dowiodły, że niemiecka komunikacja takiej używa. Polacy mieli doświadczenie w angażowaniu matematyków w łamaniu szyfrów. Zaczęto od podstaw.
+
+Ze względu na wymaganą znajomość języka niemieckiego wybrano Uniwersytet Poznański. W styczniu 1929 na terenie Cytadeli (w budynku poznańskiej Komendy Miasta) zorganizowano tajny kurs kryptologii, na który zaproszono wybranych matematyków, m.in. najzdolniejszych uczniów profesora Zdzisława Krygowskiego, byli to: Marian Rejewski, Jerzy Różycki i Henryk Zygalski. Wykładowcami byli przyjeżdżający z Warszawy: major Franciszek Pokorny (kierownik Referatu Radio i Szyfrów), kapitan Maksymilian Ciężki oraz inżynier Antoni Palluth (cywilny pracownik Biura, współwłaściciel warszawskiej Wytwórni Radiotechnicznej AVA). Cała ta szóstka odegra kluczową rolę w dekryptażu Enigmy.
+
+Kurs trwa kilka miesięcy, zajęcia odbywały się dwa razy w tygodniu, wieczorami. 10 lat później Marian Rejewski we Francji odkrył, że był prowadzony na podstawie książki generała Marcela Givièrge "Cours de cryptographie" z 1925.
+
+Jesienią 1930 w poznańskiej ekspozyturze radiowywiadu "Dwójki" zatrudniono 8 najzdolniejszych absolwentów kursu.
+
+#### Biuro Szyfrów
+
+Latem 1931 nastąpiła reorganizacja i z połączenia Referatu Radiowywiadu oraz Referatu Szyfrów Własnych powstało Biuro Szyfrów z siedzibą w Pałacu Saskim w Warszawie (siedziba Sztabu Generalnego). Jego pierwszym i głównym zadaniem było złamanie Enigmy.
+
+W 1932 poznańska filia została rozwiązana, a Rejewski, Zygalski i Różycki od 1 września 1932 zaczęli pracę w warszawskim Biurze Szyfrów. Ich zadaniem było złamanie Enigmy, które w tym czasie kryptolodzy Francji, Anglii i Niemiec uważali za niemożliwe.
+
+We wrześniu 1937 Biuro Szyfrów Referat Niemiecki zostało przeniesione do specjalnie zbudowanych obiektów w Lesie Kabackim niedaleko miejscowości Pyry, na południe od Warszawy. Było to bezpieczniejsze, bo Pałac Saski był pod obserwacją Abwehry.
+
+#### Polski atak
+
+Od września 1932 Rejewski i jego zespół pracują na pełny etat nad złamaniem zagadki Enigmy.
+
+Polacy wiedzieli, że w wojskowej Enigmie jest łącznica kablowa (niem. Stopselstellung) i każda wiadomość ma indywidualny klucz. Z powodu niskiej jakości sygnału Niemcy dublowali klucz (więc było to sześć znaków nadanych tekstem jawnym) - Rejewski szukał wzorców na tej podstawie. Ponadto założył, że w większości przypadków tylko pierwszy walec się porusza (jak się później okazało, było to słuszne dla 21 na każde 26 znaków, tj. ok 80%).
+
+Ustawienia łącznicy dostał od wywiadu francuskiego, wzór walca wprowadzającego (kolejność alfabetyczna) podpowiedziała mu intuicja. Mając te dane, był w stanie odtworzyć wzór pierwszego walca, a ponieważ Niemcy zmieniali kolejność walców raz na kwartał, odtworzył wzorce dwóch pozostałych, a także walca odwracającego.
+
+W tym okresie niewiadome elementy zostały ograniczone do:
+
+- indywidualny klucz depeszy, czyli początkowe ustawienia walców - błędy szyfrantów, początkowo zdarzało się kodowanie klucza wg wzoru AABBCC, lub powtarzanie go, po pewnym czasie sprawa ta uległa regulacji, ale w pierwszym okresie ułatwiło to wydedukowanie uzwojenia walców
+- ustawienia łącznicy, zmieniane codziennie - ustalano metodą rusztu, wyszukiwano takie ustawienie, które daje znany początek wiadomości: zwykle tekst jawny zaczynał się od ANX (niemieckie "do" i X, który był znakiem przestankowym)
+- kolejność walców, zmieniana raz na kwartał
+
+W grudniu 1932 Rejewski osiągnął sukces, w nowatorski sposób wykorzystując teorie kombinatoryczne. Opracował tzw. metodę rusztu opartą o założenie, że łącznica kablowa zamieniała tylko 6 par liter.
+
+Rejewski stworzył cyklometr, narzędzie do stworzenia katalogu z permutacjami. W 1934 powstał katalog charakterystyk dla 105_456 możliwych ustawień walców (17_576 możliwych pozycji razy sześć możliwych sekwencji kolejności walców), przy użyciu cyklometru zajęło to prawie rok. Umożliwiło to odczytanie prawie z marszu systemu łączności Luftwaffe wprowadzonego w 1935. Ustalenie kodu dziennego zajmowało około 15 minut.
+
+1 października 1936 Niemcy zwiększyli liczbę połączeń na łącznicy kablowej Enigmy. Metoda rusztu miała za małą wydajność, ale Polacy mieli już katalog charakterystyk. W BS4 zatrudniono zaufanych ludzi zajmujących się rutynowym łamaniem szyfrów, zostawiając matematykom prace badawcze.
+
+W 1936 Wehrmacht zwiększył częstość zmiany kolejności walców:
+
+- od 1 lutego co miesiąc
+- od 1 października co dzień
+
+W maju 1937 Kriegsmarine zmieniła sposób przydzielania indywidualnego klucza depeszy, od teraz na podstawie tablic dwuznaków. Początkowo wciąż udawało się odczytywać wiadomości, ponieważ były one dzielone na kilka części, a kolejne zaczynały się od FORT (niem. Fortsetzung). Metodę tę alianci nazwali Fortyweepy.
+
+2 listopada 1937 wprowadzono nowy walec odbijający Bruno - używany dotąd katalog stał się bezużyteczny, trzeba było stworzyć następny. Był gotowy już w styczniu 1938.
+
+Nową formę katalogu charakterystyk stanowiły płachty Zygalskiego.
+
+Pułkownik Meyer szef Wydziału Wywiadowczego:
+>[...] nasi kryptolodzy całkowicie opanowali metodę przechwytywania i odczytywania niemieckich radiogramów szyfrowanych przez Enigmę. W styczniu 1938 r. wykonano dwutygodniowe badania nad rozszyfrowaniem przechwyconych materiałów Enigmy. Wówczas rozszyfrowano ok. 75% tych materiałów.
+
+15 września 1938 Niemcy wprowadzili nową procedurę szyfrowania, ustawienia walców nie zmieniały się z dnia na dzień, ale były inne dla każdej wiadomości. Drugi katalog charakterystyk stał się bezużyteczny, a przy tak częstych zmianach tworzenie kolejnego nie ma sensu. Polacy zaczęli podejrzewać, że ktoś donosi Niemcom o postępach prac.
+
+W październiku Marian 1938 Rejewski wymyślił sprzętowy atak na szyfr Enigmy w oparciu o teorię cykli - sześć sprzężonych polskich kopii Enigmy napędzanych silnikiem elektrycznym (trzy walce można było ustawić na sześć sposobów) w ciągu 2 godzin odkorowywało klucz dzienny. System działał, dopóki klucz wysyłano podwójnie. Maszyna wykonywała pracę 100 ludzi. Prawdopodobnie ze względu na cykanie nazwano je bombą. Nazwa ta później się utrwaliła i była używana również przez Brytyjczyków.
+
+W połowie listopada skonstruowano sześć takich bomb. Same wiadomości rozszyfrowywano płachtą Zygalskiego. Ręcznie wyprodukowano 2 komplety po 26 płacht, było to czasochłonne i wymagało ogromnej precyzji. Już w tym momencie Biuro Szyfrów docierało do granic możliwości finansowych i organizacyjnych.
+
+Do 1938 czytaliśmy około 75% przechwyconego ruchu Enigmy.
+
+Latem 1938 wywiad polski otrzymał wiadomość od agenta bydgoskiej ekspozytury nr 1210, Ottona Bacha, pracownika łączności Luftwaffe w Magdeburgu. Z instrukcji szyfrowej, którą przekazał, wynikało że w razie nieuniknionego nadejścia wojny zostaną wprowadzone dwa kolejne typy walców.
+
+Stało się to 15 grudnia. Wprowadzono dla nowe typy walców. Bomba w tej wersji nieprzydatna.
+
+1 stycznia 1939 zwiększyli liczbę połączeń łącznicy kablowej z od 5 do 8 do między 7 a 10.
+
+To jeszcze nie oznaczało, że Polacy byli bez szans.
+
+Po pierwsze wciąż można było odczytywać wiadomości, w których nie użyto żadnego z nowych walców. Po drugie SD SS i NSDAP wciąż używały starego systemu i starych ustawień. Dzięki temu Rejewski już na początku 1939 był w stanie odtworzyć uzwojenia dwóch nowych walców. Tym razem jednak miał przeciwko sobie matematykę. 5 typów walców na trzech pozycjach można ustawić na 60 sposobów. Potrzebne było dodatkowe 54 bomby. Obliczono, że na samą produkcję potrzebnych kolejnych 58 płacht Zygalskiego, zakładając że byłyby na to środki, trzeba kilku lat. A środków nie było ani na nowe bomby, ani na płachty.
+
+Rejewski:
+>we quickly found the [wirings] within the [new rotors], but [their] introduction ... raised the number of possible sequences of [rotors] from 6 to 60 ... and hence also raised tenfold the work of finding the keys. Thus the change was not qualitative but quantitative. We would have had to markedly increase the personnel to operate the bombs, to produce the perforated sheets ... and to manipulate the sheets
+
+Pułkownik Meyer:
+>łącznie z kryptologią wnosił stale pewną ilość materiału informacyjnego, uzupełniając obraz sytuacji nieprzyjacielskiej.
+
+Czytając wiadomości SD, polski wywiad otrzymywał cenne informacje o sytuacji w Rzeszy i działaniach wywiadowczych.
+
+1 sierpnia 1939 również SD wprowadziła nowy system.
+
+Jeszce pod koniec czerwca odczytano dwie ważne informacje:
+
+- władze policyjne zabrały się do sporządzania list proskrypcyjnych Polaków, którzy mieli zostać aresztowani po wybuchu wojny
+- powstały plany ewakuacji urzędów z terenu niemieckiego Śląska na wypadek wojny z Polską
+
+Ponadto cały czas udawało się odczytywać informacje o ruchu okrętów Kriegsmarine, BS4 było tu głównym źródłem informacji.
+
+- [Metoda rusztu](https://pl.wikipedia.org/wiki/Metoda_rusztu) | [Płachta Zygalskiego](https://pl.wikipedia.org/wiki/P%C5%82achta_Zygalskiego) | [Bomba kryptologiczna](https://pl.wikipedia.org/wiki/Bomba_kryptologiczna)
+
+#### Przekazanie
+
+Już w końcu 1938 było jasne, że Polacy przegrywają wojnę z Enigmą. Znali metodę złamania Enigmy, ale nie mieli ani czasu, ani środków, by jej użyć. W tej sytuacji szef Biura Szyfrów major Gwido Langer podjął decyzje bez precedensu. Na własną odpowiedzialność, choć przy zgodzie przełożonych zaplanował przekazanie całej wiedzy o Enigmie kryptologom Anglii i Francji.
+
+Żeby zrozumieć jak było to niezwykłe - w całej historii XX-wiecznej kryptologii wojennej znajdziemy tylko jedną analogiczną sytuację: 17 maja 1943 BRUSA Agreement, kiedy to Amerykanie dali całą swoją wiedzę na temat japońskiej maszyny RED w zamian za całą brytyjską wiedzę o niemieckiej Enigmie wojskowej. W tym wypadku było to coś za coś.
+
+9-10 stycznia w Paryżu miała miejsce pierwsza trójstronna konferencja kryptologiczna w siedzibie Service de Renseignements. Polacy chcieli zaproponować współpracę i dowiedzieć się jakie osiągnięcia mają sojusznicy.
+
+- Ze strony polskiej: Langer i Ciężki
+- Delegacji brytyjskiej przewodził szef Government Code and Cypher School komandor Alexander "Alastair" Denniston, byli też kryptolodzy: Hugh Foss i Dilly Knox.
+- Francja: kierownik Sekcji D kapitan Bertrand i dwóch ekspertów, jednym z nich był prawdopodobnie kryptolog kapitan Henri Braquenié.
+
+Brytyjczycy niechętnie wzięli udział. Z polskiego punktu widzenia konferencja była fiaskiem, okazało się, alianci nie mają żadnych sukcesów, więc zgodnie z otrzymanymi rozkazami Polacy trzymali kwestię złamania Enigmy w tajemnicy.
+
+Rozmowy w Paryżu zakończyły się wizytą u Drouanta (16-18, place Gaillon, Paris), reprezentacyjnej restauracji lubianej przez oficerów francuskich służb wywiadowczych. Oficer francuskich tajnych służb Paul Paillole:
+>Przyniosła ona rozczarowanie do strony technicznej. Wszyscy byli powściągliwi co do stanu swoich własnych badań. Jednakże okazała się ona pożyteczna, gdyż umożliwiła przedstawicielom tych trzech państw poznanie się, przedstawienie swych pomysłów i metod obliczeń, ustalenie systemu łączności i wymiany informacji. Na zakończenie obiecano sobie, bardziej lub mniej szczerze, spotkanie się, dzielenie się owocami trwających prac i wymianę przechwytywanych depesz Enigmy.
+
+W kwietniu Niemcy wycofały się z układu o nieagresji ze stycznia 1934. W wyniku takiego biegu rzeczy strona polska zdecydowała się ujawnić tajemnicę Enigmy bez stawiania warunków.
+
+26-27 lipca na zaproszenie Langera W tajnym ośrodku w Pyrach w siedzibie B.S.4. ([operacja Wicher](https://www.wlb-stuttgart.de/seekrieg/ultra/wicher.htm)):
+
+- Z Francji: major Bertrand i kapitan Braquenié
+- z Wielkiej Brytanii: komandor Denniston, kryptolog i ekspert od Enigmy Knox oraz komandor Humphrey Sandwith z radiowywiadu marynarki wojennej, który miał nawiązać współpracę z Oddziałem II w zakresie nasłuchu radiowego Kriegsmarine
+- Ze strony polskiej główną rolę odgrywali kryptolodzy, którzy doprowadzili do złamania Enigmy: Rejewski, Różycki i Zygalski oraz Langer i Ciężki.
+
+Osiągnięcia strony polskiej stanowiły ogromne zaskoczenie dla aliantów. Obiecano im również polskie kopie Enigmy i całą dokumentację. Na konferencji ustalono też zakres dalszej współpracy.
+
+W ramach wzajemności Brytyjczycy zobowiązali się przygotować dwa zestawy płacht Zygalskiego dla wszystkich 60 ustawień walców. Dilly Knox zastrzegał się, że to rozwiązanie będzie działać, tylko dopóki Niemcy będą dublować kody ustawień.
+
+Kopie Enigmy wraz z dokumentacją i jeden komplet płacht Zygalskiego, rysunki techniczne bomb i cyklometru w sierpniu 1939 wywiózł Langer do Paryża. Potem poleciał do Londynu.
+
+Kilka dni później 16 sierpnia 1939 na dworcu Victoria Station kierownik paryskiej ekspozytury Secret Intelligence Service (SIS) Wilfred Dunderdale i jego współpracownik Tom Greene w towarzystwie kapitana Bertranda przekazali przesyłkę, odebrał ją płk Stewart G. Menzies, wówczas wiceszefem Tajnej Służby Wywiadowczej (od listopada na jej czele).
+
+Marian Rejewski:
+>[I]t was not [as Harry Hinsley suggested, cryptological] difficulties of ours that prompted us to work with the British and French, but only the deteriorating political situation. If we had had no difficulties at all we would still, or even the more so, have shared our achievements with our allies as our contribution to the struggle against Germany.
+
+- [Alastair Denniston](https://en.wikipedia.org/wiki/Alastair_Denniston) weteran z Room 40, w którym pracował od jego powstania w 1914, w latach 1919-42, czyli od powstania szef Government Code and Cypher School (GC&CS), od 1940 ze względów zdrowotnych jego zakres obowiązków ulegał zmniejszeniu.
+- szef wywiadu brytyjskiego [Stewart Menzies](https://pl.wikipedia.org/wiki/Stewart_Menzies) 1939-52 Dyrektor Generalny Tajnej Służby Wywiadowczej (MI5), następca admirała Sinclara.
+- kryptolog francuski [Louis_Rivet](https://fr.wikipedia.org/wiki/Louis_Rivet_(g%C3%A9n%C3%A9ral)) w latach 1921-24 razem z de Gaullem we francuskiej misji w Polsce, potem w SR na kierunku niemieckim, po inwazji niemieckiej działa aktywnie w ruchu oporu.
+
+#### Wojna
+
+We wrześniu 1939 agenci British Military Mission 4, Colin Gubbins i Vera Atkins przybyli do Polski ewakuować kryptologów. Ale ci byli już w trakcie ewakuacji. Przedtem udało się cała dokumentacje i sprzęt zniszczyć lub zabrać, nie pozostawiono żadnych śladów złamania Enigmy. Polska tajemnica Enigmy nie wpadła w hitlerowskie ręce.
+
+Nie da się tego niestety powiedzieć o dokumentach polskiego wywiadu. Całe archiwum "Dwójki" w Forcie Legionów Cytadeli Warszawskiej nietknięte zostało przejęte przez Niemców i wysłane w 6 ciężarówkach do Berlina. Była to największa klęska polskich służb wywiadowczych w całej historii. Rozpoczęło się polowanie na ludzi. Fakt, że nie było tam żadnych bezpośrednich wskazówek sukcesu kryptologicznego, upewnił Niemców, że Polacy nie złamali Enigmy.
+
+Wszyscy ewakuowani pracownicy Biura Szyfrów zostali internowani w Rumunii, po drodze w trakcie ucieczki musieli zniszczyć wszystko, co mieli ze sobą. Byli kolejno kierowani do Francji.
+
+#### Francja (PC Bruno)
+
+Po klęsce wrześniowej na podstawie umowy dyplomatycznej z 9 września i protokołu wykonawczego z 21 września 1939 we Francji ze zgłaszających się na miejscu ochotników i przybywających z Polski żołnierzy polskich formowano już od września 1939 Wojsko Polskie we Francji. Kwestię te dodatkowo unormowała umowa polsko-francuska z 4 stycznia 1940. Łącznie było to 85 tys. żołnierzy: 4 dywizje piechoty, dwie brygady, cztery dywizjony myśliwskie i jeden bombowy.
+
+Razem z ewakuowanym wojskiem do Francji stopniowo przedostali się pracownicy Sekcji Szyfrów.  Najpierw na skutek interwencji dyplomatycznej Rejewski i Zygalski przez Turyn i Mediolan dostali się do Paryża. Do lutego 1940 wszyscy znaleźli się we Francji.
+
+Niestety Francja była pierwszym etapem porachunków z oficerami związanymi z sanacją obwinianych za wrześniową klęskę. Już na samym początku generał Sikorski starał się o wydzierżawienie wiezienia od władz francuskich. Kiedy to się nie udało 22 listopada 1939 rozkazał utworzenie tzw. [Ośrodka Oficerskiego w Cerizay](https://pl.wikipedia.org/wiki/O%C5%9Brodek_Oficerski_w_Cerizay).
+
+Ofiarą tych porachunków stali się również pracownicy Biura Szyfrów. Z powodu tajemnicy nie doceniano ich pracy i uważano ich za pozbawionych sukcesów pieszczochów sanacji. Nie znaleziono dla nich miejsca w strukturach wojska polskiego.
+
+Znaleźli się pod opieką i kontrolą kapitana Gustave Bertranda, który utworzył tajny ośrodek dekryptażu [PC Bruno](https://en.wikipedia.org/wiki/PC_Bruno) w Château de Bois-Vignolles w Gretz-Armainvilliers koło Paryża. Byli tam wszyscy Polacy z Biura Szyfrów oraz kryptolodzy hiszpańscy zajmujący się szyframi włoskimi. Okazało się, że francuska kryptologia nie istnieje w sensie organizacyjnym i korzystając z sytuacji, Bertrand znalazł miejsce dla uciekinierów, którzy teraz wykonywali zadanie dla Francji.
+
+Polacy zaczęli już 20 października. Przez dalekopis mieli kontakt z Bletchley Park, do komunikacji używali polskich kopii Enigmy. W styczniu 1940 Alan Turing był kilkanaście dni w PC Bruno, rozmawiając z polskimi kolegami. Przywiózł im pełen zestaw płacht Zygalskiego na podstawie polskich instrukcji wykonanych w Bletchley Park przez Johna Jeffreysa. W jego obecności 17 stycznia Polacy odczytali pierwszy ruch z Enigmy, depeszę z 28 października 1939. Od tego czasu aż do upadku Francji 17% ruchu Enigmy przechwyconego przez aliantów było odczytywane w PC Bruno.
+
+Okazało się, że Dilly Knox nie potrafił po powrocie użyć polskiej metody. Dopiero po poprawkach przekazanych Turingowi nawiązano łączność z Bletchley Park. Przez kilka miesięcy ośrodek w PC Bruno działał znakomicie. Niestety jego praca nie przekładała się na konkretne rezultaty. Alianci nie mieli systemu integracji wiedzy zdobytej przez radiowywiad. Depesze docierały do sztabu, ale nic z tego nie wynikało. Było to czasem kilkaset depesz dziennie. Ten ogrom zdobytej wiedzy był w praktyce bezużyteczny.
+
+9 kwietnia 1940 operacja Weserübung, napaść na Danię i Norwegię. W chaosie nieudolnej kooperacji pomiędzy krajami i służbami dane z PC Bruno nie przekładały się na wiedzę sztabową.
+
+Jeszcze w trakcie tej operacji stało się coś dziwnego. Informacje z jednostek biorących udział w operacji norweskiej były czytane jak dotąd, ale cała reszta wojskowej komunikacji nagle stała się nieczytelna. Wyglądało na to, że Niemcy po raz kolejny wprowadzili dużą zmianę. Zwykle takie zmiany poprzedzają poważną operację wojskową. W tym wypadku mogła to być jedynie inwazja na Francję. Tak była intuicja Polaków.
+
+Jak się później okazało, stało się to, czego obawiał się Knox - Niemcy przestali dublować klucz. Płachty Zygalskiego przestały działać.
+
+Teraz kryptolodzy musieli polegać na błędach operatora.
+
+I tak jak obawiali się Polacy - 10 maja 1940 Wehrmacht zaatakował Belgię i Francję.
+
+#### Francja Vichy (Cadix)
+
+22 czerwca 1940 rozejm w Compiègne. Powstaje Francja Vichy.
+
+Wielu ludzi związanych z PC Bruno zostało schwytanych przez Niemców. Nikt jednak nie zdradził tajemnicy Enigmy.
+
+Choć Brytyjczycy nalegali na ewakuacje bezpośrednio do UK, Bertrand zdecydował się zachować ośrodek we Francji. Już 10 czerwca ze względu na bliskość frontu ewakuowano ośrodek na zaplecze, do Tuluzy. Potem 24 czerwca przewieziono ich drogą lotniczą z Tuluzy do Algieru. Kiedy sytuacja uległa uspokojeniu Bertrand zorganizował kolejny ośrodek, tym razem o nazwie kodowej Cadix, w willi Domaine les Fouzes w Uzès k. Nimes. Polski zespół miał kryptonim "300". Działał od września 1940 do 9 listopada 1942. W sumie odczytali 4679 szyfrogramów.
+
+Równolegle w Algierze pozostała filia tego ośrodka. Kierował nią major Maksymilian Ciężki. Co kilka miesięcy zamieniali się miejscami.
+
+Podczas jednej z takich wymian 9 stycznia 1942 w katastrofie statku "Lamoricière" płynącego z Algieru do Marsylii w pobliżu Minorki (archipelag Balearów) utonęło 222 ludzi, w tym trzech polskich kryptologów i towarzyszący im francuski oficer:
+
+- Jerzy Różycki
+- kapitan Jan Graliński – szef referatu sowieckiego, kontrwywiadu radiowego Wschód i Biura Szyfrów Referat nr 3 (BS-3),
+- Piotr Smoleński – kryptolog BS3
+- kapitan François Lane
+
+Operacja Torch - desant aliantów na francuską część Afryki Północnej, rozpoczęta nocą z 7 na 8 listopada 1942.
+
+Niemcy obawiając się, że przyczółek afrykański stanie się bazą inwazji na południową Francję wkroczyli do Vichy 14 listopada (Fall Anton, 10-27 listopada 1942).
+
+Major Bertrand w przewidywaniu takiego rozwoju sytuacji ewakuował Cadix 9 listopada jeszcze przed wkroczeniem Niemców.
+
+To był koniec polskiego zespołu i jego pracy nad Enigmą.
+
+#### Ucieczka
+
+Bertrand wysłał do Hiszpanii dwie grupy.
+
+Rejewski i Zygalski dotarli do Hiszpanii 29 stycznia 1943. Natychmiast po przekroczeniu granicy zostali aresztowani przez policję. Osadzeni w więzieniu w Séo de Urgel, a 24 marca przeniesieni do więzienia w Lérida. Dzięki interwencji dyplomatycznej 4 maja uwolnieni i wysłani do Madrytu. Potem przedostali się do Portugalii i na pokładzie HMS Scottish popłynęli do Gibraltaru, a stamtąd 3 sierpnia 1943 polecieli samolotem Douglas DC-3 do Wielkiej Brytanii.
+
+Już 16 sierpnia obaj rozpoczęli pracę w jednostce radiowej Sztabu Naczelnego Wodza Polskich Sił Zbrojnych w Stanmore-Boxmoor pod Londynem. Do zakończenia wojny pracowali nad ręcznymi szyframi SS i SD. Nie mieli żadnego kontaktu z Enigmą. Brytyjczycy uznali, że angażowanie ich w Bletchley Park byłoby zbyt ryzykowne.
+
+Druga grupa nie miała tyle szczęścia. Zostali schwytani jeszcze we Francji w nocy z 10 na 11 marca 1943.
+
+Langer i Ciężki zostali jeńcami wojennymi, początkowo nie rozpoznano ich i skierowano do cywilnego obozu internowania, w marcu 1944 zostali przeniesieni do zamku [Eisenberg - Zámek Jezeří (Czechy)](https://medievalheritage.eu/pl/strona-glowna/zabytki/czechy/jezeri-zamek-eisenberg/) i tam byli przesłuchiwani w sprawie Enigmy. Niemcy po tym, co od nich usłyszeli, stracili zainteresowanie polskim wątkiem. Być może te przesłuchania mają coś wspólnego, z tym że trzy miesiące wcześniej Bertrand został schwytany przez Niemców, a potem nagle pojawił się w Londynie.
+
+Pozostali trzej: Antoni Palluth, Edward Fokczyński i Kazimierz Gaca trafili do obozu koncentracyjnego Sachsenhausen. Palluth zginął podczas alianckiego nalotu 18 kwietnia 1944, a Fokczyński kilka tygodni później z wycieńczenia.
+
+Wszyscy zachowali tajemnicę.
+
+- [Ppłk Maksymilian Ciężki - biografia](https://rciolsztyn.wp.mil.pl/pl/articles6-aktualnosci/pplk-maksymilian-ciezki-biografia/)
+- [Hans Pietsch](https://en.wikipedia.org/wiki/Hans_Pietsch_(mathematician)) -  matematyk, kryptolog w General der Nachrichtenaufklärung, radiowywiadu Heer (siły lądowe Wehrmachtu), z ramienia Gruppe IV des OKH (OKH/In 7/IV) badał możliwość złamania Enigmy przez Polaków; wykrył, że duplikacja klucza jest słabością kryptograficzną i z jego inicjatywy dokonano zmian przed 10 maja 1940, od 1941 szef Referat 7 "Sicherheit eigener Verfahren" (pl. bezpieczeństwo procedur własnych); po wojnie osadzony w Stammlager VII A der Wehrmacht k. Moosburg do czerwca 1946, nie był badany przez Target Intelligence Committee (TICOM), zamieszkał w NRD i do śmierci w 1967 pracował w Akademii Nauk i Zentralblatt für Mathematik.
+
+#### Losy pracowników Biura Szyfrów
+
+Jeszcze podczas wojny zginęli:
+
+- **Jerzy Różycki** zatonął na Morzu Śródziemnym 9 stycznia 1942, razem z nim zginęli: Jan Graliński, Piotr Smoleński i francuski kapitan François Lane
+- **Antoni Palluth** uwięziony w KL Sachsenhausen 18 kwietnia 1944 od alianckiej bomby
+- **Edward Fokczyński** uwięziony razem z Palluthem, kilka tygodni później z wycieńczenia
+
+Natomiast:
+
+- **Marian Rejewski**: 21 listopada 1946 został zwolniony ze służby w wojsku polskim w Wielkiej Brytanii i wrócił do Polski, do rodziny w Bydgoszczy. Był urzędnikiem w bydgoskich fabrykach, a swój udział w złamaniu Enigmy trzymał w tajemnicy. W latach 1949–1958 był inwigilowany przez UB. W 1967 przeszedł na emeryturę i dopiero wtedy ujawnił swoją działalność. Napisał wspomnienia, rękopis zdeponował w ówczesnym Wojskowym Instytucie Historycznym. W 1969 przeprowadził się do Warszawy. W 1973 ujawniono polski udział w ataku na Enigmę i od te pory Rejewski oficjalnie pisał artykuły na ten temat. Na prośbę Gustava Bertranda zajął się tłumaczeniem jego książki na polski. Złamał szyfr korespondencji Józefa Piłsudskiego z innymi działaczami PPS z 1904. W 1978 został odznaczony Krzyżem Oficerskim Orderu Odrodzenia Polski. Zmarł w Warszawie w 1980 w wieku 74 lat.
+- **Henryk Zygalski** pozostał na emigracji w Wielkiej Brytanii, uczył matematyki w szkole. Zmarł w 1978 w wieku 70 lat.
+- **Gwido Karol Langer** po wyzwoleniu z obozu wyjechał do Londynu, pracował w polskim radiowywiadzie w Kinross. W 1947 przeniesiony do rezerwy. Zmarł 30 marca 1948 w nędzy w hotelu w wieku 54 lat.
+- **Maksymilian Ciężki** pozostał na emigracji. W 1946 pozbawiony polskiego obywatelstwa (pośmiertnie przywrócono), zmarł 9 listopada 1951 w Londynie na ciężki nowotwór płuc w wieku 53 lat.
+- **Kazimierz Gaca** po wyzwoleniu z obozu w 1947 (tak samo jak kuzyn Antoniego, Sylwester Palluth), wstąpił do francuskiego wydziału wywiadu kierowanego przez wówczas już generała Gustave Bertranda. W 1950 ożenił się z Monique Isambert, córką szofera generała. Przyjęty do Legii Honorowej (Légion d’Honneur). Zmarł już po upadku komunizmu w 1997 lub 2009.
+
+#### U-110
+
+U-Boot typ IXB. Wszedł do służby w 1940, kapitan Fritz-Julius Lemp.
+
+W ostatni patrol bojowy wypłynął z Lorient 15 kwietnia 1941. 27 kwietnia na zachód od Irlandii zatopił brytyjski parowiec "Henri Mory", 9 maja wziął udział w ataku na konwój OB-318. Zatopiono wtedy 2 brytyjskie frachtowce: "Bengore Head" i "Esmond". Został wykryty i zaatakowany przez korwetę HMS "Aubretia", do akcji przyłączyły się niszczyciele HMS "Bulldog" i HMS "Broadway".
+
+Uszkodzony przez bomby głębinowe został zmuszony do wynurzenia. Wtedy Brytyjczycy zorientowali się, że mogą wziąć nietkniętego U-Boota. Załoga w pośpiechu rzuciła się do wody. 15 członków załogi zginęło, 32 dostało się do niewoli.
+
+Na jego pokładzie zdobyto nietkniętą Enigmę i aktualne księgi szyfrów (nie tylko dotyczące Enigmy, także Reservehandverfahren). Była to niepowtarzalna i bezcenna zdobycz kryptologiczna. U-110 zatonął następnego dnia w czasie próby odholowania go na Islandię. Przejęcie Enigmy udało się ukryć przed Niemcami.
+
+#### Bletchley Park.
+
+Ze względu na znaczenie Brytyjczycy szyfry Enigmy określają kodem ULTRA (wyżej niż Top Secret).
+
+Gordon Welchman, później szef Hut 6 w Bletchley Park:
+>Hut 6 Ultra would never have gotten off the ground if we had not learned from the Poles, in the nick of time, the details both of the German military version of the commercial Enigma machine, and of the operating procedures that were in use.
+
+Peter Calvocoressi, później szef sekcji Luftwaffe w Hut 3:
+>The one moot point is—how valuable? According to the best qualified judges it accelerated the breaking of Enigma by perhaps a year. The British did not adopt Polish techniques but they were enlightened by them.
+
+26 kwietnia 1940 na niemieckim trawlerze Polares zostały przejęte elementy ksiąg szyfrowych, które dały brytyjskim kryptoanalitykom wgląd w to, jak tworzono klucze dnia w Kriegsmarine. Na tej podstawie Alan Turing wymyśla banduryzm - analizę sekwencyjną prawdopodobieństwa warunkowego, dzięki czemu łatwiej można dotrzeć do klucza dnia.
+
+Zainspirowany bombą Rejewskiego Alan Turing w 1940 konstruuje własne, bardziej zaawansowane urządzenie kryptoanalityczne [The Turing-Welchman Bombe](https://www.tnmoc.org/bombe), użycie tej samej nazwy jest wyrazem uznania ze strony Turinga wobec polskiego kolegi. Bomba Turinga ma to samo zadanie - odkryć klucz dnia. Czasem udaje się to w 2 godziny, czasem nigdy. Kiedy klucz dnia jest znany, wtedy można, używając dziesiątków maszyn Typex (brytyjski klon Enigmy) przeczytać kilka tysięcy wiadomości wysłanych tego dnia w sieciach Enigmy.
+
+Pierwsza bomba Turinga zaczyna działać w Bletchley Park 14 marca 1940, jej ulepszona wersja o oficjalnej nazwie Agnus Dei została uruchomiona 8 sierpnia. Od tych urządzeń zaczyna się nieoficjalna tradycja nazywania wyspecjalizowanych łamaczy - bombami.
+
+Potrzeby Bletchley Park mają bezwzględny priorytet. Kiedy Turing nie może się doprosić o ludzi, dociera wprost do Churchilla. Odpowiedź jest natychmiastowa - każde życzenie Turinga ma zostać spełnione "action this day", bez zwłoki.
+
+Po wymianie informacji 1943 BRUSA Agreement Amerykanie budują własną bombę, a raczej zgodnie z osobliwą tradycją rozdzielenia kryptologii US Army od kryptologii US Navy dwie bomby
+
+- US Navy czyli OP-20-G, pierwsza uruchomiona 3 maja 1943, mieszana konstrukcja, zespoły walców i lampy próżniowe, przypominała brytyjską, byłą większa i szybsza, odpowiadała 16 maszynom Enigma, pierwsze dwie bomby zostały nazwane Adam i Eve
+- US Army Bombe znana "003" lub "Madame X" używała przełączników telefonicznych i była analogiem 144 maszyn Enigma
+
+Tajemnicę Enigmy trzeba było utrzymać za wszelką cenę. Pod żadnym pozorem Niemcy nie mogli się dowiedzieć, że ich kryptosystem został złamany. Często podawany jest tu przykład Coventry zbombardowanego w listopadzie 1940. W 1974 pojawiła się teza, jakoby miasto zostało celowo oddane bez osłony plot, bo tylko dane z Enigmy wskazywały na to bombardowanie i obrona miasta mogłaby zdradzić źródło informacji. Szczegółowa analiza danych wskazuje jednak, że dane Enigmy z tego czasu były odczytywane ze sporym opóźnieniem i były nieprecyzyjne, wiadomo było, gdzie mniej więcej nastąpi to bombardowanie, ale nie był określony czas.
+
+<!-- Dzięki pracy kryptologów polskich, a później także brytyjskich z Bletchley Park, oraz dzięki przechwyconym egzemplarzom Enigmy, pod koniec wojny praktycznie cała korespondencja szyfrowana przy jej pomocy była odczytywana przez aliantów. Średnio na dekryptaż niemieckiego meldunku wystarczał jeden do dwóch dni.
+Czytanie meldunków z Enigmy Kriegsmarine odegrało decydująca rolę w bitwie o Atlantyk, zakończonej wycofaniem U-Bootów
+Bitwa o Atlantyk, wycofanie U-Bootów po złamaniu szyfru Kriegsmarine w maju 1943. -->
+
+- [Oscar Reile](https://de.wikipedia.org/wiki/Oscar_Reile) | [Erich Fellgiebel](https://de.wikipedia.org/wiki/Erich_Fellgiebel)
+
+### Maszyny oparte na Enigmie
+
+#### Typex
+
+W latach 20. brytyjska marynarka szukała systemu pozwalającego zastąpić książki kodowe. Po wielu niepowodzeniach Brytyjczycy w końcu zdecydowali się skopiować niemiecka Enigmę handlową. Do wojskowej nie mieli dostępu. Zadanie otrzymał komandor O.G.W. Lywood. Zaczął pracować nad nią w 1934, rok później przedstawił prototyp.
+
+Elektromechaniczna rotorowa maszyna szyfrująca wzorowana na cywilnej Enigmie. Również posiadała walec odwracający, choć z początku nie miała przełącznicy kablowej.
+
+- na początku 1937 29 Typex Mark I dostał RAF, oznaczone były jako "RAF Enigma with Type X attachments"
+- Typex Mark II większa i wygodniejsza wersja produkowana w dużych ilościach
+- Mark 22/23 zwiększone bezpieczeństwo i zapewniona kompatybilność z Enigmą, po tym jak Bomby odnajdywały ustawienia to właśnie Typex 22/23 były używane do odszyfrowywania wiadomości. Część z nich była potem zmodyfikowana do Combined Cipher Machine (CCM), które zapewniały bezpieczną łączność z USA.
+- w późniejszych wersjach pojawia się przełącznica kablowa
+
+W Wielkiej Brytanii były w służbie do połowy lat 50. W innych krajach do 60. Marynarka kanadyjska wymieniła swoje maszyny Typex na KL-7 w 1962, a ambasada w 1968.
+
+Bardzo rzadko w obiegu kolekcjonerskim.
+
+Do końca wojny zbudowano ich 12 tys.
+
+- Crypto Museum [Typex](https://www.cryptomuseum.com/crypto/uk/typex/index.htm)
+
+#### NEMA (NEue MAschine)
+
+Szwajcarska elektromechaniczna rotorowa maszyna szyfrująca, będąca rozwinięciem używanej przez Szwajcarów Enigmy. Ponieważ używana przez nich Enigma K, będąca rozwinięciem Enigmy handlowej była złamana zarówno przez Niemców jak i aliantów postanowili zbudować własną.
+
+W latach 1941-43 opracował ją kapitan Arthur Alder, profesor matematyki na Uniwersytecie w Bernie. 10 walców: 3 szyfrujące, jeden odbijający, pięć sterujących. Zaakceptowana do produkcji w marcu 1945, od kwietnia 640 sztuk wyprodukowała firma Zellweger AG. Weszły do użytku w 1947. Odtajnione w 1992.
+
+- [The Swiss NEMA Cipher Machine](https://cryptocellar.org/simula/nema/)
+
+#### M-325 aka SIGFOY
+
+Amerykańska elektromechaniczna szyfrująca maszyna rotorowa zbudowana w 1944 przez Williama F. Friedmana. Trzy walce i walec odbijający.
+
+Do 1946 zbudowano ich tysiąc. Z powodu wad wycofana z użytku.
+
+Wniosek patentowy zgłoszony w 1944, patent przyznany w 1959 (US patent #2,877,565).
+
+#### Cryptograph
+
+- [Tatjana J. van Vark | Cryptograph | T.J.v.V. fecit - 2003](http://www.tatjavanvark.nl/tvv1/pht10.html)
+
+### Enigma po wojnie
+
+Bardzo długo po wojnie niewiele było wiadomo o Enigmie. Informacje były równie ogólne co mylące. Panowało przekonanie, że Brytyjczycy złamali Enigmę po jej fizycznym przejęciu na U-110. Udział Polaków był zgodnie przemilczany po obu stronach Żelaznego Muru.
+
+Miało to swoja bardzo konkretną przyczynę, która nie miała z Polską nic wspólnego. Na wschodzie milczano na ten temat, bo dopóki Rejewski się nie ujawnił w 1967, to w ogóle nikt o tym nie wiedział. Ponadto w bloku wschodnim sprawy kryptologii co do zasady były zamiecione pod dywan.
+
+Inaczej było na zachodzie. Ale z rozmaitych powodów skutek był ten sam. Zaraz po wojnie Winston Churchill, zdając sobie sprawę z tego, jaką potęgę zdobyła kryptoanaliza, nakazał całą działalność Bletchley Park utrzymać w ścisłej tajemnicy bezterminowo, a maszyny Colossus zniszczyć wraz z dokumentacją. Obawiano się bowiem, że wpadną w ręce jeszcze potężniejszego nieprzyjaciela i wykorzystane przez niego doprowadzą do totalnej kompromitacji własnej łączności.
+
+Tym, co ukryto, był fakt, że to metody kryptoanalizy - nieważne czy zastosowane przez Polaków, czy Brytyjczyków - doprowadziły do złamania tajemnicy Enigmy. Za wszelką cenę trzeba było utrzymać przekonanie, że maszyny rotorowe są bezpieczne, że wciąż można ich używać i zachować tajemnicę łączności. Za wszelką cenę trzeba było utrzymać w tajemnicy zdolność dekryptażu, jaką dzięki kryptoanalizie, najpierw polskiej, później brytyjskiej zdobyły wywiady UK i USA. To Polacy pierwsi udowodnili, jak wielki jest potencjał matematyki i wyobraźni w pokonywaniu zabezpieczeń, potem na ich dorobku swoje osiągnięcia budowali Brytyjczycy. Praca ta nie zakończyła się w 1945. Jedna wojna się skończyła i do razu zaczęła się następna. Metody kryptoanalizy stosowane w 1945 miały już niewielki związek z pracą Biura Szyfrów w latach 30., ale dotyczyły tej samej maszyny, a wkrótce potem jej generalizacji, takiej czy innej maszyny rotorowej.
+
+Podczas Zimnej Wojny największe tajemnice państwowe i wojskowe były strzeżone przez kolejne generacje tych urządzeń: Amerykanie wciąż używali SIGABA stworzonej przez Friedmana, od 1952 wprowadzali [TSEC/KL-7](https://www.cryptomuseum.com/crypto/usa/kl7/index.htm), sowieci natomiast od 1956 [M-125 Fiołek (ros. ФИАЛКА)](https://www.cryptomuseum.com/crypto/fialka/). Wszystkie trzy były konstrukcyjnie rozwinięciem tej samej idei maszyny rotorowej i do lat 70. pozostawały na pierwszej linii wojny o tajemnice.
+
+Dopóki przeciwnik był przekonany, że pradziadek Fiołka został złamany dopiero po przejęciu maszyny, mógł żywić przekonanie, że jego własny kryptosystem, będący n-generacją Enigmy jest bezpieczny i nie wymaga zamiennika. I tutaj już, żeby nie popadać w spekulację jeszcze tylko dwie ogólne uwagi:
+
+- Nie ma wielkiego znaczenia, czy Fiołek został złamany, czy nie. Każda zmiana kryptosystemu nieprzyjaciela jest wielkim problemem dla wywiadu. Ponadto, nawet jeżeli nie umiano czytać wiadomości, komunikacja i jej rutyny były dobrze opracowane. Znany system z wieloma przechwyconymi wiadomościami daje lepsze perspektywy ataku.
+- W grze o światową dominację jest również wielu mniej ważnych, ale też istotnych uczestników. Ich również dotyczą powyższe zasady, i to niezależnie czy są po stronie nieprzyjaciela, czy nie. Tutaj również bardzo poważną rolę odegrała umowa z Hagelinem dająca NSA backdoora do wszystkich jego urządzeń.
+
+Czy zatem Fiołek został pokonany? Na tej prezentacji [Nicolas T. Courtois "Cryptanalysis of GOST"](https://fahrplan.events.ccc.de/congress/2012/Fahrplan/attachments/2243_GOST_29C3_long.pdf) i w tym artykule [Matthew Gu "Fialka: The Bigger, Better, Russian Enigma"](https://derekbruff.org/blogs/fywscrypto/historical-crypto/fialka-the-bigger-better-russian-enigma/) przedstawione są następujące informacje:
+
+- podczas Wojny Sześciodniowej Izraelczycy przechwycili ją - co się dalej stało, nie wiadomo
+- Austria potrafiła czytać dużą liczbę wiadomości
+- w latach 70. NSA zbudowała superkomputer, który pokonał Fiołka całkiem
+
+Te same zasady działały w drugą stronę. NSA była przekonana, że KL-7 jest bezpieczny, ale w 1968 zwykły chorąży US Navy John Anthony Walker z powodu kłopotów finansowych sam, dobrowolnie zgłosił się do współpracy do ambasady sowieckiej i potem wciągnął do szpiegowskiej roboty całą rodzinę. Marynarkę opuścił w 1974, ale jego siatka działała pod przykryciem działalności prywatnego detektywa, na dodatek członka KKK i innych rasistowskich organizacji. Wpadł dopiero w 1985, i to tylko dlatego, że wydała go była żona, której przestał płacić alimenty. To Walker podarował sowietom tajemnicę KL-7.
+
+W 1967 Marian Rejewski, już będąc na emeryturze, ujawnił swoją rolę w złamaniu Enigmy. Ale jego głos był ledwo słyszalny w Polsce, w świecie w ogóle. Był nikomu nieznaną osobą. Rejewski nie przebił się przez tajemnicę.
+
+Tę kolejną, ostatnią już tajemnicę Enigmy udało się utrzymać aż do 1973. Wtedy generał Gustave Bertrand, niebywale zasłużony i znany weteran francuskiej kryptologii publikuje swoje wspomnienia "Enigma ou la plus grande énigme de la guerre 1939–1945". Po raz pierwszy świat dowiaduje się o roli polskiego Biura Szyfrów, ale o wiele ważniejsza jest inna informacja - że to ludzka inicjatywa i błyskotliwość pokonały maszynę. To musi spotkać się z odpowiedzią, zbyt wiele bowiem zależy od ufności sowietów w siłę Fiołka. Dowiadujemy się, że nie, Bertrand się myli, Polacy nie złamali Enigmy, a jeśli nawet to tylko dlatego, że jakoś ją ukradli, Brytyjczycy zresztą też, przecież zdobyli ją na okręcie podwodnym w kwietniu 1941.
+
+Rzeczywiście przechwycenie U-110 było krokiem milowym w wojnie z Enigmą i z całą pewnością dałoby to Brytyjczykom wgląd również w Enigmę I, choć z pewnym opóźnieniem. Ale pomijanie reszty jest fałszowaniem historii. Dezinformacja nie daje rady. Prawdę zna zbyt wielu ludzi. Coraz więcej pisze się o tym w Polsce, dużą rolę odgrywa tu sam Rejewski i historyk Wojskowego Instytutu Historycznego, pułkownik Władysław Kozaczuk. W 1976 umiera Bertrand, w 1980 Rejewski. Do tego czasu wszystko jest spisane, opublikowane, udokumentowane.
+
+#### Zachowane Enigmy w muzeach
+
+Później maszyny wyszły z użycia i wiele egzemplarzy trafiło do zbiorów muzealnych w Europie i Stanach Zjednoczonych.
+
+Polska:
+
+- Narodowe Muzeum Techniki w Warszawie, jedyny działający egzemplarz, uruchomiony w 2015, Enigma I Wehrmachtu z 1944. wirniki szyfrujące II, III, V i walec odwracający B
+- Muzeum Wojska Polskiego w Warszawie; wersja wojskowa i handlowa
+- Muzeum Wojska w Białymstoku
+- Muzeum Oręża Polskiego w Kołobrzegu
+- izba muzealna Centralnego Ośrodka Szkolenia ABW w Emowie.
+
+Niemcy:
+
+- Muzeum Poczty w Berlinie
+- Deutsches Museum w Monachium; dwie wojskowe (m.in. M4) i kilka cywilnych
+
+UK
+
+- Bletchley Park
+- Instytut Józefa Piłsudskiego w Londynie - zbudowany przez Polaków w 1940 i był na wyposażeniu ośrodka Cadix w Uzes. Podczas likwidacji ośrodka maszynę, sprzęt i rzeczy osobiste zamurowano w piwnicy. W maju 1945 Marian Rejewski i Henryk Zygalski udali się z Londynu na południe Francji, by odzyskać pozostawione tam przed ewakuacją rzeczy i dostarczyć je do Anglii
+
+USA
+
+- National Cryptologic Museum NSA w Fort Meade w stanie Maryland; działający egzemplarz udostępniony zwiedzającym, można jej używać
+- Computer History Museum
+
+Australia
+
+- Australian War Memorial, Canberra
+
+Na aukcjach Enigmy osiągają ceny rzędu 150-350 tysięcy dolarów,
+
+Repliki DIY:
+
+- [Make your own Enigma Replica](https://duino4projects.com/make-enigma-replica/) | [instructables: Make Your Own Enigma Replica](https://www.instructables.com/Make-your-own-Enigma-Replica/) Arduino
+- [meinEnigma – electronic enigma replica](https://meinenigma.com/meinenigma-electronic-enigma-replica/)
+- Crypto Museum [Enigma-E](https://www.cryptomuseum.com/kits/enigma/)
+- [Projekt Enigma – w hołdzie polskim matematykom](http://electronicenigma.pl/)
+
+### Podsumowanie
+
+Powstało około 100 tysięcy maszyn Enigma; większość tych, które ocalały, została sprzedana do państw rozwijających się jako urządzenia wciąż zapewniające wystarczający poziom bezpieczeństwa transmisji. Utrzymanie w tajemnicy faktu złamania Enigmy było kluczowe dla zachowania przewagi w wojnie wywiadów z państwami, które nadal używały tej maszyny, lub innej o podobnej konstrukcji.
+
+To dlatego tajemnica Enigmy trwała aż po lata 70.
+
+### Odnośniki
+
+- [Szymon Jakubowski "Franciszek Pokorny – człowiek, który miał udział w złamaniu "Enigmy""](https://dzieje.pl/historie/materialy/franciszek-pokorny-czlowiek-ktory-mial-udzial-w-zlamaniu-enigmy)
+- [Piotr Kołakowski "Z działalności polskiego radiowywiadu na kierunku niemieckim w latach trzydziestych XX w."](https://apcz.umk.pl/czasopisma/index.php/DN/article/view/DN.2021.1.04)
+- IPNtvPL ["Złamanie ENIGMY – cykl "Tajemnice wywiadu"" [YT 1:42:02]](https://www.youtube.com/watch?v=QVd7Q-MpA8I)
+- [Funkaufklärung der Alliierten im 2. Weltkrieg](https://www.wlb-stuttgart.de/seekrieg/ultra/ultra-frames.htm)
+- [https://pages.mini.pw.edu.pl/~domitrzw/ENIGMA.pdf](https://pages.mini.pw.edu.pl/~domitrzw/ENIGMA.pdf)
+- [Marian Rejewski "Jak matematycy polscy rozszyfrowali Enigmę" Roczniki Polskiego Towarzystwa Natematycznego Seria II Wiadomości matematyczne 23 (1980)](https://wydawnictwa.ptm.org.pl/index.php/wiadomosci-matematyczne/article/download/3766/3380)
+- [Władysław Kozaczuk](https://pl.wikipedia.org/wiki/W%C5%82adys%C5%82aw_Kozaczuk)
